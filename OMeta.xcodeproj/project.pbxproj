@@ -1,0 +1,468 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		83718AEA164A6AA900860D8A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83718AE9164A6AA900860D8A /* UIKit.framework */; };
+		83718AEC164A6AA900860D8A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83718AEB164A6AA900860D8A /* Foundation.framework */; };
+		83718AEE164A6AA900860D8A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83718AED164A6AA900860D8A /* CoreGraphics.framework */; };
+		83718AF0164A6AA900860D8A /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83718AEF164A6AA900860D8A /* CoreData.framework */; };
+		83718AF6164A6AA900860D8A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 83718AF4164A6AA900860D8A /* InfoPlist.strings */; };
+		83718AF8164A6AA900860D8A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 83718AF7164A6AA900860D8A /* main.m */; };
+		83718AFC164A6AA900860D8A /* CEAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 83718AFB164A6AA900860D8A /* CEAppDelegate.m */; };
+		83718AFE164A6AA900860D8A /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 83718AFD164A6AA900860D8A /* Default.png */; };
+		83718B00164A6AA900860D8A /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 83718AFF164A6AA900860D8A /* Default@2x.png */; };
+		83718B02164A6AA900860D8A /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 83718B01164A6AA900860D8A /* Default-568h@2x.png */; };
+		83718B05164A6AA900860D8A /* OMeta.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 83718B03164A6AA900860D8A /* OMeta.xcdatamodeld */; };
+		83718B0D164A6AA900860D8A /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83718B0C164A6AA900860D8A /* SenTestingKit.framework */; };
+		83718B0E164A6AA900860D8A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83718AE9164A6AA900860D8A /* UIKit.framework */; };
+		83718B0F164A6AA900860D8A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83718AEB164A6AA900860D8A /* Foundation.framework */; };
+		83718B10164A6AA900860D8A /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83718AEF164A6AA900860D8A /* CoreData.framework */; };
+		83718B18164A6AA900860D8A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 83718B16164A6AA900860D8A /* InfoPlist.strings */; };
+		83718B1B164A6AA900860D8A /* OMetaTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 83718B1A164A6AA900860D8A /* OMetaTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		83718B11164A6AA900860D8A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 83718ADC164A6AA900860D8A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 83718AE4164A6AA900860D8A;
+			remoteInfo = OMeta;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		83718AE5164A6AA900860D8A /* OMeta.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OMeta.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		83718AE9164A6AA900860D8A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		83718AEB164A6AA900860D8A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		83718AED164A6AA900860D8A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		83718AEF164A6AA900860D8A /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		83718AF3164A6AA900860D8A /* OMeta-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "OMeta-Info.plist"; sourceTree = "<group>"; };
+		83718AF5164A6AA900860D8A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		83718AF7164A6AA900860D8A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		83718AF9164A6AA900860D8A /* OMeta-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "OMeta-Prefix.pch"; sourceTree = "<group>"; };
+		83718AFA164A6AA900860D8A /* CEAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CEAppDelegate.h; sourceTree = "<group>"; };
+		83718AFB164A6AA900860D8A /* CEAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CEAppDelegate.m; sourceTree = "<group>"; };
+		83718AFD164A6AA900860D8A /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		83718AFF164A6AA900860D8A /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		83718B01164A6AA900860D8A /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		83718B04164A6AA900860D8A /* OMeta.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = OMeta.xcdatamodel; sourceTree = "<group>"; };
+		83718B0B164A6AA900860D8A /* OMetaTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OMetaTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		83718B0C164A6AA900860D8A /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		83718B15164A6AA900860D8A /* OMetaTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "OMetaTests-Info.plist"; sourceTree = "<group>"; };
+		83718B17164A6AA900860D8A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		83718B19164A6AA900860D8A /* OMetaTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OMetaTests.h; sourceTree = "<group>"; };
+		83718B1A164A6AA900860D8A /* OMetaTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OMetaTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		83718AE2164A6AA900860D8A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				83718AEA164A6AA900860D8A /* UIKit.framework in Frameworks */,
+				83718AEC164A6AA900860D8A /* Foundation.framework in Frameworks */,
+				83718AEE164A6AA900860D8A /* CoreGraphics.framework in Frameworks */,
+				83718AF0164A6AA900860D8A /* CoreData.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		83718B07164A6AA900860D8A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				83718B0D164A6AA900860D8A /* SenTestingKit.framework in Frameworks */,
+				83718B0E164A6AA900860D8A /* UIKit.framework in Frameworks */,
+				83718B0F164A6AA900860D8A /* Foundation.framework in Frameworks */,
+				83718B10164A6AA900860D8A /* CoreData.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		83718ADA164A6AA900860D8A = {
+			isa = PBXGroup;
+			children = (
+				83718AF1164A6AA900860D8A /* OMeta */,
+				83718B13164A6AA900860D8A /* OMetaTests */,
+				83718AE8164A6AA900860D8A /* Frameworks */,
+				83718AE6164A6AA900860D8A /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		83718AE6164A6AA900860D8A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				83718AE5164A6AA900860D8A /* OMeta.app */,
+				83718B0B164A6AA900860D8A /* OMetaTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		83718AE8164A6AA900860D8A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				83718AE9164A6AA900860D8A /* UIKit.framework */,
+				83718AEB164A6AA900860D8A /* Foundation.framework */,
+				83718AED164A6AA900860D8A /* CoreGraphics.framework */,
+				83718AEF164A6AA900860D8A /* CoreData.framework */,
+				83718B0C164A6AA900860D8A /* SenTestingKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		83718AF1164A6AA900860D8A /* OMeta */ = {
+			isa = PBXGroup;
+			children = (
+				83718AFA164A6AA900860D8A /* CEAppDelegate.h */,
+				83718AFB164A6AA900860D8A /* CEAppDelegate.m */,
+				83718B03164A6AA900860D8A /* OMeta.xcdatamodeld */,
+				83718AF2164A6AA900860D8A /* Supporting Files */,
+			);
+			path = OMeta;
+			sourceTree = "<group>";
+		};
+		83718AF2164A6AA900860D8A /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				83718AF3164A6AA900860D8A /* OMeta-Info.plist */,
+				83718AF4164A6AA900860D8A /* InfoPlist.strings */,
+				83718AF7164A6AA900860D8A /* main.m */,
+				83718AF9164A6AA900860D8A /* OMeta-Prefix.pch */,
+				83718AFD164A6AA900860D8A /* Default.png */,
+				83718AFF164A6AA900860D8A /* Default@2x.png */,
+				83718B01164A6AA900860D8A /* Default-568h@2x.png */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		83718B13164A6AA900860D8A /* OMetaTests */ = {
+			isa = PBXGroup;
+			children = (
+				83718B19164A6AA900860D8A /* OMetaTests.h */,
+				83718B1A164A6AA900860D8A /* OMetaTests.m */,
+				83718B14164A6AA900860D8A /* Supporting Files */,
+			);
+			path = OMetaTests;
+			sourceTree = "<group>";
+		};
+		83718B14164A6AA900860D8A /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				83718B15164A6AA900860D8A /* OMetaTests-Info.plist */,
+				83718B16164A6AA900860D8A /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		83718AE4164A6AA900860D8A /* OMeta */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 83718B1E164A6AA900860D8A /* Build configuration list for PBXNativeTarget "OMeta" */;
+			buildPhases = (
+				83718AE1164A6AA900860D8A /* Sources */,
+				83718AE2164A6AA900860D8A /* Frameworks */,
+				83718AE3164A6AA900860D8A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = OMeta;
+			productName = OMeta;
+			productReference = 83718AE5164A6AA900860D8A /* OMeta.app */;
+			productType = "com.apple.product-type.application";
+		};
+		83718B0A164A6AA900860D8A /* OMetaTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 83718B21164A6AA900860D8A /* Build configuration list for PBXNativeTarget "OMetaTests" */;
+			buildPhases = (
+				83718B06164A6AA900860D8A /* Sources */,
+				83718B07164A6AA900860D8A /* Frameworks */,
+				83718B08164A6AA900860D8A /* Resources */,
+				83718B09164A6AA900860D8A /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				83718B12164A6AA900860D8A /* PBXTargetDependency */,
+			);
+			name = OMetaTests;
+			productName = OMetaTests;
+			productReference = 83718B0B164A6AA900860D8A /* OMetaTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		83718ADC164A6AA900860D8A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = CE;
+				LastUpgradeCheck = 0450;
+				ORGANIZATIONNAME = "Chris Eidhof";
+			};
+			buildConfigurationList = 83718ADF164A6AA900860D8A /* Build configuration list for PBXProject "OMeta" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 83718ADA164A6AA900860D8A;
+			productRefGroup = 83718AE6164A6AA900860D8A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				83718AE4164A6AA900860D8A /* OMeta */,
+				83718B0A164A6AA900860D8A /* OMetaTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		83718AE3164A6AA900860D8A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				83718AF6164A6AA900860D8A /* InfoPlist.strings in Resources */,
+				83718AFE164A6AA900860D8A /* Default.png in Resources */,
+				83718B00164A6AA900860D8A /* Default@2x.png in Resources */,
+				83718B02164A6AA900860D8A /* Default-568h@2x.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		83718B08164A6AA900860D8A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				83718B18164A6AA900860D8A /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		83718B09164A6AA900860D8A /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		83718AE1164A6AA900860D8A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				83718AF8164A6AA900860D8A /* main.m in Sources */,
+				83718AFC164A6AA900860D8A /* CEAppDelegate.m in Sources */,
+				83718B05164A6AA900860D8A /* OMeta.xcdatamodeld in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		83718B06164A6AA900860D8A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				83718B1B164A6AA900860D8A /* OMetaTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		83718B12164A6AA900860D8A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 83718AE4164A6AA900860D8A /* OMeta */;
+			targetProxy = 83718B11164A6AA900860D8A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		83718AF4164A6AA900860D8A /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				83718AF5164A6AA900860D8A /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		83718B16164A6AA900860D8A /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				83718B17164A6AA900860D8A /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		83718B1C164A6AA900860D8A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		83718B1D164A6AA900860D8A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		83718B1F164A6AA900860D8A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "OMeta/OMeta-Prefix.pch";
+				INFOPLIST_FILE = "OMeta/OMeta-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		83718B20164A6AA900860D8A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "OMeta/OMeta-Prefix.pch";
+				INFOPLIST_FILE = "OMeta/OMeta-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		83718B22164A6AA900860D8A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/OMeta.app/OMeta";
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "OMeta/OMeta-Prefix.pch";
+				INFOPLIST_FILE = "OMetaTests/OMetaTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		83718B23164A6AA900860D8A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/OMeta.app/OMeta";
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "OMeta/OMeta-Prefix.pch";
+				INFOPLIST_FILE = "OMetaTests/OMetaTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		83718ADF164A6AA900860D8A /* Build configuration list for PBXProject "OMeta" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				83718B1C164A6AA900860D8A /* Debug */,
+				83718B1D164A6AA900860D8A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		83718B1E164A6AA900860D8A /* Build configuration list for PBXNativeTarget "OMeta" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				83718B1F164A6AA900860D8A /* Debug */,
+				83718B20164A6AA900860D8A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		83718B21164A6AA900860D8A /* Build configuration list for PBXNativeTarget "OMetaTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				83718B22164A6AA900860D8A /* Debug */,
+				83718B23164A6AA900860D8A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		83718B03164A6AA900860D8A /* OMeta.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				83718B04164A6AA900860D8A /* OMeta.xcdatamodel */,
+			);
+			currentVersion = 83718B04164A6AA900860D8A /* OMeta.xcdatamodel */;
+			path = OMeta.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 83718ADC164A6AA900860D8A /* Project object */;
+}
