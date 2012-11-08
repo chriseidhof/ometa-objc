@@ -24,6 +24,26 @@
 		83718B10164A6AA900860D8A /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83718AEF164A6AA900860D8A /* CoreData.framework */; };
 		83718B18164A6AA900860D8A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 83718B16164A6AA900860D8A /* InfoPlist.strings */; };
 		83718B1B164A6AA900860D8A /* OMetaTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 83718B1A164A6AA900860D8A /* OMetaTests.m */; };
+		83718B26164A6B0C00860D8A /* CEOMetaParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 83718B25164A6B0C00860D8A /* CEOMetaParser.m */; };
+		83718B29164A6B7E00860D8A /* CEOMetaTokenizerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 83718B28164A6B7E00860D8A /* CEOMetaTokenizerTests.m */; };
+		83718B2C164A6B9C00860D8A /* CEOMetaTokenizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 83718B2B164A6B9C00860D8A /* CEOMetaTokenizer.m */; };
+		83718B36164A6FB100860D8A /* NSArray+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 83718B35164A6FB100860D8A /* NSArray+Extensions.m */; };
+		83718B3A164A70C900860D8A /* CEOMetaProgram.m in Sources */ = {isa = PBXBuildFile; fileRef = 83718B39164A70C900860D8A /* CEOMetaProgram.m */; };
+		83718B3E164A70ED00860D8A /* CEOMetaParserTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 83718B3D164A70ED00860D8A /* CEOMetaParserTests.m */; };
+		83718B47164A78BE00860D8A /* CEOMetaRule.m in Sources */ = {isa = PBXBuildFile; fileRef = 83718B46164A78BE00860D8A /* CEOMetaRule.m */; };
+		83718B4A164A80E100860D8A /* CEOMetaApp.m in Sources */ = {isa = PBXBuildFile; fileRef = 83718B49164A80E100860D8A /* CEOMetaApp.m */; };
+		83718B4D164AA82D00860D8A /* CEOMetaChoice.m in Sources */ = {isa = PBXBuildFile; fileRef = 83718B4C164AA82D00860D8A /* CEOMetaChoice.m */; };
+		83718B51164AAB5B00860D8A /* CEOMetaSeq.m in Sources */ = {isa = PBXBuildFile; fileRef = 83718B50164AAB5B00860D8A /* CEOMetaSeq.m */; };
+		83718B54164AAD6400860D8A /* CEOMetaRepeatMany.m in Sources */ = {isa = PBXBuildFile; fileRef = 83718B53164AAD6400860D8A /* CEOMetaRepeatMany.m */; };
+		83718B57164AB14D00860D8A /* CEOMetaNot.m in Sources */ = {isa = PBXBuildFile; fileRef = 83718B56164AB14D00860D8A /* CEOMetaNot.m */; };
+		83718B5A164AB5B400860D8A /* CEOMetaChar.m in Sources */ = {isa = PBXBuildFile; fileRef = 83718B59164AB5B300860D8A /* CEOMetaChar.m */; };
+		83718B61164ABF7D00860D8A /* CEResultAndStream.m in Sources */ = {isa = PBXBuildFile; fileRef = 83718B60164ABF7D00860D8A /* CEResultAndStream.m */; };
+		83718B65164AC28300860D8A /* CEEvaluator.m in Sources */ = {isa = PBXBuildFile; fileRef = 83718B64164AC28300860D8A /* CEEvaluator.m */; };
+		83718B6D164AD12300860D8A /* NSString+Stream.m in Sources */ = {isa = PBXBuildFile; fileRef = 83718B6C164AD12300860D8A /* NSString+Stream.m */; };
+		83756C1E164BB2CA00360B28 /* CEOMetaRepeatOne.m in Sources */ = {isa = PBXBuildFile; fileRef = 83756C1D164BB2CA00360B28 /* CEOMetaRepeatOne.m */; };
+		83756C22164BB6DD00360B28 /* CEOMetaNamed.m in Sources */ = {isa = PBXBuildFile; fileRef = 83756C21164BB6DD00360B28 /* CEOMetaNamed.m */; };
+		83756C25164BBD3700360B28 /* CEOMetaAct.m in Sources */ = {isa = PBXBuildFile; fileRef = 83756C24164BBD3700360B28 /* CEOMetaAct.m */; };
+		83756C2C164BCE9100360B28 /* E.m in Sources */ = {isa = PBXBuildFile; fileRef = 83718B68164AC92900860D8A /* E.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +78,48 @@
 		83718B17164A6AA900860D8A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		83718B19164A6AA900860D8A /* OMetaTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OMetaTests.h; sourceTree = "<group>"; };
 		83718B1A164A6AA900860D8A /* OMetaTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OMetaTests.m; sourceTree = "<group>"; };
+		83718B24164A6B0C00860D8A /* CEOMetaParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEOMetaParser.h; sourceTree = "<group>"; };
+		83718B25164A6B0C00860D8A /* CEOMetaParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEOMetaParser.m; sourceTree = "<group>"; };
+		83718B27164A6B7E00860D8A /* CEOMetaTokenizerTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEOMetaTokenizerTests.h; sourceTree = "<group>"; };
+		83718B28164A6B7E00860D8A /* CEOMetaTokenizerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEOMetaTokenizerTests.m; sourceTree = "<group>"; };
+		83718B2A164A6B9C00860D8A /* CEOMetaTokenizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEOMetaTokenizer.h; sourceTree = "<group>"; };
+		83718B2B164A6B9C00860D8A /* CEOMetaTokenizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEOMetaTokenizer.m; sourceTree = "<group>"; };
+		83718B34164A6FB100860D8A /* NSArray+Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Extensions.h"; sourceTree = "<group>"; };
+		83718B35164A6FB100860D8A /* NSArray+Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Extensions.m"; sourceTree = "<group>"; };
+		83718B37164A6FCB00860D8A /* THBlocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = THBlocks.h; sourceTree = "<group>"; };
+		83718B38164A70C900860D8A /* CEOMetaProgram.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEOMetaProgram.h; sourceTree = "<group>"; };
+		83718B39164A70C900860D8A /* CEOMetaProgram.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEOMetaProgram.m; sourceTree = "<group>"; };
+		83718B3C164A70ED00860D8A /* CEOMetaParserTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEOMetaParserTests.h; sourceTree = "<group>"; };
+		83718B3D164A70ED00860D8A /* CEOMetaParserTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEOMetaParserTests.m; sourceTree = "<group>"; };
+		83718B45164A78BE00860D8A /* CEOMetaRule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEOMetaRule.h; sourceTree = "<group>"; };
+		83718B46164A78BE00860D8A /* CEOMetaRule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEOMetaRule.m; sourceTree = "<group>"; };
+		83718B48164A80E100860D8A /* CEOMetaApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEOMetaApp.h; sourceTree = "<group>"; };
+		83718B49164A80E100860D8A /* CEOMetaApp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEOMetaApp.m; sourceTree = "<group>"; };
+		83718B4B164AA82D00860D8A /* CEOMetaChoice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEOMetaChoice.h; sourceTree = "<group>"; };
+		83718B4C164AA82D00860D8A /* CEOMetaChoice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEOMetaChoice.m; sourceTree = "<group>"; };
+		83718B4E164AA83E00860D8A /* CEOMetaExp.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CEOMetaExp.h; sourceTree = "<group>"; };
+		83718B4F164AAB5B00860D8A /* CEOMetaSeq.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEOMetaSeq.h; sourceTree = "<group>"; };
+		83718B50164AAB5B00860D8A /* CEOMetaSeq.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEOMetaSeq.m; sourceTree = "<group>"; };
+		83718B52164AAD6400860D8A /* CEOMetaRepeatMany.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEOMetaRepeatMany.h; sourceTree = "<group>"; };
+		83718B53164AAD6400860D8A /* CEOMetaRepeatMany.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEOMetaRepeatMany.m; sourceTree = "<group>"; };
+		83718B55164AB14D00860D8A /* CEOMetaNot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEOMetaNot.h; sourceTree = "<group>"; };
+		83718B56164AB14D00860D8A /* CEOMetaNot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEOMetaNot.m; sourceTree = "<group>"; };
+		83718B58164AB5B300860D8A /* CEOMetaChar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEOMetaChar.h; sourceTree = "<group>"; };
+		83718B59164AB5B300860D8A /* CEOMetaChar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEOMetaChar.m; sourceTree = "<group>"; };
+		83718B5F164ABF7C00860D8A /* CEResultAndStream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEResultAndStream.h; sourceTree = "<group>"; };
+		83718B60164ABF7D00860D8A /* CEResultAndStream.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEResultAndStream.m; sourceTree = "<group>"; };
+		83718B63164AC28300860D8A /* CEEvaluator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEEvaluator.h; sourceTree = "<group>"; };
+		83718B64164AC28300860D8A /* CEEvaluator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEEvaluator.m; sourceTree = "<group>"; };
+		83718B67164AC92900860D8A /* E.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = E.h; sourceTree = "<group>"; };
+		83718B68164AC92900860D8A /* E.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = E.m; sourceTree = "<group>"; };
+		83718B6B164AD12300860D8A /* NSString+Stream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Stream.h"; sourceTree = "<group>"; };
+		83718B6C164AD12300860D8A /* NSString+Stream.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Stream.m"; sourceTree = "<group>"; };
+		83756C1C164BB2CA00360B28 /* CEOMetaRepeatOne.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEOMetaRepeatOne.h; sourceTree = "<group>"; };
+		83756C1D164BB2CA00360B28 /* CEOMetaRepeatOne.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEOMetaRepeatOne.m; sourceTree = "<group>"; };
+		83756C20164BB6DD00360B28 /* CEOMetaNamed.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEOMetaNamed.h; sourceTree = "<group>"; };
+		83756C21164BB6DD00360B28 /* CEOMetaNamed.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEOMetaNamed.m; sourceTree = "<group>"; };
+		83756C23164BBD3700360B28 /* CEOMetaAct.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEOMetaAct.h; sourceTree = "<group>"; };
+		83756C24164BBD3700360B28 /* CEOMetaAct.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEOMetaAct.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,10 +182,22 @@
 		83718AF1164A6AA900860D8A /* OMeta */ = {
 			isa = PBXGroup;
 			children = (
+				83718B37164A6FCB00860D8A /* THBlocks.h */,
+				83718B34164A6FB100860D8A /* NSArray+Extensions.h */,
+				83718B35164A6FB100860D8A /* NSArray+Extensions.m */,
 				83718AFA164A6AA900860D8A /* CEAppDelegate.h */,
 				83718AFB164A6AA900860D8A /* CEAppDelegate.m */,
 				83718B03164A6AA900860D8A /* OMeta.xcdatamodeld */,
 				83718AF2164A6AA900860D8A /* Supporting Files */,
+				83718B24164A6B0C00860D8A /* CEOMetaParser.h */,
+				83718B25164A6B0C00860D8A /* CEOMetaParser.m */,
+				83718B2A164A6B9C00860D8A /* CEOMetaTokenizer.h */,
+				83718B2B164A6B9C00860D8A /* CEOMetaTokenizer.m */,
+				83718B3B164A70CE00860D8A /* OMeta AST */,
+				83718B5F164ABF7C00860D8A /* CEResultAndStream.h */,
+				83718B60164ABF7D00860D8A /* CEResultAndStream.m */,
+				83718B67164AC92900860D8A /* E.h */,
+				83718B68164AC92900860D8A /* E.m */,
 			);
 			path = OMeta;
 			sourceTree = "<group>";
@@ -147,6 +221,10 @@
 			children = (
 				83718B19164A6AA900860D8A /* OMetaTests.h */,
 				83718B1A164A6AA900860D8A /* OMetaTests.m */,
+				83718B3C164A70ED00860D8A /* CEOMetaParserTests.h */,
+				83718B3D164A70ED00860D8A /* CEOMetaParserTests.m */,
+				83718B27164A6B7E00860D8A /* CEOMetaTokenizerTests.h */,
+				83718B28164A6B7E00860D8A /* CEOMetaTokenizerTests.m */,
 				83718B14164A6AA900860D8A /* Supporting Files */,
 			);
 			path = OMetaTests;
@@ -159,6 +237,56 @@
 				83718B16164A6AA900860D8A /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		83718B3B164A70CE00860D8A /* OMeta AST */ = {
+			isa = PBXGroup;
+			children = (
+				83718B62164AC26500860D8A /* BaseClasses */,
+				83718B5B164AB9DF00860D8A /* Values */,
+			);
+			name = "OMeta AST";
+			sourceTree = "<group>";
+		};
+		83718B5B164AB9DF00860D8A /* Values */ = {
+			isa = PBXGroup;
+			children = (
+				83718B38164A70C900860D8A /* CEOMetaProgram.h */,
+				83718B39164A70C900860D8A /* CEOMetaProgram.m */,
+				83718B45164A78BE00860D8A /* CEOMetaRule.h */,
+				83718B46164A78BE00860D8A /* CEOMetaRule.m */,
+				83718B4E164AA83E00860D8A /* CEOMetaExp.h */,
+				83718B48164A80E100860D8A /* CEOMetaApp.h */,
+				83718B49164A80E100860D8A /* CEOMetaApp.m */,
+				83718B4B164AA82D00860D8A /* CEOMetaChoice.h */,
+				83718B4C164AA82D00860D8A /* CEOMetaChoice.m */,
+				83718B4F164AAB5B00860D8A /* CEOMetaSeq.h */,
+				83718B50164AAB5B00860D8A /* CEOMetaSeq.m */,
+				83718B52164AAD6400860D8A /* CEOMetaRepeatMany.h */,
+				83718B53164AAD6400860D8A /* CEOMetaRepeatMany.m */,
+				83718B55164AB14D00860D8A /* CEOMetaNot.h */,
+				83718B56164AB14D00860D8A /* CEOMetaNot.m */,
+				83718B58164AB5B300860D8A /* CEOMetaChar.h */,
+				83718B59164AB5B300860D8A /* CEOMetaChar.m */,
+				83756C1C164BB2CA00360B28 /* CEOMetaRepeatOne.h */,
+				83756C1D164BB2CA00360B28 /* CEOMetaRepeatOne.m */,
+				83756C20164BB6DD00360B28 /* CEOMetaNamed.h */,
+				83756C21164BB6DD00360B28 /* CEOMetaNamed.m */,
+				83756C23164BBD3700360B28 /* CEOMetaAct.h */,
+				83756C24164BBD3700360B28 /* CEOMetaAct.m */,
+			);
+			name = Values;
+			sourceTree = "<group>";
+		};
+		83718B62164AC26500860D8A /* BaseClasses */ = {
+			isa = PBXGroup;
+			children = (
+				83718B63164AC28300860D8A /* CEEvaluator.h */,
+				83718B64164AC28300860D8A /* CEEvaluator.m */,
+				83718B6B164AD12300860D8A /* NSString+Stream.h */,
+				83718B6C164AD12300860D8A /* NSString+Stream.m */,
+			);
+			name = BaseClasses;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -274,6 +402,24 @@
 				83718AF8164A6AA900860D8A /* main.m in Sources */,
 				83718AFC164A6AA900860D8A /* CEAppDelegate.m in Sources */,
 				83718B05164A6AA900860D8A /* OMeta.xcdatamodeld in Sources */,
+				83718B26164A6B0C00860D8A /* CEOMetaParser.m in Sources */,
+				83718B2C164A6B9C00860D8A /* CEOMetaTokenizer.m in Sources */,
+				83718B36164A6FB100860D8A /* NSArray+Extensions.m in Sources */,
+				83718B3A164A70C900860D8A /* CEOMetaProgram.m in Sources */,
+				83718B47164A78BE00860D8A /* CEOMetaRule.m in Sources */,
+				83718B4A164A80E100860D8A /* CEOMetaApp.m in Sources */,
+				83718B4D164AA82D00860D8A /* CEOMetaChoice.m in Sources */,
+				83718B51164AAB5B00860D8A /* CEOMetaSeq.m in Sources */,
+				83718B54164AAD6400860D8A /* CEOMetaRepeatMany.m in Sources */,
+				83718B57164AB14D00860D8A /* CEOMetaNot.m in Sources */,
+				83718B5A164AB5B400860D8A /* CEOMetaChar.m in Sources */,
+				83718B61164ABF7D00860D8A /* CEResultAndStream.m in Sources */,
+				83718B65164AC28300860D8A /* CEEvaluator.m in Sources */,
+				83718B6D164AD12300860D8A /* NSString+Stream.m in Sources */,
+				83756C1E164BB2CA00360B28 /* CEOMetaRepeatOne.m in Sources */,
+				83756C22164BB6DD00360B28 /* CEOMetaNamed.m in Sources */,
+				83756C25164BBD3700360B28 /* CEOMetaAct.m in Sources */,
+				83756C2C164BCE9100360B28 /* E.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -282,6 +428,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				83718B1B164A6AA900860D8A /* OMetaTests.m in Sources */,
+				83718B29164A6B7E00860D8A /* CEOMetaTokenizerTests.m in Sources */,
+				83718B3E164A70ED00860D8A /* CEOMetaParserTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -440,6 +588,7 @@
 				83718B20164A6AA900860D8A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		83718B21164A6AA900860D8A /* Build configuration list for PBXNativeTarget "OMetaTests" */ = {
 			isa = XCConfigurationList;
@@ -448,6 +597,7 @@
 				83718B23164A6AA900860D8A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
