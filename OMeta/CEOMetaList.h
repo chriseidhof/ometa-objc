@@ -1,5 +1,5 @@
 //
-//  CEOMetaAct.h
+//  CEOMetaList.h
 //  OMeta
 //
 //  Created by Chris Eidhof on 11/8/12.
@@ -9,10 +9,8 @@
 #import <Foundation/Foundation.h>
 #import "CEOMetaExp.h"
 
-@interface CEOMetaAct : NSObject <CEOMetaExp>
+@interface CEOMetaList : NSObject <CEOMetaExp>
 
-- (id)initWithLeft:(id<CEOMetaExp>)left act:(NSString*)act;
-
-@property (nonatomic,strong) NSString* condition;
+- (id)initWithItems:(NSArray*)items;
 
 @end

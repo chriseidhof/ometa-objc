@@ -34,5 +34,9 @@
     return stream_;
 }
 
+- (NSString*)description {
+    return [NSString stringWithFormat:@"<result: %@, stream: %@>", result_, stream_];
+}
+
 
 @end

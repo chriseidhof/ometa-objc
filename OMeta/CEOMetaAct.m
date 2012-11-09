@@ -55,12 +55,15 @@
 - (NSString*)compile {
     NSString* body = [left_ compile];
     NSArray* vars = [left_ variables];
+    NSString* condition = self.condition ? [@" && " stringByAppendingString:self.condition] : @"";
     NSString* varDefinitions = [[vars map:^id(id var) {
         return [NSString stringWithFormat:@"__block id %@;", var];
     }] componentsJoinedByString:@"\n"];
     return [@[varDefinitions, @"\nCEResultAndStream* result = ^{\n",
             body,
-            @"}();\n if(result.result) { \n",
+            @"}();\n if(result.result",
+            condition,
+            @") { \n",
             @"id actResult = ",
             act_,
             @";\n",

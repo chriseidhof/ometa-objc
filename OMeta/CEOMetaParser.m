@@ -18,6 +18,7 @@
 #import "CEOMetaRepeatOne.h"
 #import "CEOMetaNamed.h"
 #import "CEOMetaAct.h"
+#import "CEOMetaList.h"
 
 @interface CEOMetaParser () {
     id<CEOMetaTokenizer> tokenizer;
@@ -100,9 +101,18 @@
     id<CEOMetaExp>left = [self parseSeq];
     NSArray* currentState = currentTokens;
     @try {
+        NSString* condition = nil;
+        @try {
+            [self keyword:@"?"];
+            condition = [self parseObjCExpr];
+            
+        } @catch (NSException* e) {
+        }
         [self keyword:@"->"];
         NSString* act = [self parseObjCExpr];
-        return [[CEOMetaAct alloc] initWithLeft:left act:act];
+        CEOMetaAct* result = [[CEOMetaAct alloc] initWithLeft:left act:act];
+        result.condition = condition;
+        return result;
     }
     @catch (NSException *exception) {
         currentTokens = currentState;
@@ -113,15 +123,33 @@
 - (id<CEOMetaExp>)parseSeq {
     NSArray* currentState = currentTokens;
     @try {
-        id<CEOMetaExp> lhs = [self parseMany];
+        id<CEOMetaExp> lhs = [self parseList];
         id<CEOMetaExp> rhs = [self parseSeq];
         return [[CEOMetaSeq alloc] initWithLeft:lhs right:rhs];
     }
     @catch (NSException *exception) {
         currentTokens = currentState;
+        return [self parseList];
+    }
+}
+
+- (id<CEOMetaExp>)parseList {
+    NSArray* currentState = currentTokens;
+    @try {
+        [self keyword:@"["];
+        NSMutableArray* items = [NSMutableArray array];
+        while(![[self peek] isEqual:@"]"]) {
+            [items addObject:[self parseMany]];
+        }
+        [self keyword:@"]"];
+        return [[CEOMetaList alloc] initWithItems:items];
+    }
+    @catch (NSException* e) {
+        currentTokens = currentState;
         return [self parseMany];
     }
 }
+
 
 - (id<CEOMetaExp>)parseMany {
     id<CEOMetaExp>left = [self parseManyOne];

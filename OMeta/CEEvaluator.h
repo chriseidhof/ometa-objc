@@ -32,5 +32,8 @@ typedef CEResultAndStream*(^evaluator)(id<Stream> stream);
 - (CEResultAndStream*)evaluateMany:(id<Stream>)stream body:(evaluator)body;
 - (CEResultAndStream*)evaluateChar:(id<Stream>)stream char:(char)char_;
 - (CEResultAndStream*)evaluateManyOne:(id<Stream>)stream body:(evaluator)body;
+- (CEResultAndStream*)char:(id<Stream>)stream;
+- (CEResultAndStream*)anything:(id<Stream>)stream;
+- (CEResultAndStream*)eof:(id<Stream>)stream;
 
 @end

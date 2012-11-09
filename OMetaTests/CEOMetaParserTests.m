@@ -18,6 +18,8 @@
 #import "CEOMetaNot.h"
 #import "CEOMetaChar.h"
 #import "E.h"
+#import "EAST.h"
+#import "EASTEval.h"
 
 @interface CEOMetaParserTests () {
     CEOMetaParser* parser;
@@ -87,9 +89,8 @@
 - (NSString*)exp {
     NSArray* lines = @[
       @"ometa E {",
-      @"dig = '0' | '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9' ,",
+      @"dig = char : d ? { [d characterAtIndex:0] >= '0' && [d characterAtIndex:0] <= '9' } -> { d } ,",
       @"num = ( dig + ) : ds -> { @([[ds componentsJoinedByString:@\"\"] integerValue]) } ,",
-    //@"num = dig + : ds -> { @[@\"num\", [ds componentsJoinedByString:@\"\"]] } ",
       @"fac = num : x '*' fac : y -> { @([x integerValue] * [y integerValue]) }",
       @"    | num : x '/' fac : y -> { @([x integerValue] / [y integerValue]) }",
       @"    | num ,",
@@ -101,19 +102,66 @@
     return [lines componentsJoinedByString:@"\n"];
 }
 
+- (NSString*)expAST {
+    NSArray* lines = @[
+    @"ometa EAST {",
+    @"dig = char : d ? { [d characterAtIndex:0] >= '0' && [d characterAtIndex:0] <= '9' } -> { d } ,",
+    @"num = ( dig + ) : ds -> { @[@\"n\", @([[ds componentsJoinedByString:@\"\"] integerValue])] } ,",
+    @"fac = num : x '*' fac : y -> { @[@\"m\",x,y] }",
+    @"    | num : x '/' fac : y -> { @[@\"d\",x,y] }",
+    @"    | num ,",
+    @"exp = fac : x '+' exp : y -> { @[@\"a\",x,y] }",
+    @"    | fac : x '-' exp : y -> { @[@\"r\",x,y] }",
+    @"    | fac",
+    @"}"
+    ];
+    return [lines componentsJoinedByString:@"\n"];
+}
+
+- (NSString*)expASTEval {
+    NSArray* lines = @[
+    @"ometa EASTEval {",
+    @"eval = [ 'n' anything : x ] -> { x } ",
+    @"     | [ 'a' eval : x  eval : y ] -> { @([x intValue] + [y intValue]) } ",
+    @"     | [ 'm' eval : x  eval : y ] -> { @([x intValue] * [y intValue]) } ",
+    @"     | [ 'r' eval : x  eval : y ] -> { @([x intValue] - [y intValue]) } ",
+    @"     | [ 'd' eval : x  eval : y ] -> { @([x intValue] / [y intValue]) } ",
+    @"}"
+    ];
+    return [lines componentsJoinedByString:@"\n"];
+  
+}
+
+- (void)compileAndWriteToFile:(CEOMetaProgram*)program {
+    NSString* compiled = [program compile];
+    NSString* name = program.name;
+    NSString* fileName = [[@"/Users/chris/Dropbox/Development/iPhone/testing/OMeta/OMeta/" stringByAppendingPathComponent:name] stringByAppendingPathExtension:@"m"];;
+    NSString* header = [@[@"#import \"", name, @".h\"\n\n"] componentsJoinedByString:@""];;
+    [[header stringByAppendingString:compiled] writeToFile:fileName atomically:YES encoding:NSUTF8StringEncoding error:nil];
+
+}
+
 - (void)testCompileExp {
     CEOMetaProgram* exp = [parser parse:[self exp]];
-    NSString* compiled = [exp compile];
-    NSString* fileName = @"/Users/chris/Dropbox/Development/iPhone/testing/OMeta/OMeta/E.m";
-    NSString* header = @"#import \"E.h\"\n\n";
-    [[header stringByAppendingString:compiled] writeToFile:fileName atomically:YES encoding:NSUTF8StringEncoding error:nil];
-    STAssertNotNil(compiled, @"Should parse exp grammar");
+    [self compileAndWriteToFile:exp];
+    STAssertNotNil(exp, @"Should parse exp grammar");
 }
 
 - (void)testE {
     E* e = [[E alloc] init];
     CEResultAndStream* result = [e exp:@"20-100*5+10/2"];
-    STAssertNotNil(result.result, @"Should have a parse tree");
+    STAssertEquals([result.result intValue], -485, @"Should calculate");
 }
+
+- (void)testArray {
+    [self compileAndWriteToFile:[parser parse:[self expAST]]];
+    [self compileAndWriteToFile:[parser parse:[self expASTEval]]];
+    EAST* e = [[EAST alloc] init];
+    EASTEval* eval = [[EASTEval alloc] init];
+    id ast = @[[e exp:@"20-100*5+10/2"].result];
+    CEResultAndStream* result = [eval eval:ast];
+    STAssertTrue([result.result isEqual:@(-485)], @"Should eval the AST");
+}
+
 
 @end

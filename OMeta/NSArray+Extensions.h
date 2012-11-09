@@ -13,6 +13,7 @@
 
 - (NSArray*)map:(mapBlock)selector;
 - (void)each:(eachBlock)selector;
+- (NSArray*)flatten;
 - (NSArray*)filter:(filterBlock)block;
 - (NSArray*)compact;
 - (NSArray*)sortByKeys:(NSArray*)keys;

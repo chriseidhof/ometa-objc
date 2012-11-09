@@ -18,9 +18,12 @@
 }
 
 - (CEResultAndStream*)token {
-    id token = [self substringToIndex:1];
-    id rest = [self substringFromIndex:1];
-    return [[CEResultAndStream alloc] initWithResult:token stream:rest];
+    if(self.length) {
+        id token = [self substringToIndex:1];
+        id rest = [self substringFromIndex:1];
+        return [[CEResultAndStream alloc] initWithResult:token stream:rest];
+    }
+    return nil;
 }
 
 @end

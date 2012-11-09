@@ -25,6 +25,18 @@
     }
 }
 
+- (NSArray*)flatten {
+    NSMutableArray* result = [NSMutableArray array];
+    for(id obj in self) {
+        if([obj isKindOfClass:[NSArray class]]) {
+            [result addObjectsFromArray:obj];
+        } else {
+            [result addObject:obj];
+        }
+    }
+    return result;
+}
+
 - (NSArray*)filter:(filterBlock)block {
     return [self filteredArrayUsingPredicate:[NSPredicate predicateWithBlock:^BOOL(id evaluatedObject, NSDictionary *bindings) {
         return block(evaluatedObject);

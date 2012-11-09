@@ -62,4 +62,25 @@
     return [[CEResultAndStream alloc] initWithResult:nil stream:stream];
 }
 
+- (CEResultAndStream*)char:(id<Stream>)stream {
+    return [stream token];
+}
+
+- (CEResultAndStream*)anything:(id<Stream>)stream {
+    return [stream token];
+}
+
+- (CEResultAndStream*)not:(id<Stream>)stream body:(evaluator)body {
+    CEResultAndStream* resultAndStream = body(stream);
+    if(resultAndStream.result) {
+        return [[CEResultAndStream alloc] initWithResult:nil stream:stream];
+    } else {
+        return [[CEResultAndStream alloc] initWithResult:@YES stream:resultAndStream.stream];
+    }
+}
+
+- (CEResultAndStream*)eof:(id<Stream>)stream {
+    return [[CEResultAndStream alloc] initWithResult:@([stream peek] == nil) stream:stream];
+}
+
 @end

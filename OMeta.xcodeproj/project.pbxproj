@@ -43,7 +43,11 @@
 		83756C1E164BB2CA00360B28 /* CEOMetaRepeatOne.m in Sources */ = {isa = PBXBuildFile; fileRef = 83756C1D164BB2CA00360B28 /* CEOMetaRepeatOne.m */; };
 		83756C22164BB6DD00360B28 /* CEOMetaNamed.m in Sources */ = {isa = PBXBuildFile; fileRef = 83756C21164BB6DD00360B28 /* CEOMetaNamed.m */; };
 		83756C25164BBD3700360B28 /* CEOMetaAct.m in Sources */ = {isa = PBXBuildFile; fileRef = 83756C24164BBD3700360B28 /* CEOMetaAct.m */; };
-		83756C2C164BCE9100360B28 /* E.m in Sources */ = {isa = PBXBuildFile; fileRef = 83718B68164AC92900860D8A /* E.m */; };
+		8397A1F8164BDB4100A0AB16 /* E.m in Sources */ = {isa = PBXBuildFile; fileRef = 83718B68164AC92900860D8A /* E.m */; };
+		83E2027A164BDE4600FED94D /* EAST.m in Sources */ = {isa = PBXBuildFile; fileRef = 83E20279164BDE4500FED94D /* EAST.m */; };
+		83E20282164BF6D200FED94D /* CEOMetaList.m in Sources */ = {isa = PBXBuildFile; fileRef = 83E20281164BF6D200FED94D /* CEOMetaList.m */; };
+		83E20289164C03C400FED94D /* NSArray+Stream.m in Sources */ = {isa = PBXBuildFile; fileRef = 83E20288164C03C400FED94D /* NSArray+Stream.m */; };
+		83E2028B164CF8D400FED94D /* EASTEval.m in Sources */ = {isa = PBXBuildFile; fileRef = 83E2027E164BECC900FED94D /* EASTEval.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -120,6 +124,14 @@
 		83756C21164BB6DD00360B28 /* CEOMetaNamed.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEOMetaNamed.m; sourceTree = "<group>"; };
 		83756C23164BBD3700360B28 /* CEOMetaAct.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEOMetaAct.h; sourceTree = "<group>"; };
 		83756C24164BBD3700360B28 /* CEOMetaAct.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEOMetaAct.m; sourceTree = "<group>"; };
+		83E20278164BDE4500FED94D /* EAST.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAST.h; sourceTree = "<group>"; };
+		83E20279164BDE4500FED94D /* EAST.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EAST.m; sourceTree = "<group>"; };
+		83E2027D164BECC900FED94D /* EASTEval.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EASTEval.h; sourceTree = "<group>"; };
+		83E2027E164BECC900FED94D /* EASTEval.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EASTEval.m; sourceTree = "<group>"; };
+		83E20280164BF6D200FED94D /* CEOMetaList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEOMetaList.h; sourceTree = "<group>"; };
+		83E20281164BF6D200FED94D /* CEOMetaList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEOMetaList.m; sourceTree = "<group>"; };
+		83E20287164C03C400FED94D /* NSArray+Stream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Stream.h"; sourceTree = "<group>"; };
+		83E20288164C03C400FED94D /* NSArray+Stream.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Stream.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -196,8 +208,7 @@
 				83718B3B164A70CE00860D8A /* OMeta AST */,
 				83718B5F164ABF7C00860D8A /* CEResultAndStream.h */,
 				83718B60164ABF7D00860D8A /* CEResultAndStream.m */,
-				83718B67164AC92900860D8A /* E.h */,
-				83718B68164AC92900860D8A /* E.m */,
+				83E2027C164BECB700FED94D /* Generated */,
 			);
 			path = OMeta;
 			sourceTree = "<group>";
@@ -274,6 +285,8 @@
 				83756C21164BB6DD00360B28 /* CEOMetaNamed.m */,
 				83756C23164BBD3700360B28 /* CEOMetaAct.h */,
 				83756C24164BBD3700360B28 /* CEOMetaAct.m */,
+				83E20280164BF6D200FED94D /* CEOMetaList.h */,
+				83E20281164BF6D200FED94D /* CEOMetaList.m */,
 			);
 			name = Values;
 			sourceTree = "<group>";
@@ -285,8 +298,23 @@
 				83718B64164AC28300860D8A /* CEEvaluator.m */,
 				83718B6B164AD12300860D8A /* NSString+Stream.h */,
 				83718B6C164AD12300860D8A /* NSString+Stream.m */,
+				83E20287164C03C400FED94D /* NSArray+Stream.h */,
+				83E20288164C03C400FED94D /* NSArray+Stream.m */,
 			);
 			name = BaseClasses;
+			sourceTree = "<group>";
+		};
+		83E2027C164BECB700FED94D /* Generated */ = {
+			isa = PBXGroup;
+			children = (
+				83718B67164AC92900860D8A /* E.h */,
+				83718B68164AC92900860D8A /* E.m */,
+				83E20278164BDE4500FED94D /* EAST.h */,
+				83E20279164BDE4500FED94D /* EAST.m */,
+				83E2027D164BECC900FED94D /* EASTEval.h */,
+				83E2027E164BECC900FED94D /* EASTEval.m */,
+			);
+			name = Generated;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -299,6 +327,7 @@
 				83718AE1164A6AA900860D8A /* Sources */,
 				83718AE2164A6AA900860D8A /* Frameworks */,
 				83718AE3164A6AA900860D8A /* Resources */,
+				83E2028C164CFECB00FED94D /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -392,6 +421,19 @@
 			shellPath = /bin/sh;
 			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
 		};
+		83E2028C164CFECB00FED94D /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -419,7 +461,11 @@
 				83756C1E164BB2CA00360B28 /* CEOMetaRepeatOne.m in Sources */,
 				83756C22164BB6DD00360B28 /* CEOMetaNamed.m in Sources */,
 				83756C25164BBD3700360B28 /* CEOMetaAct.m in Sources */,
-				83756C2C164BCE9100360B28 /* E.m in Sources */,
+				8397A1F8164BDB4100A0AB16 /* E.m in Sources */,
+				83E2027A164BDE4600FED94D /* EAST.m in Sources */,
+				83E20282164BF6D200FED94D /* CEOMetaList.m in Sources */,
+				83E20289164C03C400FED94D /* NSArray+Stream.m in Sources */,
+				83E2028B164CF8D400FED94D /* EASTEval.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

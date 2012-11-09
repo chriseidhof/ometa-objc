@@ -1,6 +1,6 @@
-#import "E.h"
+#import "EAST.h"
 
-@implementation E
+@implementation EAST
 - (CEResultAndStream*)dig:(id)stream {
 __block id d; 
 CEResultAndStream* result = ^{
@@ -28,7 +28,7 @@ return [self dig:stream];
 ds = dsResult.result;
 return dsResult; }();
  if(result.result  ) { 
- id actResult =  @([[ds componentsJoinedByString:@""] integerValue]) ;
+ id actResult =  @[@"n", @([[ds componentsJoinedByString:@""] integerValue])] ;
  return [[CEResultAndStream alloc] initWithResult:actResult stream:result.stream];
  } else {
  return [[CEResultAndStream alloc] initWithResult:nil stream:stream];
@@ -58,7 +58,7 @@ return yResult;
  }];
  }]; }();
  if(result.result  ) { 
- id actResult =  @([x integerValue] * [y integerValue]) ;
+ id actResult =  @[@"m",x,y] ;
  return [[CEResultAndStream alloc] initWithResult:actResult stream:result.stream];
  } else {
  return [[CEResultAndStream alloc] initWithResult:nil stream:stream];
@@ -86,7 +86,7 @@ return yResult;
  }];
  }]; }();
  if(result.result  ) { 
- id actResult =  @([x integerValue] / [y integerValue]) ;
+ id actResult =  @[@"d",x,y] ;
  return [[CEResultAndStream alloc] initWithResult:actResult stream:result.stream];
  } else {
  return [[CEResultAndStream alloc] initWithResult:nil stream:stream];
@@ -120,7 +120,7 @@ return yResult;
  }];
  }]; }();
  if(result.result  ) { 
- id actResult =  @([x integerValue] + [y integerValue]) ;
+ id actResult =  @[@"a",x,y] ;
  return [[CEResultAndStream alloc] initWithResult:actResult stream:result.stream];
  } else {
  return [[CEResultAndStream alloc] initWithResult:nil stream:stream];
@@ -148,7 +148,7 @@ return yResult;
  }];
  }]; }();
  if(result.result  ) { 
- id actResult =  @([x integerValue] - [y integerValue]) ;
+ id actResult =  @[@"r",x,y] ;
  return [[CEResultAndStream alloc] initWithResult:actResult stream:result.stream];
  } else {
  return [[CEResultAndStream alloc] initWithResult:nil stream:stream];
