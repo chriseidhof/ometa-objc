@@ -1,0 +1,29 @@
+ometa Calc {
+
+  {{{ - (void)setup { self.vars = [NSMutableDictionary dictionary]; }  }}}
+
+  dig = char : d ? { [d characterAtIndex:0] >= '0' && [d characterAtIndex:0] <= '9' } -> { d } ,
+ letter = char : d ? { [d characterAtIndex:0] >= 'a' && [d characterAtIndex:0] <= 'z' } -> { d } ,
+
+  num = ( dig + ) : ds -> { @([[ds componentsJoinedByString:@""] integerValue]) } ,
+
+  space = '_' ,
+
+  var = letter : x space * -> { x } ,
+
+  prim = var : x -> { self.vars[x] }
+       | num
+       | '(' exp : x ')' -> { x } ,
+
+  mulExp = prim : x '*' mulExp : y -> { @([x intValue] * [y intValue]) }
+         | prim : x '/' mulExp : y -> { @([x intValue] / [y intValue]) }
+         | prim ,
+
+  addExp = mulExp : x '+' exp : y -> { @([x intValue] + [y intValue]) }
+         | mulExp : x '-' exp : y -> { @([x intValue] - [y intValue]) }
+         | mulExp ,
+
+  exp = var : x '=' space * exp : r -> { self.vars[x] = r }
+      | addExp
+
+}

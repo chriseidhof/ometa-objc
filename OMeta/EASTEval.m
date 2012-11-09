@@ -1,6 +1,8 @@
 #import "EASTEval.h"
 
 @implementation EASTEval
+
+
 - (CEResultAndStream*)eval:(id)stream {
 return [self evaluateChoice:stream left:^(id stream) {
 __block id x; 

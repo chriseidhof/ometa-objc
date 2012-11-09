@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		833ECC27164D08E6003CF77D /* Calc.ometam in Resources */ = {isa = PBXBuildFile; fileRef = 833ECC26164D08E6003CF77D /* Calc.ometam */; };
+		833ECC34164D2997003CF77D /* Calc.m in Sources */ = {isa = PBXBuildFile; fileRef = 833ECC2A164D0D7C003CF77D /* Calc.m */; };
 		83718AEA164A6AA900860D8A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83718AE9164A6AA900860D8A /* UIKit.framework */; };
 		83718AEC164A6AA900860D8A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83718AEB164A6AA900860D8A /* Foundation.framework */; };
 		83718AEE164A6AA900860D8A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83718AED164A6AA900860D8A /* CoreGraphics.framework */; };
@@ -61,6 +63,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		833ECC26164D08E6003CF77D /* Calc.ometam */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Calc.ometam; sourceTree = "<group>"; };
+		833ECC29164D0D7C003CF77D /* Calc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Calc.h; sourceTree = "<group>"; };
+		833ECC2A164D0D7C003CF77D /* Calc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Calc.m; sourceTree = "<group>"; };
 		83718AE5164A6AA900860D8A /* OMeta.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OMeta.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		83718AE9164A6AA900860D8A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		83718AEB164A6AA900860D8A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -237,6 +242,7 @@
 				83718B27164A6B7E00860D8A /* CEOMetaTokenizerTests.h */,
 				83718B28164A6B7E00860D8A /* CEOMetaTokenizerTests.m */,
 				83718B14164A6AA900860D8A /* Supporting Files */,
+				833ECC26164D08E6003CF77D /* Calc.ometam */,
 			);
 			path = OMetaTests;
 			sourceTree = "<group>";
@@ -313,6 +319,8 @@
 				83E20279164BDE4500FED94D /* EAST.m */,
 				83E2027D164BECC900FED94D /* EASTEval.h */,
 				83E2027E164BECC900FED94D /* EASTEval.m */,
+				833ECC29164D0D7C003CF77D /* Calc.h */,
+				833ECC2A164D0D7C003CF77D /* Calc.m */,
 			);
 			name = Generated;
 			sourceTree = "<group>";
@@ -402,6 +410,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				83718B18164A6AA900860D8A /* InfoPlist.strings in Resources */,
+				833ECC27164D08E6003CF77D /* Calc.ometam in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -466,6 +475,7 @@
 				83E20282164BF6D200FED94D /* CEOMetaList.m in Sources */,
 				83E20289164C03C400FED94D /* NSArray+Stream.m in Sources */,
 				83E2028B164CF8D400FED94D /* EASTEval.m in Sources */,
+				833ECC34164D2997003CF77D /* Calc.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

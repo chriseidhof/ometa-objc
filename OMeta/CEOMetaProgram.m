@@ -38,27 +38,28 @@
 - (BOOL)isEqual:(id)object {
     if([object isKindOfClass:[CEOMetaProgram class]]) {
         CEOMetaProgram* other = (CEOMetaProgram*)object;
-        return [self.name isEqual:other.name] && [self.rules isEqual:other.rules];
+        return [self.name isEqual:other.name] && [self.rules isEqual:other.rules] && (([self.code isEqual:other.code]) || (self.code == nil && other.code == nil));
     }
     return NO;
 }
 
 - (NSUInteger)hash {
-    return [name_ hash] + [rules_ hash];
+    return [name_ hash] + [rules_ hash] + [_code hash];
 }
 
 - (NSString*)description {
     NSString* rulesDescription = [[rules_ map:^id(id obj) {
         return [obj description];
     }] componentsJoinedByString:@",\n"];
-    return [NSString stringWithFormat:@"ometa %@ { %@ }", name_, rulesDescription];
+    return [NSString stringWithFormat:@"ometa %@ { {{{ %@ }}} %@ }", name_, _code, rulesDescription];
 }
 
 - (NSString*)compile {
     NSString* methods = [[self.rules map:^id(id obj) {
         return [obj compile];
     }] componentsJoinedByString:@"\n\n"];
-    return [@[[NSString stringWithFormat:@"@implementation %@", self.name]
+    return [@[[NSString stringWithFormat:@"@implementation %@\n", self.name]
+            ,_code ? _code : @""
             ,methods
             ,@"@end"
     ] componentsJoinedByString:@"\n"];

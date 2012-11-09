@@ -15,5 +15,6 @@
 
 @property (nonatomic,readonly) NSString* name;
 @property (nonatomic,readonly) NSArray* rules;
+@property (nonatomic,strong) NSString* code;
 
 @end

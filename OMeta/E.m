@@ -1,6 +1,8 @@
 #import "E.h"
 
 @implementation E
+
+
 - (CEResultAndStream*)dig:(id)stream {
 __block id d; 
 CEResultAndStream* result = ^{

@@ -20,6 +20,7 @@
 #import "E.h"
 #import "EAST.h"
 #import "EASTEval.h"
+#import "Calc.h"
 
 @interface CEOMetaParserTests () {
     CEOMetaParser* parser;
@@ -163,5 +164,24 @@
     STAssertTrue([result.result isEqual:@(-485)], @"Should eval the AST");
 }
 
+- (void)testNameAndMany {
+    NSString* program = @"ometa Test {   var = letter : x space * -> { x } }";
+    CEOMetaProgram* p = [parser parse:program];
+    STAssertTrue(p != nil, @"Should parse named followed by many");
+}
+
+- (NSString*)calcProgram {
+    NSString* filename = @"/Users/chris/Dropbox/Development/iPhone/testing/OMeta/OMetaTests/Calc.ometam";
+    return [NSString stringWithContentsOfFile:filename encoding:NSUTF8StringEncoding error:NULL];
+}
+
+- (void)testCalc {
+    [self compileAndWriteToFile:[parser parse:[self calcProgram]]];
+    Calc* calc = [[Calc alloc] init];
+    [calc exp:@"x=10+10"];
+    [calc exp:@"x=x*x"];
+    CEResultAndStream* result = [calc exp:@"x"];
+    STAssertTrue([result.result isEqual:@400], @"Calculator should work");
+}
 
 @end

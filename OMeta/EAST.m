@@ -1,6 +1,8 @@
 #import "EAST.h"
 
 @implementation EAST
+
+
 - (CEResultAndStream*)dig:(id)stream {
 __block id d; 
 CEResultAndStream* result = ^{

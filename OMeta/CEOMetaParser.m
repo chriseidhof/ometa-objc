@@ -42,9 +42,20 @@
     [self keyword:@"ometa"];
     NSString* identifier = [self identifier];
     [self keyword:@"{"];
+    NSArray* currentState = currentTokens;
+    NSString* code = nil;
+    @try {
+        [self keyword:@"{{{"];
+        code = [[self tokensUntilEndToken:@"}}}"] componentsJoinedByString:@" "];
+    }
+    @catch (NSException *exception) {
+        currentTokens = currentState;
+    }
     NSArray* rules = [self parseRules];
     [self keyword:@"}"];
-    return [[CEOMetaProgram alloc] initWithName:identifier rules:rules];
+    CEOMetaProgram* p = [[CEOMetaProgram alloc] initWithName:identifier rules:rules];
+    p.code = code;
+    return p;
 }
 
 - (NSString*)identifier {
@@ -254,7 +265,7 @@
 
 - (NSArray*)tokensUntilEndToken:(NSString*)endToken {
     NSMutableArray* result = [NSMutableArray array];
-    while(![[self peek] isEqual:endToken]) {
+    while(![[self peek] isEqual:endToken] && !([self peek] == nil)) {
         [result addObject:[self processNextToken]];
     }
     [self keyword:endToken];
@@ -275,7 +286,7 @@
     @catch (NSException *exception) {
         return @[];
     }
-    return nil;
+    return @[];
 }
 
 - (NSString*)anything {

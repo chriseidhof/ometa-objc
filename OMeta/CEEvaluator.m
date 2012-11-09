@@ -11,6 +11,17 @@
 
 @implementation CEEvaluator
 
+- (id)init {
+    self = [super init];
+    if(self) {
+        [self setup];
+    }
+    return self;
+}
+
+- (void)setup {
+}
+
 - (CEResultAndStream*)evaluateChoice:(id<Stream>)stream left:(evaluator)left right:(evaluator)right {
     CEResultAndStream* x = left(stream);
     if(x.result != nil) {
