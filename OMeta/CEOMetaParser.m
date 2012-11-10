@@ -14,7 +14,7 @@
 #import "CEOMetaSeq.h"
 #import "CEOMetaRepeatMany.h"
 #import "CEOMetaNot.h"
-#import "CEOMetaChar.h"
+#import "CEOMetaString.h"
 #import "CEOMetaRepeatOne.h"
 #import "CEOMetaNamed.h"
 #import "CEOMetaAct.h"
@@ -246,7 +246,7 @@
     NSString* token = [self peek];
     if([token isKindOfClass:[CELiteralToken class]]) {
         CELiteralToken* token = [self processNextToken]; // pop the token
-        return [[CEOMetaChar alloc] initWithCharacter:[token.literal characterAtIndex:0]];
+        return [[CEOMetaString alloc] initWithString:token.literal];
     }
     [NSException raise:@"Expected literal" format:@"Expected literal, saw \"%@\", context: %@", token, currentTokens];
     return nil;

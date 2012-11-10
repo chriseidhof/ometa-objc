@@ -43,7 +43,7 @@
 		83718B51164AAB5B00860D8A /* CEOMetaSeq.m in Sources */ = {isa = PBXBuildFile; fileRef = 83718B50164AAB5B00860D8A /* CEOMetaSeq.m */; };
 		83718B54164AAD6400860D8A /* CEOMetaRepeatMany.m in Sources */ = {isa = PBXBuildFile; fileRef = 83718B53164AAD6400860D8A /* CEOMetaRepeatMany.m */; };
 		83718B57164AB14D00860D8A /* CEOMetaNot.m in Sources */ = {isa = PBXBuildFile; fileRef = 83718B56164AB14D00860D8A /* CEOMetaNot.m */; };
-		83718B5A164AB5B400860D8A /* CEOMetaChar.m in Sources */ = {isa = PBXBuildFile; fileRef = 83718B59164AB5B300860D8A /* CEOMetaChar.m */; };
+		83718B5A164AB5B400860D8A /* CEOMetaString.m in Sources */ = {isa = PBXBuildFile; fileRef = 83718B59164AB5B300860D8A /* CEOMetaString.m */; };
 		83718B61164ABF7D00860D8A /* CEResultAndStream.m in Sources */ = {isa = PBXBuildFile; fileRef = 83718B60164ABF7D00860D8A /* CEResultAndStream.m */; };
 		83718B65164AC28300860D8A /* CEEvaluator.m in Sources */ = {isa = PBXBuildFile; fileRef = 83718B64164AC28300860D8A /* CEEvaluator.m */; };
 		83718B6D164AD12300860D8A /* NSString+Stream.m in Sources */ = {isa = PBXBuildFile; fileRef = 83718B6C164AD12300860D8A /* NSString+Stream.m */; };
@@ -129,8 +129,8 @@
 		83718B53164AAD6400860D8A /* CEOMetaRepeatMany.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEOMetaRepeatMany.m; sourceTree = "<group>"; };
 		83718B55164AB14D00860D8A /* CEOMetaNot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEOMetaNot.h; sourceTree = "<group>"; };
 		83718B56164AB14D00860D8A /* CEOMetaNot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEOMetaNot.m; sourceTree = "<group>"; };
-		83718B58164AB5B300860D8A /* CEOMetaChar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEOMetaChar.h; sourceTree = "<group>"; };
-		83718B59164AB5B300860D8A /* CEOMetaChar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEOMetaChar.m; sourceTree = "<group>"; };
+		83718B58164AB5B300860D8A /* CEOMetaString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEOMetaString.h; sourceTree = "<group>"; };
+		83718B59164AB5B300860D8A /* CEOMetaString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEOMetaString.m; sourceTree = "<group>"; };
 		83718B5F164ABF7C00860D8A /* CEResultAndStream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEResultAndStream.h; sourceTree = "<group>"; };
 		83718B60164ABF7D00860D8A /* CEResultAndStream.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEResultAndStream.m; sourceTree = "<group>"; };
 		83718B63164AC28300860D8A /* CEEvaluator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEEvaluator.h; sourceTree = "<group>"; };
@@ -318,8 +318,8 @@
 				83718B53164AAD6400860D8A /* CEOMetaRepeatMany.m */,
 				83718B55164AB14D00860D8A /* CEOMetaNot.h */,
 				83718B56164AB14D00860D8A /* CEOMetaNot.m */,
-				83718B58164AB5B300860D8A /* CEOMetaChar.h */,
-				83718B59164AB5B300860D8A /* CEOMetaChar.m */,
+				83718B58164AB5B300860D8A /* CEOMetaString.h */,
+				83718B59164AB5B300860D8A /* CEOMetaString.m */,
 				83756C1C164BB2CA00360B28 /* CEOMetaRepeatOne.h */,
 				83756C1D164BB2CA00360B28 /* CEOMetaRepeatOne.m */,
 				83756C20164BB6DD00360B28 /* CEOMetaNamed.h */,
@@ -498,7 +498,7 @@
 				83718B51164AAB5B00860D8A /* CEOMetaSeq.m in Sources */,
 				83718B54164AAD6400860D8A /* CEOMetaRepeatMany.m in Sources */,
 				83718B57164AB14D00860D8A /* CEOMetaNot.m in Sources */,
-				83718B5A164AB5B400860D8A /* CEOMetaChar.m in Sources */,
+				83718B5A164AB5B400860D8A /* CEOMetaString.m in Sources */,
 				83718B61164ABF7D00860D8A /* CEResultAndStream.m in Sources */,
 				83718B65164AC28300860D8A /* CEEvaluator.m in Sources */,
 				83718B6D164AD12300860D8A /* NSString+Stream.m in Sources */,

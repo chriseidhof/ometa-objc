@@ -30,7 +30,7 @@ typedef CEResultAndStream*(^evaluator)(id<Stream> stream);
 - (CEResultAndStream*)evaluateChoice:(id<Stream>)stream left:(evaluator)left right:(evaluator)right;
 - (CEResultAndStream*)evaluateSeq:(id<Stream>)stream left:(evaluator)left right:(evaluator)right;
 - (CEResultAndStream*)evaluateMany:(id<Stream>)stream body:(evaluator)body;
-- (CEResultAndStream*)evaluateChar:(id<Stream>)stream char:(char)char_;
+- (CEResultAndStream*)evaluateString:(id<Stream>)stream string:(NSString*)string_;
 - (CEResultAndStream*)evaluateManyOne:(id<Stream>)stream body:(evaluator)body;
 - (CEResultAndStream*)char:(id<Stream>)stream;
 - (CEResultAndStream*)anything:(id<Stream>)stream;

@@ -16,7 +16,7 @@
 #import "CEOMetaSeq.h"
 #import "CEOMetaRepeatMany.h"
 #import "CEOMetaNot.h"
-#import "CEOMetaChar.h"
+#import "CEOMetaString.h"
 #import "E.h"
 #import "EAST.h"
 #import "EASTEval.h"

@@ -50,7 +50,7 @@ x = xResult.result;
 return xResult;
  } right:^(id stream) { 
 return [self evaluateSeq:stream left:^(id stream) {
-return [self evaluateChar:stream char:'*']; 
+return [self evaluateString:stream string:@"*"]; 
  } right:^(id stream) { 
 CEResultAndStream* yResult = ^{
 return [self fac:stream];
@@ -78,7 +78,7 @@ x = xResult.result;
 return xResult;
  } right:^(id stream) { 
 return [self evaluateSeq:stream left:^(id stream) {
-return [self evaluateChar:stream char:'/']; 
+return [self evaluateString:stream string:@"/"]; 
  } right:^(id stream) { 
 CEResultAndStream* yResult = ^{
 return [self fac:stream];
@@ -112,7 +112,7 @@ x = xResult.result;
 return xResult;
  } right:^(id stream) { 
 return [self evaluateSeq:stream left:^(id stream) {
-return [self evaluateChar:stream char:'+']; 
+return [self evaluateString:stream string:@"+"]; 
  } right:^(id stream) { 
 CEResultAndStream* yResult = ^{
 return [self exp:stream];
@@ -140,7 +140,7 @@ x = xResult.result;
 return xResult;
  } right:^(id stream) { 
 return [self evaluateSeq:stream left:^(id stream) {
-return [self evaluateChar:stream char:'-']; 
+return [self evaluateString:stream string:@"-"]; 
  } right:^(id stream) { 
 CEResultAndStream* yResult = ^{
 return [self exp:stream];

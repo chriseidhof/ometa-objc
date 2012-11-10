@@ -73,6 +73,17 @@
     return [[CEResultAndStream alloc] initWithResult:nil stream:stream];
 }
 
+- (CEResultAndStream*)evaluateString:(id<Stream>)stream string:(NSString*)string_ {
+    id<NSObject> head = [stream peek];
+    if([head isKindOfClass:[NSString class]]) {
+        if([head isEqual:string_]) {
+            return [stream token];
+        }
+    }
+    return [[CEResultAndStream alloc] initWithResult:nil stream:stream];
+}
+
+
 - (CEResultAndStream*)char:(id<Stream>)stream {
     return [stream token];
 }

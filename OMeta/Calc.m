@@ -54,7 +54,7 @@ return dsResult; }();
 }
 
 - (CEResultAndStream*)space:(id)stream {
-return [self evaluateChar:stream char:'_']; 
+return [self evaluateString:stream string:@"_"]; 
 }
 
 - (CEResultAndStream*)var:(id)stream {
@@ -101,7 +101,7 @@ return [self num:stream];
 __block id x; 
 CEResultAndStream* result = ^{
  return [self evaluateSeq:stream left:^(id stream) {
-return [self evaluateChar:stream char:'(']; 
+return [self evaluateString:stream string:@"("]; 
  } right:^(id stream) { 
 return [self evaluateSeq:stream left:^(id stream) {
 CEResultAndStream* xResult = ^{
@@ -110,7 +110,7 @@ return [self exp:stream];
 x = xResult.result;
 return xResult;
  } right:^(id stream) { 
-return [self evaluateChar:stream char:')']; 
+return [self evaluateString:stream string:@")"]; 
  }];
  }]; }();
  if(result.result  ) { 
@@ -136,7 +136,7 @@ x = xResult.result;
 return xResult;
  } right:^(id stream) { 
 return [self evaluateSeq:stream left:^(id stream) {
-return [self evaluateChar:stream char:'*']; 
+return [self evaluateString:stream string:@"*"]; 
  } right:^(id stream) { 
 CEResultAndStream* yResult = ^{
 return [self mulExp:stream];
@@ -164,7 +164,7 @@ x = xResult.result;
 return xResult;
  } right:^(id stream) { 
 return [self evaluateSeq:stream left:^(id stream) {
-return [self evaluateChar:stream char:'/']; 
+return [self evaluateString:stream string:@"/"]; 
  } right:^(id stream) { 
 CEResultAndStream* yResult = ^{
 return [self mulExp:stream];
@@ -198,7 +198,7 @@ x = xResult.result;
 return xResult;
  } right:^(id stream) { 
 return [self evaluateSeq:stream left:^(id stream) {
-return [self evaluateChar:stream char:'+']; 
+return [self evaluateString:stream string:@"+"]; 
  } right:^(id stream) { 
 CEResultAndStream* yResult = ^{
 return [self exp:stream];
@@ -226,7 +226,7 @@ x = xResult.result;
 return xResult;
  } right:^(id stream) { 
 return [self evaluateSeq:stream left:^(id stream) {
-return [self evaluateChar:stream char:'-']; 
+return [self evaluateString:stream string:@"-"]; 
  } right:^(id stream) { 
 CEResultAndStream* yResult = ^{
 return [self exp:stream];
@@ -260,7 +260,7 @@ x = xResult.result;
 return xResult;
  } right:^(id stream) { 
 return [self evaluateSeq:stream left:^(id stream) {
-return [self evaluateChar:stream char:'=']; 
+return [self evaluateString:stream string:@"="]; 
  } right:^(id stream) { 
 return [self evaluateSeq:stream left:^(id stream) {
 return [self evaluateMany:stream body:^(id stream) {

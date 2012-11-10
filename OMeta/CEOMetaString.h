@@ -9,9 +9,9 @@
 #import <Foundation/Foundation.h>
 #import "CEOMetaExp.h"
 
-@interface CEOMetaChar : NSObject <CEOMetaExp>
+@interface CEOMetaString : NSObject <CEOMetaExp>
 
-- (id)initWithCharacter:(char)char_;
+- (id)initWithString:(NSString*)string;
 
 
 @end

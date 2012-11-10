@@ -10,7 +10,7 @@ CEResultAndStream* result = ^{
  CEResultAndStream* listLike = [self anything:stream];
 CEResultAndStream* result_0 = ^(id stream){ 
  return [self evaluateSeq:stream left:^(id stream) {
-return [self evaluateChar:stream char:'n']; 
+return [self evaluateString:stream string:@"n"]; 
  } right:^(id stream) { 
 CEResultAndStream* xResult = ^{
 return [self anything:stream];
@@ -44,7 +44,7 @@ CEResultAndStream* result = ^{
  CEResultAndStream* listLike = [self anything:stream];
 CEResultAndStream* result_0 = ^(id stream){ 
  return [self evaluateSeq:stream left:^(id stream) {
-return [self evaluateChar:stream char:'a']; 
+return [self evaluateString:stream string:@"a"]; 
  } right:^(id stream) { 
 return [self evaluateSeq:stream left:^(id stream) {
 CEResultAndStream* xResult = ^{
@@ -86,7 +86,7 @@ CEResultAndStream* result = ^{
  CEResultAndStream* listLike = [self anything:stream];
 CEResultAndStream* result_0 = ^(id stream){ 
  return [self evaluateSeq:stream left:^(id stream) {
-return [self evaluateChar:stream char:'m']; 
+return [self evaluateString:stream string:@"m"]; 
  } right:^(id stream) { 
 return [self evaluateSeq:stream left:^(id stream) {
 CEResultAndStream* xResult = ^{
@@ -128,7 +128,7 @@ CEResultAndStream* result = ^{
  CEResultAndStream* listLike = [self anything:stream];
 CEResultAndStream* result_0 = ^(id stream){ 
  return [self evaluateSeq:stream left:^(id stream) {
-return [self evaluateChar:stream char:'r']; 
+return [self evaluateString:stream string:@"r"]; 
  } right:^(id stream) { 
 return [self evaluateSeq:stream left:^(id stream) {
 CEResultAndStream* xResult = ^{
@@ -169,7 +169,7 @@ CEResultAndStream* result = ^{
  CEResultAndStream* listLike = [self anything:stream];
 CEResultAndStream* result_0 = ^(id stream){ 
  return [self evaluateSeq:stream left:^(id stream) {
-return [self evaluateChar:stream char:'d']; 
+return [self evaluateString:stream string:@"d"]; 
  } right:^(id stream) { 
 return [self evaluateSeq:stream left:^(id stream) {
 CEResultAndStream* xResult = ^{
