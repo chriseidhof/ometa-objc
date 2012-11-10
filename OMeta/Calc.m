@@ -72,7 +72,7 @@ return [self space:stream];
 }];
  }]; }();
  if(result.result  ) { 
- id actResult =  x  ;
+ id actResult =  x ;
  return [[CEResultAndStream alloc] initWithResult:actResult stream:result.stream];
  } else {
  return [[CEResultAndStream alloc] initWithResult:nil stream:stream];

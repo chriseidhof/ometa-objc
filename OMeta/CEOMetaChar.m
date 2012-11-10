@@ -42,7 +42,7 @@
 }
 
 - (NSString*)description {
-    return [NSString stringWithFormat:@"'%c", char_];
+    return [NSString stringWithFormat:@"'%c'", char_];
 }
 
 - (NSString*)compile {

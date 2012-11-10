@@ -47,10 +47,10 @@
 - (NSString*)program {
     NSArray* lines = @[ @"ometa ExpRecognizer {"
 //    , @"  dig = '0' | '1' | '9' ,"
-    , @"  num = ( dig | alpha ) * | num"
-    , @", dig = num | fac"
-    , @", alpha = ~ dig"
-    , @", binaryDig = '0' | '1'"
+    , @"  num = dig*"
+    , @", fac = num '*' fac | num '/' fac | num"
+    , @", exp = fac '+' exp | fac '-' exp"
+    , @", dig = '0' | '1'"
     //                         , @"  fac = fac ’*’ num"
     //                         , @"    | fac ’/’ num"
     //                         , @"    | num ,"
@@ -64,27 +64,8 @@
 
 - (void)testSimpleProgram {
     id result = [parser parse:[self program]];
-    CEOMetaApp* dig = [[CEOMetaApp alloc] initWithName:@"dig"];
-    CEOMetaChoice* digOrAlpha = [[CEOMetaChoice alloc] initWithAlternative:dig right:[[CEOMetaApp alloc] initWithName:@"alpha"]];
-    CEOMetaRepeatMany*  manyDigAlpha = [[CEOMetaRepeatMany alloc] initWithBody:digOrAlpha];
-    CEOMetaChoice* numBody = [[CEOMetaChoice alloc] initWithAlternative:manyDigAlpha right:[[CEOMetaApp alloc] initWithName:@"num"]];
-    CEOMetaRule* rule1 = [[CEOMetaRule alloc] initWithName:@"num" body:numBody];
-    CEOMetaChoice* digBody = [[CEOMetaChoice alloc] initWithAlternative:[[CEOMetaApp alloc] initWithName:@"num"] right:[[CEOMetaApp alloc] initWithName:@"fac"]];
-    CEOMetaRule* rule2 = [[CEOMetaRule alloc] initWithName:@"dig" body:digBody];
-    
-    CEOMetaNot*  notDig = [[CEOMetaNot alloc] initWithBody:dig];
-    CEOMetaRule* rule3 = [[CEOMetaRule alloc] initWithName:@"alpha" body:notDig];
-    
-    CEOMetaChar* zero = [[CEOMetaChar alloc] initWithCharacter:'0'];
-    CEOMetaChar* one = [[CEOMetaChar alloc] initWithCharacter:'1'];
-    CEOMetaChoice* oneOrZero = [[CEOMetaChoice alloc] initWithAlternative:zero right:one];
 
-    CEOMetaRule* rule4 = [[CEOMetaRule alloc] initWithName:@"binaryDig" body:oneOrZero];
-
-
-    NSArray* rules = @[rule1,rule2,rule3,rule4];
-    CEOMetaProgram* expectedResult = [[CEOMetaProgram alloc] initWithName:@"ExpRecognizer" rules:rules];
-    STAssertEqualObjects(result, expectedResult, @"Tokenizer should parse simple program");
+    STAssertNotNil(result, @"Tokenizer should parse simple program");
 }
 
 - (NSString*)exp {
@@ -182,6 +163,20 @@
     [calc exp:@"x=x*x"];
     CEResultAndStream* result = [calc exp:@"x"];
     STAssertTrue([result.result isEqual:@400], @"Calculator should work");
+}
+
+- (void)testPriorities {
+    id ast = [parser parse:@"ometa X { x='0'+:zeroes }"];
+    STAssertNotNil(ast, @"Should parse + followed by name");
+}
+
+- (void)testParams {
+    id ast = [parser parse:@"ometa X { space = ' ' *, scan :t = space* t}"];
+    STAssertNotNil(ast, @"Should parse + followed by name");
+}
+
+- (void)testEscape {
+    id ast = [parser parse:@"ometa X { x='\n', y = '\''}"];
 }
 
 @end

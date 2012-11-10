@@ -133,33 +133,29 @@
 - (id<CEOMetaExp>)parseSeq {
     NSArray* currentState = currentTokens;
     @try {
-        id<CEOMetaExp> lhs = [self parseList];
+        id<CEOMetaExp> lhs = [self parseNamed];
         id<CEOMetaExp> rhs = [self parseSeq];
         return [[CEOMetaSeq alloc] initWithLeft:lhs right:rhs];
     }
     @catch (NSException *exception) {
         currentTokens = currentState;
-        return [self parseList];
+        return [self parseNamed];
     }
 }
 
-- (id<CEOMetaExp>)parseList {
+- (id<CEOMetaExp>)parseNamed {
+    id<CEOMetaExp>body = [self parseMany];
     NSArray* currentState = currentTokens;
     @try {
-        [self operator:@"["];
-        NSMutableArray* items = [NSMutableArray array];
-        while(![[self peek] isEqual:OP(@"]")]) {
-            [items addObject:[self parseMany]];
-        }
-        [self operator:@"]"];
-        return [[CEOMetaList alloc] initWithItems:items];
+        [self operator:@":"];
+        NSString* name = [self identifier];
+        return [[CEOMetaNamed alloc] initWithName:name body:body];
     }
-    @catch (NSException* e) {
+    @catch (NSException *exception) {
         currentTokens = currentState;
-        return [self parseMany];
     }
+    return body;
 }
-
 
 - (id<CEOMetaExp>)parseMany {
     id<CEOMetaExp>left = [self parseManyOne];
@@ -175,7 +171,7 @@
 }
 
 - (id<CEOMetaExp>)parseManyOne {
-    id<CEOMetaExp>left = [self parseNamed];
+    id<CEOMetaExp>left = [self parseNot];
     NSArray* currentState = currentTokens;
     @try {
         [self operator:@"+"];
@@ -185,20 +181,6 @@
         currentTokens = currentState;
     }
     return left;
-}
-
-- (id<CEOMetaExp>)parseNamed {
-    id<CEOMetaExp>body = [self parseNot];
-    NSArray* currentState = currentTokens;
-    @try {
-        [self operator:@":"];
-        NSString* name = [self identifier];
-        return [[CEOMetaNamed alloc] initWithName:name body:body];
-    }
-    @catch (NSException *exception) {
-        currentTokens = currentState;
-    }
-    return body;
 }
 
 - (id<CEOMetaExp>)parseNot {
@@ -235,7 +217,29 @@
     }
     @catch (NSException *exception) {
     }
-    return [self parseLiteral];
+    @try {
+        return [self parseLiteral];
+    }
+    @catch (NSException* exception) {
+    }
+    return [self parseList];
+}
+
+- (id<CEOMetaExp>)parseList {
+    NSArray* currentState = currentTokens;
+//    @try {
+        [self operator:@"["];
+        NSMutableArray* items = [NSMutableArray array];
+        while(![[self peek] isEqual:OP(@"]")]) {
+            [items addObject:[self parseExp]];
+        }
+        [self operator:@"]"];
+        return [[CEOMetaList alloc] initWithItems:items];
+//    }
+//    @catch (NSException* e) {
+//        currentTokens = currentState;
+//        return nil;
+//    }
 }
 
 - (id<CEOMetaExp>)parseLiteral {

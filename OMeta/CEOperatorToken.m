@@ -17,7 +17,7 @@
 }
 
 - (NSString*)description {
-    return [NSString stringWithFormat:@"<op %@>", self.operator];
+    return [NSString stringWithFormat:@"<op '%@'>", self.operator];
 }
 
 - (BOOL)isEqual:(id)object {
