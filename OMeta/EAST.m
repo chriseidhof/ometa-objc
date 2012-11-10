@@ -11,8 +11,8 @@ return [self char:stream];
 }();
 d = dResult.result;
 return dResult; }();
- if(result.result  && [d characterAtIndex:0] >= '0' && [d characterAtIndex:0] <= '9' ) { 
- id actResult =  d ;
+ if(result.result  && [d characterAtIndex:0] >= '0' && [d characterAtIndex:0] <= '9'  ) { 
+ id actResult =  d  ;
  return [[CEResultAndStream alloc] initWithResult:actResult stream:result.stream];
  } else {
  return [[CEResultAndStream alloc] initWithResult:nil stream:stream];
@@ -30,7 +30,7 @@ return [self dig:stream];
 ds = dsResult.result;
 return dsResult; }();
  if(result.result  ) { 
- id actResult =  @[@"n", @([[ds componentsJoinedByString:@""] integerValue])] ;
+ id actResult =  @[@"n", @([[ds componentsJoinedByString:@""] integerValue])]  ;
  return [[CEResultAndStream alloc] initWithResult:actResult stream:result.stream];
  } else {
  return [[CEResultAndStream alloc] initWithResult:nil stream:stream];
@@ -60,7 +60,7 @@ return yResult;
  }];
  }]; }();
  if(result.result  ) { 
- id actResult =  @[@"m",x,y] ;
+ id actResult =  @[@"m",x,y]  ;
  return [[CEResultAndStream alloc] initWithResult:actResult stream:result.stream];
  } else {
  return [[CEResultAndStream alloc] initWithResult:nil stream:stream];
@@ -88,7 +88,7 @@ return yResult;
  }];
  }]; }();
  if(result.result  ) { 
- id actResult =  @[@"d",x,y] ;
+ id actResult =  @[@"d",x,y]  ;
  return [[CEResultAndStream alloc] initWithResult:actResult stream:result.stream];
  } else {
  return [[CEResultAndStream alloc] initWithResult:nil stream:stream];
@@ -122,7 +122,7 @@ return yResult;
  }];
  }]; }();
  if(result.result  ) { 
- id actResult =  @[@"a",x,y] ;
+ id actResult =  @[@"a",x,y]  ;
  return [[CEResultAndStream alloc] initWithResult:actResult stream:result.stream];
  } else {
  return [[CEResultAndStream alloc] initWithResult:nil stream:stream];
@@ -150,7 +150,7 @@ return yResult;
  }];
  }]; }();
  if(result.result  ) { 
- id actResult =  @[@"r",x,y] ;
+ id actResult =  @[@"r",x,y]  ;
  return [[CEResultAndStream alloc] initWithResult:actResult stream:result.stream];
  } else {
  return [[CEResultAndStream alloc] initWithResult:nil stream:stream];

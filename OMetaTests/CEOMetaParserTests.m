@@ -90,13 +90,13 @@
 - (NSString*)exp {
     NSArray* lines = @[
       @"ometa E {",
-      @"dig = char : d ? { [d characterAtIndex:0] >= '0' && [d characterAtIndex:0] <= '9' } -> { d } ,",
-      @"num = ( dig + ) : ds -> { @([[ds componentsJoinedByString:@\"\"] integerValue]) } ,",
-      @"fac = num : x '*' fac : y -> { @([x integerValue] * [y integerValue]) }",
-      @"    | num : x '/' fac : y -> { @([x integerValue] / [y integerValue]) }",
+      @"dig = char : d ? {{{ [d characterAtIndex:0] >= '0' && [d characterAtIndex:0] <= '9' }}} -> {{{ d }}} ,",
+      @"num = ( dig + ) : ds -> {{{ @([[ds componentsJoinedByString:@\"\"] integerValue]) }}} ,",
+      @"fac = num : x '*' fac : y -> {{{ @([x integerValue] * [y integerValue]) }}}",
+      @"    | num : x '/' fac : y -> {{{ @([x integerValue] / [y integerValue]) }}}",
       @"    | num ,",
-      @"exp = fac : x '+' exp : y -> { @([x integerValue] + [y integerValue]) }",
-      @"    | fac : x '-' exp : y -> { @([x integerValue] - [y integerValue]) }",
+      @"exp = fac : x '+' exp : y -> {{{ @([x integerValue] + [y integerValue]) }}}",
+      @"    | fac : x '-' exp : y -> {{{ @([x integerValue] - [y integerValue]) }}}",
       @"    | fac",
       @"}"
     ];
@@ -106,13 +106,13 @@
 - (NSString*)expAST {
     NSArray* lines = @[
     @"ometa EAST {",
-    @"dig = char : d ? { [d characterAtIndex:0] >= '0' && [d characterAtIndex:0] <= '9' } -> { d } ,",
-    @"num = ( dig + ) : ds -> { @[@\"n\", @([[ds componentsJoinedByString:@\"\"] integerValue])] } ,",
-    @"fac = num : x '*' fac : y -> { @[@\"m\",x,y] }",
-    @"    | num : x '/' fac : y -> { @[@\"d\",x,y] }",
+    @"dig = char : d ?{{{ [d characterAtIndex:0] >= '0' && [d characterAtIndex:0] <= '9' }}} -> {{{ d }}} ,",
+    @"num = ( dig + ) : ds -> {{{ @[@\"n\", @([[ds componentsJoinedByString:@\"\"] integerValue])] }}} ,",
+    @"fac = num : x '*' fac : y -> {{{ @[@\"m\",x,y] }}}",
+    @"    | num : x '/' fac : y -> {{{ @[@\"d\",x,y] }}}",
     @"    | num ,",
-    @"exp = fac : x '+' exp : y -> { @[@\"a\",x,y] }",
-    @"    | fac : x '-' exp : y -> { @[@\"r\",x,y] }",
+    @"exp = fac : x '+' exp : y -> {{{ @[@\"a\",x,y] }}}",
+    @"    | fac : x '-' exp : y -> {{{ @[@\"r\",x,y] }}}",
     @"    | fac",
     @"}"
     ];
@@ -122,11 +122,11 @@
 - (NSString*)expASTEval {
     NSArray* lines = @[
     @"ometa EASTEval {",
-    @"eval = [ 'n' anything : x ] -> { x } ",
-    @"     | [ 'a' eval : x  eval : y ] -> { @([x intValue] + [y intValue]) } ",
-    @"     | [ 'm' eval : x  eval : y ] -> { @([x intValue] * [y intValue]) } ",
-    @"     | [ 'r' eval : x  eval : y ] -> { @([x intValue] - [y intValue]) } ",
-    @"     | [ 'd' eval : x  eval : y ] -> { @([x intValue] / [y intValue]) } ",
+    @"eval = ['n' anything:x] -> {{{ x }}} ",
+    @"     | ['a' eval:x  eval:y] -> {{{ @([x intValue] + [y intValue]) }}} ",
+    @"     | ['m' eval:x  eval:y] -> {{{ @([x intValue] * [y intValue]) }}} ",
+    @"     | ['r' eval:x  eval:y] -> {{{ @([x intValue] - [y intValue]) }}} ",
+    @"     | ['d' eval:x  eval:y] -> {{{ @([x intValue] / [y intValue]) }}} ",
     @"}"
     ];
     return [lines componentsJoinedByString:@"\n"];
@@ -165,7 +165,7 @@
 }
 
 - (void)testNameAndMany {
-    NSString* program = @"ometa Test {   var = letter : x space * -> { x } }";
+    NSString* program = @"ometa Test { var = letter:x space* -> {{{ x }}} }";
     CEOMetaProgram* p = [parser parse:program];
     STAssertTrue(p != nil, @"Should parse named followed by many");
 }

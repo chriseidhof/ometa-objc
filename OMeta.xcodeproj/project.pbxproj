@@ -9,6 +9,11 @@
 /* Begin PBXBuildFile section */
 		833ECC27164D08E6003CF77D /* Calc.ometam in Resources */ = {isa = PBXBuildFile; fileRef = 833ECC26164D08E6003CF77D /* Calc.ometam */; };
 		833ECC34164D2997003CF77D /* Calc.m in Sources */ = {isa = PBXBuildFile; fileRef = 833ECC2A164D0D7C003CF77D /* Calc.m */; };
+		833ECC38164E513C003CF77D /* CEKeywordToken.m in Sources */ = {isa = PBXBuildFile; fileRef = 833ECC37164E513C003CF77D /* CEKeywordToken.m */; };
+		833ECC3B164E519B003CF77D /* CECodeToken.m in Sources */ = {isa = PBXBuildFile; fileRef = 833ECC3A164E519B003CF77D /* CECodeToken.m */; };
+		833ECC3E164E51CE003CF77D /* CEOperatorToken.m in Sources */ = {isa = PBXBuildFile; fileRef = 833ECC3D164E51CE003CF77D /* CEOperatorToken.m */; };
+		833ECC41164E6A5C003CF77D /* NSString+Extras.m in Sources */ = {isa = PBXBuildFile; fileRef = 833ECC40164E6A5C003CF77D /* NSString+Extras.m */; };
+		833ECC44164E70D0003CF77D /* CELiteralToken.m in Sources */ = {isa = PBXBuildFile; fileRef = 833ECC43164E70D0003CF77D /* CELiteralToken.m */; };
 		83718AEA164A6AA900860D8A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83718AE9164A6AA900860D8A /* UIKit.framework */; };
 		83718AEC164A6AA900860D8A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83718AEB164A6AA900860D8A /* Foundation.framework */; };
 		83718AEE164A6AA900860D8A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83718AED164A6AA900860D8A /* CoreGraphics.framework */; };
@@ -66,6 +71,17 @@
 		833ECC26164D08E6003CF77D /* Calc.ometam */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Calc.ometam; sourceTree = "<group>"; };
 		833ECC29164D0D7C003CF77D /* Calc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Calc.h; sourceTree = "<group>"; };
 		833ECC2A164D0D7C003CF77D /* Calc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Calc.m; sourceTree = "<group>"; };
+		833ECC36164E513C003CF77D /* CEKeywordToken.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEKeywordToken.h; sourceTree = "<group>"; };
+		833ECC37164E513C003CF77D /* CEKeywordToken.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEKeywordToken.m; sourceTree = "<group>"; };
+		833ECC39164E519B003CF77D /* CECodeToken.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CECodeToken.h; sourceTree = "<group>"; };
+		833ECC3A164E519B003CF77D /* CECodeToken.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CECodeToken.m; sourceTree = "<group>"; };
+		833ECC3C164E51CE003CF77D /* CEOperatorToken.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEOperatorToken.h; sourceTree = "<group>"; };
+		833ECC3D164E51CE003CF77D /* CEOperatorToken.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEOperatorToken.m; sourceTree = "<group>"; };
+		833ECC3F164E6A5B003CF77D /* NSString+Extras.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Extras.h"; sourceTree = "<group>"; };
+		833ECC40164E6A5C003CF77D /* NSString+Extras.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Extras.m"; sourceTree = "<group>"; };
+		833ECC42164E70D0003CF77D /* CELiteralToken.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CELiteralToken.h; sourceTree = "<group>"; };
+		833ECC43164E70D0003CF77D /* CELiteralToken.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CELiteralToken.m; sourceTree = "<group>"; };
+		833ECC45164E7190003CF77D /* CETokens.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CETokens.h; sourceTree = "<group>"; };
 		83718AE5164A6AA900860D8A /* OMeta.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OMeta.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		83718AE9164A6AA900860D8A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		83718AEB164A6AA900860D8A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -165,6 +181,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		833ECC35164E512F003CF77D /* Tokens */ = {
+			isa = PBXGroup;
+			children = (
+				83718B2A164A6B9C00860D8A /* CEOMetaTokenizer.h */,
+				83718B2B164A6B9C00860D8A /* CEOMetaTokenizer.m */,
+				833ECC36164E513C003CF77D /* CEKeywordToken.h */,
+				833ECC37164E513C003CF77D /* CEKeywordToken.m */,
+				833ECC39164E519B003CF77D /* CECodeToken.h */,
+				833ECC3A164E519B003CF77D /* CECodeToken.m */,
+				833ECC3C164E51CE003CF77D /* CEOperatorToken.h */,
+				833ECC3D164E51CE003CF77D /* CEOperatorToken.m */,
+				833ECC42164E70D0003CF77D /* CELiteralToken.h */,
+				833ECC43164E70D0003CF77D /* CELiteralToken.m */,
+				833ECC45164E7190003CF77D /* CETokens.h */,
+			);
+			name = Tokens;
+			sourceTree = "<group>";
+		};
 		83718ADA164A6AA900860D8A = {
 			isa = PBXGroup;
 			children = (
@@ -208,12 +242,13 @@
 				83718AF2164A6AA900860D8A /* Supporting Files */,
 				83718B24164A6B0C00860D8A /* CEOMetaParser.h */,
 				83718B25164A6B0C00860D8A /* CEOMetaParser.m */,
-				83718B2A164A6B9C00860D8A /* CEOMetaTokenizer.h */,
-				83718B2B164A6B9C00860D8A /* CEOMetaTokenizer.m */,
+				833ECC35164E512F003CF77D /* Tokens */,
 				83718B3B164A70CE00860D8A /* OMeta AST */,
 				83718B5F164ABF7C00860D8A /* CEResultAndStream.h */,
 				83718B60164ABF7D00860D8A /* CEResultAndStream.m */,
 				83E2027C164BECB700FED94D /* Generated */,
+				833ECC3F164E6A5B003CF77D /* NSString+Extras.h */,
+				833ECC40164E6A5C003CF77D /* NSString+Extras.m */,
 			);
 			path = OMeta;
 			sourceTree = "<group>";
@@ -476,6 +511,11 @@
 				83E20289164C03C400FED94D /* NSArray+Stream.m in Sources */,
 				83E2028B164CF8D400FED94D /* EASTEval.m in Sources */,
 				833ECC34164D2997003CF77D /* Calc.m in Sources */,
+				833ECC38164E513C003CF77D /* CEKeywordToken.m in Sources */,
+				833ECC3B164E519B003CF77D /* CECodeToken.m in Sources */,
+				833ECC3E164E51CE003CF77D /* CEOperatorToken.m in Sources */,
+				833ECC41164E6A5C003CF77D /* NSString+Extras.m in Sources */,
+				833ECC44164E70D0003CF77D /* CELiteralToken.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

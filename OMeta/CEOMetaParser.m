@@ -19,6 +19,7 @@
 #import "CEOMetaNamed.h"
 #import "CEOMetaAct.h"
 #import "CEOMetaList.h"
+#import "CETokens.h"
 
 @interface CEOMetaParser () {
     id<CEOMetaTokenizer> tokenizer;
@@ -41,50 +42,48 @@
     currentTokens = [tokenizer tokenize:input];
     [self keyword:@"ometa"];
     NSString* identifier = [self identifier];
-    [self keyword:@"{"];
+    [self operator:@"{"];
     NSArray* currentState = currentTokens;
     NSString* code = nil;
     @try {
-        [self keyword:@"{{{"];
-        code = [[self tokensUntilEndToken:@"}}}"] componentsJoinedByString:@" "];
+        code = [self parseCode];
     }
     @catch (NSException *exception) {
         currentTokens = currentState;
     }
     NSArray* rules = [self parseRules];
-    [self keyword:@"}"];
+    [self operator:@"}"];
     CEOMetaProgram* p = [[CEOMetaProgram alloc] initWithName:identifier rules:rules];
     p.code = code;
     return p;
 }
 
 - (NSString*)identifier {
-    NSString* token = [self peek];
-    char start = [token characterAtIndex:0];
-    if((start >= 'a' && start <= 'z') || (start >= 'A' && start <= 'Z')) {
-        return [self processNextToken];
+    id token = [self peek];
+    if([token isKindOfClass:[CEKeywordToken class]]) {
+        return [[self processNextToken] keyword];
     }
     [NSException raise:@"Expected identifier" format:@"Expected identifier, saw %@", token];
     return nil;
 }
 
 - (NSArray*)parseRules {
-    return [self parseMany:@selector(parseRule) separatedBy:@","];
+    return [self parseMany:@selector(parseRule) separatedBy:OP(@",")];
 }
 
 - (CEOMetaRule*)parseRule {
     NSString* ruleName = [self identifier];
-    [self keyword:@"="];
+    [self operator:@"="];
     id<CEOMetaExp> exp = [self parseExp];
     return [[CEOMetaRule alloc] initWithName:ruleName body:exp];
 }
 
-- (NSString*)keyword:(NSString*)keyword {
-    NSString* token = [self peek];
-    if([token isEqual:keyword]) {
+- (CEKeywordToken*)keyword:(NSString*)keyword {
+    id token = [self peek];
+    if([token isEqual:KEYWORD(keyword)]) {
         return [self processNextToken];
     }
-    [NSException raise:@"Expected token" format:@"Expected \"%@\", saw \"%@\", context: %@", keyword, token, currentTokens];
+    [NSException raise:@"Expected token" format:@"Expected keyword \"%@\", saw \"%@\", context: %@", keyword, token, currentTokens];
     return nil;
 }
 
@@ -98,7 +97,7 @@
     
     @try {
         id<CEOMetaExp> lhs = [self parseAct];
-        [self keyword:@"|"];
+        [self operator:@"|"];
         id<CEOMetaExp> rhs = [self parseChoice];
         return [[CEOMetaChoice alloc] initWithAlternative:lhs right:rhs];
     }
@@ -114,13 +113,13 @@
     @try {
         NSString* condition = nil;
         @try {
-            [self keyword:@"?"];
-            condition = [self parseObjCExpr];
+            [self operator:@"?"];
+            condition = [self parseCode];
             
         } @catch (NSException* e) {
         }
-        [self keyword:@"->"];
-        NSString* act = [self parseObjCExpr];
+        [self operator:@"->"];
+        NSString* act = [self parseCode];
         CEOMetaAct* result = [[CEOMetaAct alloc] initWithLeft:left act:act];
         result.condition = condition;
         return result;
@@ -147,12 +146,12 @@
 - (id<CEOMetaExp>)parseList {
     NSArray* currentState = currentTokens;
     @try {
-        [self keyword:@"["];
+        [self operator:@"["];
         NSMutableArray* items = [NSMutableArray array];
-        while(![[self peek] isEqual:@"]"]) {
+        while(![[self peek] isEqual:OP(@"]")]) {
             [items addObject:[self parseMany]];
         }
-        [self keyword:@"]"];
+        [self operator:@"]"];
         return [[CEOMetaList alloc] initWithItems:items];
     }
     @catch (NSException* e) {
@@ -166,7 +165,7 @@
     id<CEOMetaExp>left = [self parseManyOne];
     NSArray* currentState = currentTokens;
     @try {
-        [self keyword:@"*"];
+        [self operator:@"*"];
         return [[CEOMetaRepeatMany alloc] initWithBody:left];
     }
     @catch (NSException *exception) {
@@ -179,7 +178,7 @@
     id<CEOMetaExp>left = [self parseNamed];
     NSArray* currentState = currentTokens;
     @try {
-        [self keyword:@"+"];
+        [self operator:@"+"];
         return [[CEOMetaRepeatOne alloc] initWithBody:left];
     }
     @catch (NSException *exception) {
@@ -192,7 +191,7 @@
     id<CEOMetaExp>body = [self parseNot];
     NSArray* currentState = currentTokens;
     @try {
-        [self keyword:@":"];
+        [self operator:@":"];
         NSString* name = [self identifier];
         return [[CEOMetaNamed alloc] initWithName:name body:body];
     }
@@ -205,7 +204,7 @@
 - (id<CEOMetaExp>)parseNot {
     NSArray* currentState = currentTokens;
     @try {
-        [self keyword:@"~"];
+        [self operator:@"~"];
         id<CEOMetaExp>body = [self parseParens];
 
         return [[CEOMetaNot alloc] initWithBody:body];
@@ -219,9 +218,9 @@
 - (id<CEOMetaExp>)parseParens {
     NSArray* currentState = currentTokens;
     @try {
-        [self keyword:@"("];
+        [self operator:@"("];
         id<CEOMetaExp> exp = [self parseExp];
-        [self keyword:@")"];
+        [self operator:@")"];
         return exp;
     }
     @catch (NSException *exception) {
@@ -241,10 +240,9 @@
 
 - (id<CEOMetaExp>)parseLiteral {
     NSString* token = [self peek];
-    char quote = '\'';
-    if(token.length == 3 && [token characterAtIndex:0] == quote && [token characterAtIndex:2] == quote) {
-        [self processNextToken]; // pop the token
-        return [[CEOMetaChar alloc] initWithCharacter:[token characterAtIndex:1]];
+    if([token isKindOfClass:[CELiteralToken class]]) {
+        CELiteralToken* token = [self processNextToken]; // pop the token
+        return [[CEOMetaChar alloc] initWithCharacter:[token.literal characterAtIndex:0]];
     }
     [NSException raise:@"Expected literal" format:@"Expected literal, saw \"%@\", context: %@", token, currentTokens];
     return nil;
@@ -255,24 +253,28 @@
     return [[CEOMetaApp alloc] initWithName:token];
 }
 
-- (NSString*)parseObjCExpr {
-    [self keyword:@"{"];
-    NSArray* tokens = [self tokensUntilEndToken:@"}"];
-    return [tokens componentsJoinedByString:@" "];
+- (NSString*)parseCode {
+    id token = [self peek];
+    if([token isKindOfClass:[CECodeToken class]]) {
+        CECodeToken* codeToken = [self processNextToken];
+        return codeToken.code;
+    }
+    [NSException raise:@"Expected code block" format:@"Expected code block, saw \"%@\"", token];
+    return nil;
+}
+
+- (NSString*)operator:(NSString*)operator {
+    id token = [self peek];
+    if([token isKindOfClass:[CEOperatorToken class]] && [[token operator] isEqualToString:operator]) {
+        return [[self processNextToken] operator];
+    }
+    [NSException raise:@"Expected operator" format:@"Expected operator %@, saw \"%@\", context : %@", operator, token, currentTokens];
+    return nil;
 }
 
 #pragma mark Parser Combinators
 
-- (NSArray*)tokensUntilEndToken:(NSString*)endToken {
-    NSMutableArray* result = [NSMutableArray array];
-    while(![[self peek] isEqual:endToken] && !([self peek] == nil)) {
-        [result addObject:[self processNextToken]];
-    }
-    [self keyword:endToken];
-    return result;
-}
-
-- (NSArray*)parseMany:(SEL)elementParser separatedBy:(NSString*)separator {
+- (NSArray*)parseMany:(SEL)elementParser separatedBy:(id)separator {
     @try {
         id result = [self performSelector:elementParser];
         if([[self peek] isEqual:separator]) {
@@ -299,7 +301,7 @@
     return token;
 }
 
-- (NSString*)processNextToken {
+- (id)processNextToken {
     if(currentTokens.count == 0) return nil;
     id token = currentTokens[0];
     currentTokens = [currentTokens subarrayWithRange:NSMakeRange(1, currentTokens.count-1)];

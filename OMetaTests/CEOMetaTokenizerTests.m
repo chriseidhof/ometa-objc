@@ -8,7 +8,7 @@
 
 #import "CEOMetaTokenizerTests.h"
 #import "CEOMetaTokenizer.h"
-
+#import "CETokens.h"
 
 
 @interface CEOMetaTokenizerTests () {
@@ -34,9 +34,9 @@
 }
 
 - (NSString*)program {
-    NSArray* lines = @[ @"ometa ExpRecognizer {"
-                         , @"  dig = '0' | '1' | '9' ,"
-                         , @"  num = dig + ,"
+    NSArray* lines = @[ @"ometa ExpRecognizer{ {{{x}}} "
+                         , @"  dig = '0' | '1' | '9',"
+                         , @"  num = dig+"
 //                         , @"  fac = fac ’*’ num"
 //                         , @"    | fac ’/’ num"
 //                         , @"    | num ,"
@@ -50,10 +50,10 @@
 
 - (void)testSimpleProgram {
     NSArray* tokenized = [tokenizer tokenize:[self program]];
-    NSArray* expectedOutput = @[@"ometa",@"ExpRecognizer", @"{",
-                                @"dig", @"=", @"'0'", @"|", @"'1'", @"|", @"'9'", @",",
-                                @"num",@"=",@"dig",@"+",@",",
-                                @"}"];
+    NSArray* expectedOutput = @[KEYWORD(@"ometa"),KEYWORD(@"ExpRecognizer"), OP(@"{"), CODE(@"x"), 
+                                KEYWORD(@"dig"), OP(@"="), LIT(@"0"), OP(@"|"), LIT(@"1"), OP(@"|"), LIT(@"9"), OP(@","),
+                                KEYWORD(@"num"),OP(@"="),KEYWORD(@"dig"),OP(@"+"),
+                                OP(@"}")];
     STAssertEqualObjects(tokenized, expectedOutput, @"Tokenizer should parse whitespace");
 }
 

@@ -33,7 +33,7 @@ return [[CEResultAndStream alloc] initWithResult:@[result_0.result , result_1.re
  return [[CEResultAndStream alloc] initWithResult:nil stream:stream]; }
  }();
  if(result.result  ) { 
- id actResult =  x ;
+ id actResult =  x  ;
  return [[CEResultAndStream alloc] initWithResult:actResult stream:result.stream];
  } else {
  return [[CEResultAndStream alloc] initWithResult:nil stream:stream];
@@ -79,7 +79,7 @@ return [[CEResultAndStream alloc] initWithResult:@[result_0.result , result_1.re
  return [[CEResultAndStream alloc] initWithResult:nil stream:stream]; }
  }();
  if(result.result  ) { 
- id actResult =  @([x intValue] + [y intValue]) ;
+ id actResult =  @([x intValue] + [y intValue])  ;
  return [[CEResultAndStream alloc] initWithResult:actResult stream:result.stream];
  } else {
  return [[CEResultAndStream alloc] initWithResult:nil stream:stream];
@@ -125,7 +125,7 @@ return [[CEResultAndStream alloc] initWithResult:@[result_0.result , result_1.re
  return [[CEResultAndStream alloc] initWithResult:nil stream:stream]; }
  }();
  if(result.result  ) { 
- id actResult =  @([x intValue] * [y intValue]) ;
+ id actResult =  @([x intValue] * [y intValue])  ;
  return [[CEResultAndStream alloc] initWithResult:actResult stream:result.stream];
  } else {
  return [[CEResultAndStream alloc] initWithResult:nil stream:stream];
@@ -171,7 +171,7 @@ return [[CEResultAndStream alloc] initWithResult:@[result_0.result , result_1.re
  return [[CEResultAndStream alloc] initWithResult:nil stream:stream]; }
  }();
  if(result.result  ) { 
- id actResult =  @([x intValue] - [y intValue]) ;
+ id actResult =  @([x intValue] - [y intValue])  ;
  return [[CEResultAndStream alloc] initWithResult:actResult stream:result.stream];
  } else {
  return [[CEResultAndStream alloc] initWithResult:nil stream:stream];
@@ -216,7 +216,7 @@ return [[CEResultAndStream alloc] initWithResult:@[result_0.result , result_1.re
  return [[CEResultAndStream alloc] initWithResult:nil stream:stream]; }
  }();
  if(result.result  ) { 
- id actResult =  @([x intValue] / [y intValue]) ;
+ id actResult =  @([x intValue] / [y intValue])  ;
  return [[CEResultAndStream alloc] initWithResult:actResult stream:result.stream];
  } else {
  return [[CEResultAndStream alloc] initWithResult:nil stream:stream];
