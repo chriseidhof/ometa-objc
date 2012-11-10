@@ -226,20 +226,13 @@
 }
 
 - (id<CEOMetaExp>)parseList {
-    NSArray* currentState = currentTokens;
-//    @try {
-        [self operator:@"["];
-        NSMutableArray* items = [NSMutableArray array];
-        while(![[self peek] isEqual:OP(@"]")]) {
-            [items addObject:[self parseExp]];
-        }
-        [self operator:@"]"];
-        return [[CEOMetaList alloc] initWithItems:items];
-//    }
-//    @catch (NSException* e) {
-//        currentTokens = currentState;
-//        return nil;
-//    }
+    [self operator:@"["];
+    NSMutableArray* items = [NSMutableArray array];
+    while(![[self peek] isEqual:OP(@"]")]) {
+        [items addObject:[self parseExp]];
+    }
+    [self operator:@"]"];
+    return [[CEOMetaList alloc] initWithItems:items];
 }
 
 - (id<CEOMetaExp>)parseLiteral {

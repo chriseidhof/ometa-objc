@@ -177,6 +177,7 @@
 
 - (void)testEscape {
     id ast = [parser parse:@"ometa X { x='\n', y = '\''}"];
+    STAssertNotNil(ast, @"Should parse an escaped quote");
 }
 
 @end
