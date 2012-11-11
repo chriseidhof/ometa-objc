@@ -46,7 +46,7 @@
 
 - (void)testWhere {
     NSString* name = @"foo";
-    NSString* q = [NSString stringWithFormat:@"select * from User where name='%@'", name];
+    NSString* q = [NSString stringWithFormat:@"select * from User where name='%@' order by birthDate DESC", name];
     NSArray* result = [query query:q].result;
     STAssertTrue([[result[0] valueForKey:@"name"] isEqual:name], @"Should build where clause");
 }

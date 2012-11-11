@@ -21,6 +21,166 @@ return [self spaces:stream];
  }];
 }
 
+- (CEResultAndStream*)kSelect:(id)stream {
+return [self evaluateSeq:stream left:^(id stream) {
+return [self evaluateString:stream string:@"s"]; 
+ } right:^(id stream) { 
+return [self evaluateSeq:stream left:^(id stream) {
+return [self evaluateString:stream string:@"e"]; 
+ } right:^(id stream) { 
+return [self evaluateSeq:stream left:^(id stream) {
+return [self evaluateString:stream string:@"l"]; 
+ } right:^(id stream) { 
+return [self evaluateSeq:stream left:^(id stream) {
+return [self evaluateString:stream string:@"e"]; 
+ } right:^(id stream) { 
+return [self evaluateSeq:stream left:^(id stream) {
+return [self evaluateString:stream string:@"c"]; 
+ } right:^(id stream) { 
+return [self evaluateSeq:stream left:^(id stream) {
+return [self evaluateString:stream string:@"t"]; 
+ } right:^(id stream) { 
+return [self evaluateSeq:stream left:^(id stream) {
+return [self evaluateString:stream string:@" "]; 
+ } right:^(id stream) { 
+return [self spaces:stream];
+ }];
+ }];
+ }];
+ }];
+ }];
+ }];
+ }];
+}
+
+- (CEResultAndStream*)kFrom:(id)stream {
+return [self evaluateSeq:stream left:^(id stream) {
+return [self evaluateString:stream string:@"f"]; 
+ } right:^(id stream) { 
+return [self evaluateSeq:stream left:^(id stream) {
+return [self evaluateString:stream string:@"r"]; 
+ } right:^(id stream) { 
+return [self evaluateSeq:stream left:^(id stream) {
+return [self evaluateString:stream string:@"o"]; 
+ } right:^(id stream) { 
+return [self evaluateSeq:stream left:^(id stream) {
+return [self evaluateString:stream string:@"m"]; 
+ } right:^(id stream) { 
+return [self evaluateSeq:stream left:^(id stream) {
+return [self evaluateString:stream string:@" "]; 
+ } right:^(id stream) { 
+return [self spaces:stream];
+ }];
+ }];
+ }];
+ }];
+ }];
+}
+
+- (CEResultAndStream*)kOrder:(id)stream {
+return [self evaluateSeq:stream left:^(id stream) {
+return [self evaluateString:stream string:@"o"]; 
+ } right:^(id stream) { 
+return [self evaluateSeq:stream left:^(id stream) {
+return [self evaluateString:stream string:@"r"]; 
+ } right:^(id stream) { 
+return [self evaluateSeq:stream left:^(id stream) {
+return [self evaluateString:stream string:@"d"]; 
+ } right:^(id stream) { 
+return [self evaluateSeq:stream left:^(id stream) {
+return [self evaluateString:stream string:@"e"]; 
+ } right:^(id stream) { 
+return [self evaluateSeq:stream left:^(id stream) {
+return [self evaluateString:stream string:@"r"]; 
+ } right:^(id stream) { 
+return [self evaluateString:stream string:@" "]; 
+ }];
+ }];
+ }];
+ }];
+ }];
+}
+
+- (CEResultAndStream*)kBy:(id)stream {
+return [self evaluateSeq:stream left:^(id stream) {
+return [self evaluateString:stream string:@"b"]; 
+ } right:^(id stream) { 
+return [self evaluateSeq:stream left:^(id stream) {
+return [self evaluateString:stream string:@"y"]; 
+ } right:^(id stream) { 
+return [self evaluateSeq:stream left:^(id stream) {
+return [self evaluateString:stream string:@" "]; 
+ } right:^(id stream) { 
+return [self spaces:stream];
+ }];
+ }];
+ }];
+}
+
+- (CEResultAndStream*)kWhere:(id)stream {
+return [self evaluateSeq:stream left:^(id stream) {
+return [self evaluateString:stream string:@"w"]; 
+ } right:^(id stream) { 
+return [self evaluateSeq:stream left:^(id stream) {
+return [self evaluateString:stream string:@"h"]; 
+ } right:^(id stream) { 
+return [self evaluateSeq:stream left:^(id stream) {
+return [self evaluateString:stream string:@"e"]; 
+ } right:^(id stream) { 
+return [self evaluateSeq:stream left:^(id stream) {
+return [self evaluateString:stream string:@"r"]; 
+ } right:^(id stream) { 
+return [self evaluateSeq:stream left:^(id stream) {
+return [self evaluateString:stream string:@"e"]; 
+ } right:^(id stream) { 
+return [self evaluateSeq:stream left:^(id stream) {
+return [self evaluateString:stream string:@" "]; 
+ } right:^(id stream) { 
+return [self spaces:stream];
+ }];
+ }];
+ }];
+ }];
+ }];
+ }];
+}
+
+- (CEResultAndStream*)kASC:(id)stream {
+return [self evaluateSeq:stream left:^(id stream) {
+return [self evaluateString:stream string:@"A"]; 
+ } right:^(id stream) { 
+return [self evaluateSeq:stream left:^(id stream) {
+return [self evaluateString:stream string:@"S"]; 
+ } right:^(id stream) { 
+return [self evaluateSeq:stream left:^(id stream) {
+return [self evaluateString:stream string:@"C"]; 
+ } right:^(id stream) { 
+return [self spaces:stream];
+ }];
+ }];
+ }];
+}
+
+- (CEResultAndStream*)kDESC:(id)stream {
+return [self evaluateSeq:stream left:^(id stream) {
+return [self evaluateString:stream string:@"D"]; 
+ } right:^(id stream) { 
+return [self evaluateSeq:stream left:^(id stream) {
+return [self evaluateString:stream string:@"E"]; 
+ } right:^(id stream) { 
+return [self evaluateSeq:stream left:^(id stream) {
+return [self evaluateString:stream string:@"S"]; 
+ } right:^(id stream) { 
+return [self evaluateSeq:stream left:^(id stream) {
+return [self evaluateString:stream string:@"C"]; 
+ } right:^(id stream) { 
+return [self spaces:stream];
+ }];
+ }];
+ }];
+ }];
+}
+
 - (CEResultAndStream*)lower:(id)stream {
 __block id d; 
 CEResultAndStream* result = ^{
@@ -90,25 +250,7 @@ __block id where;
 __block id order; 
 CEResultAndStream* result = ^{
  return [self evaluateSeq:stream left:^(id stream) {
-return [self evaluateString:stream string:@"s"]; 
- } right:^(id stream) { 
-return [self evaluateSeq:stream left:^(id stream) {
-return [self evaluateString:stream string:@"e"]; 
- } right:^(id stream) { 
-return [self evaluateSeq:stream left:^(id stream) {
-return [self evaluateString:stream string:@"l"]; 
- } right:^(id stream) { 
-return [self evaluateSeq:stream left:^(id stream) {
-return [self evaluateString:stream string:@"e"]; 
- } right:^(id stream) { 
-return [self evaluateSeq:stream left:^(id stream) {
-return [self evaluateString:stream string:@"c"]; 
- } right:^(id stream) { 
-return [self evaluateSeq:stream left:^(id stream) {
-return [self evaluateString:stream string:@"t"]; 
- } right:^(id stream) { 
-return [self evaluateSeq:stream left:^(id stream) {
-return [self spaces:stream];
+return [self kSelect:stream];
  } right:^(id stream) { 
 return [self evaluateSeq:stream left:^(id stream) {
 CEResultAndStream* fieldsResult = ^{
@@ -118,19 +260,7 @@ fields = fieldsResult.result;
 return fieldsResult;
  } right:^(id stream) { 
 return [self evaluateSeq:stream left:^(id stream) {
-return [self evaluateString:stream string:@"f"]; 
- } right:^(id stream) { 
-return [self evaluateSeq:stream left:^(id stream) {
-return [self evaluateString:stream string:@"r"]; 
- } right:^(id stream) { 
-return [self evaluateSeq:stream left:^(id stream) {
-return [self evaluateString:stream string:@"o"]; 
- } right:^(id stream) { 
-return [self evaluateSeq:stream left:^(id stream) {
-return [self evaluateString:stream string:@"m"]; 
- } right:^(id stream) { 
-return [self evaluateSeq:stream left:^(id stream) {
-return [self spaces:stream];
+return [self kFrom:stream];
  } right:^(id stream) { 
 return [self evaluateSeq:stream left:^(id stream) {
 CEResultAndStream* entityNameResult = ^{
@@ -151,16 +281,6 @@ return [self orderClause:stream];
 }();
 order = orderResult.result;
 return orderResult;
- }];
- }];
- }];
- }];
- }];
- }];
- }];
- }];
- }];
- }];
  }];
  }];
  }];
@@ -186,33 +306,13 @@ return [self evaluateChoice:stream left:^(id stream) {
 __block id e; 
 CEResultAndStream* result = ^{
  return [self evaluateSeq:stream left:^(id stream) {
-return [self evaluateString:stream string:@"w"]; 
- } right:^(id stream) { 
-return [self evaluateSeq:stream left:^(id stream) {
-return [self evaluateString:stream string:@"h"]; 
- } right:^(id stream) { 
-return [self evaluateSeq:stream left:^(id stream) {
-return [self evaluateString:stream string:@"e"]; 
- } right:^(id stream) { 
-return [self evaluateSeq:stream left:^(id stream) {
-return [self evaluateString:stream string:@"r"]; 
- } right:^(id stream) { 
-return [self evaluateSeq:stream left:^(id stream) {
-return [self evaluateString:stream string:@"e"]; 
- } right:^(id stream) { 
-return [self evaluateSeq:stream left:^(id stream) {
-return [self spaces:stream];
+return [self kWhere:stream];
  } right:^(id stream) { 
 CEResultAndStream* eResult = ^{
 return [self boolExpr:stream];
 }();
 e = eResult.result;
 return eResult;
- }];
- }];
- }];
- }];
- }];
  }]; }();
  if(!result.failed  ) { 
  id actResult =   e  ;
@@ -304,52 +404,16 @@ return [self evaluateChoice:stream left:^(id stream) {
 __block id i; 
 CEResultAndStream* result = ^{
  return [self evaluateSeq:stream left:^(id stream) {
-return [self evaluateString:stream string:@"o"]; 
+return [self kOrder:stream];
  } right:^(id stream) { 
 return [self evaluateSeq:stream left:^(id stream) {
-return [self evaluateString:stream string:@"r"]; 
- } right:^(id stream) { 
-return [self evaluateSeq:stream left:^(id stream) {
-return [self evaluateString:stream string:@"d"]; 
- } right:^(id stream) { 
-return [self evaluateSeq:stream left:^(id stream) {
-return [self evaluateString:stream string:@"e"]; 
- } right:^(id stream) { 
-return [self evaluateSeq:stream left:^(id stream) {
-return [self evaluateString:stream string:@"r"]; 
- } right:^(id stream) { 
-return [self evaluateSeq:stream left:^(id stream) {
-return [self evaluateString:stream string:@" "]; 
- } right:^(id stream) { 
-return [self evaluateSeq:stream left:^(id stream) {
-return [self spaces:stream];
- } right:^(id stream) { 
-return [self evaluateSeq:stream left:^(id stream) {
-return [self evaluateString:stream string:@"b"]; 
- } right:^(id stream) { 
-return [self evaluateSeq:stream left:^(id stream) {
-return [self evaluateString:stream string:@"y"]; 
- } right:^(id stream) { 
-return [self evaluateSeq:stream left:^(id stream) {
-return [self evaluateString:stream string:@" "]; 
- } right:^(id stream) { 
-return [self evaluateSeq:stream left:^(id stream) {
-return [self spaces:stream];
+return [self kBy:stream];
  } right:^(id stream) { 
 CEResultAndStream* iResult = ^{
 return [self sortDescriptor:stream];
 }();
 i = iResult.result;
 return iResult;
- }];
- }];
- }];
- }];
- }];
- }];
- }];
- }];
- }];
  }];
  }]; }();
  if(!result.failed  ) { 
@@ -392,15 +456,7 @@ return oResult;
 return [self evaluateChoice:stream left:^(id stream) {
  
 CEResultAndStream* result = ^{
- return [self evaluateSeq:stream left:^(id stream) {
-return [self evaluateString:stream string:@"A"]; 
- } right:^(id stream) { 
-return [self evaluateSeq:stream left:^(id stream) {
-return [self evaluateString:stream string:@"S"]; 
- } right:^(id stream) { 
-return [self evaluateString:stream string:@"C"]; 
- }];
- }]; }();
+ return [self kASC:stream]; }();
  if(!result.failed  ) { 
  id actResult =   @YES  ;
  return [CEResultAndStream result:actResult stream:result.stream];
@@ -411,19 +467,7 @@ return [self evaluateString:stream string:@"C"];
 return [self evaluateChoice:stream left:^(id stream) {
  
 CEResultAndStream* result = ^{
- return [self evaluateSeq:stream left:^(id stream) {
-return [self evaluateString:stream string:@"D"]; 
- } right:^(id stream) { 
-return [self evaluateSeq:stream left:^(id stream) {
-return [self evaluateString:stream string:@"E"]; 
- } right:^(id stream) { 
-return [self evaluateSeq:stream left:^(id stream) {
-return [self evaluateString:stream string:@"S"]; 
- } right:^(id stream) { 
-return [self evaluateString:stream string:@"C"]; 
- }];
- }];
- }]; }();
+ return [self kDESC:stream]; }();
  if(!result.failed  ) { 
  id actResult =   @NO  ;
  return [CEResultAndStream result:actResult stream:result.stream];

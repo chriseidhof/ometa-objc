@@ -1,12 +1,22 @@
+// A little query language
+
+
 ometa Query {
   query = selectQuery,
   spaces = ' ' *,
   fields = '*' spaces,
+  kSelect = 's' 'e' 'l' 'e' 'c' 't' ' ' spaces,
+  kFrom = 'f''r''o''m'' ' spaces,
+  kOrder = 'o' 'r' 'd' 'e' 'r' ' ',
+  kBy = 'b' 'y' ' ' spaces,
+  kWhere = 'w' 'h' 'e' 'r' 'e' ' ' spaces ,
+  kASC = 'A' 'S' 'C' spaces,
+  kDESC = 'D' 'E' 'S' 'C' spaces,
   lower = char:d ? {{{ [d characterAtIndex:0] >= 'a' && [d characterAtIndex:0] <= 'z' }}} -> {{{ d }}},
   upper = char:d ? {{{ [d characterAtIndex:0] >= 'A' && [d characterAtIndex:0] <= 'Z' }}} -> {{{ d }}},
   letter = lower | upper,
   identifier = letter* : name spaces -> {{{ [name componentsJoinedByString:@""] }}},
-  selectQuery = 's' 'e' 'l' 'e' 'c' 't' spaces fields:fields 'f''r''o''m' spaces identifier:entityName whereClause:where orderClause:order -> {{{
+  selectQuery = kSelect fields:fields kFrom identifier:entityName whereClause:where orderClause:order -> {{{
     ^{
     NSFetchRequest* f = [NSFetchRequest fetchRequestWithEntityName:entityName];
     f.predicate = where;
@@ -14,7 +24,7 @@ ometa Query {
     return [self.managedObjectContext executeFetchRequest:f error:NULL];
     }()
   }}} ,
-  whereClause = 'w' 'h' 'e' 'r' 'e' spaces boolExpr:e -> {{{ e }}}
+  whereClause = kWhere boolExpr:e -> {{{ e }}}
               | empty,
   boolExpr = identifier:field '=' spaces literal:r -> {{{ 
   ^{
@@ -25,10 +35,10 @@ ometa Query {
   literal = stringLiteral,
   quote = '\'',
   stringLiteral = quote ((~ quote) * : contents) quote -> {{{ [contents componentsJoinedByString:@""] }}} ,
-  orderClause = 'o' 'r' 'd' 'e' 'r' ' ' spaces 'b' 'y' ' ' spaces sortDescriptor:i -> {{{ @[i] }}}
+  orderClause = kOrder kBy sortDescriptor:i -> {{{ @[i] }}} 
               | empty,
   sortDescriptor = identifier:l ordering:o -> {{{ [NSSortDescriptor sortDescriptorWithKey:l ascending:[o boolValue]] }}},
-  ordering = 'A''S''C' -> {{{ @YES }}}
-           | 'D''E''S''C' -> {{{ @NO }}}
+  ordering = kASC -> {{{ @YES }}}
+           | kDESC -> {{{ @NO }}}
            | empty -> {{{ @YES }}}
 }

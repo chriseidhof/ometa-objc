@@ -37,6 +37,7 @@
 
 - (NSArray*)parseTokens {
     NSArray* result = [self parseKeyword];
+    if(!result) result = [self parseComment];
     if(!result) result = [self parseLiteral];
     if(!result) result = [self parseCodeBlock];
     if(!result) result = [self parseOperators];
@@ -44,6 +45,15 @@
     [self whitespace];
     
     return result;
+}
+
+- (NSArray*)parseComment {
+    if([scanner scanString:@"//" intoString:NULL]) {
+        [scanner scanUpToString:@"\n" intoString:NULL];
+        [scanner scanString:@"\n" intoString:NULL];
+        return @[];
+    }
+    return nil;
 }
 
 - (NSArray*)parseKeyword {

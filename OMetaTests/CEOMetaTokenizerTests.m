@@ -27,7 +27,7 @@
 }
 
 - (NSString*)program {
-    NSArray* lines = @[ @"ometa ExpRecognizer{ {{{x}}} "
+    NSArray* lines = @[ @"// a comment\nometa ExpRecognizer{ {{{x}}} "
                          , @"  dig = '0' | '1' | '9',"
                          , @"  num = dig+"
                       , @"}" ];
