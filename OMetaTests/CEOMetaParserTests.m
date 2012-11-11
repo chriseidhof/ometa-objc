@@ -51,6 +51,12 @@
     STAssertNotNil(ast, @"Should parse + followed by name");
 }
 
+- (void)testParseRuleApp {
+    id ast = [parser parse:@"ometa X { token :t = space* t, x = token ( 'x' )}"];
+    STAssertNotNil(ast, @"Should parse + followed by name");
+    STAssertFalse(YES, @"TODO: ask original ometa authors about this rule. Is this application or a token followed by 'x'?");
+}
+
 #pragma mark Larger Tests
 
 - (void)testCalc {

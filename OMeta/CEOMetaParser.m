@@ -62,9 +62,29 @@
 
 - (CEOMetaRule*)parseRule {
     NSString* ruleName = [self identifier];
+    NSArray* args = [self parseMany:@selector(parseArg) separatedBy:nil];
     [self operator:@"="];
     id<CEOMetaExp> exp = [self parseExp];
-    return [[CEOMetaRule alloc] initWithName:ruleName body:exp];
+    CEOMetaRule* rule = [[CEOMetaRule alloc] initWithName:ruleName body:exp];
+    if(args.count) {
+        rule.args = args;
+    }
+    return rule;
+}
+
+- (id<CEOMetaExp>)parseArg {
+    id<CEOMetaExp> app = nil;
+    @try {
+        app = [self parseApp];
+    }
+    @catch (NSException *exception) {
+    }
+    [self operator:@":"];
+    app =  app ? app : [[CEOMetaApp alloc] initWithName:@"anything"];
+    NSString* ident = [self identifier];
+    return [[CEOMetaNamed alloc] initWithName:ident
+                                         body:app];
+
 }
 
 - (CEKeywordToken*)keyword:(NSString*)keyword {
@@ -263,8 +283,10 @@
 - (NSArray*)parseMany:(SEL)elementParser separatedBy:(id)separator {
     @try {
         id result = [self performSelector:elementParser];
-        if([[self peek] isEqual:separator]) {
-            [self processNextToken]; // the separator
+        if([[self peek] isEqual:separator] || separator == nil) {
+            if(separator) {
+                [self processNextToken];
+            }
             NSArray* rest = [self parseMany:elementParser separatedBy:separator];
             return [@[result] arrayByAddingObjectsFromArray:rest];
         } else {

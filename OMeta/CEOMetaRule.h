@@ -14,6 +14,7 @@
 - (id)initWithName:(NSString*)name body:(id<CEOMetaExp>)body;
 - (NSString*)name;
 - (id<CEOMetaExp>)body;
+@property (nonatomic,strong) NSArray* args;
 - (NSString*)compile;
 
 @end

@@ -37,17 +37,17 @@
 - (BOOL)isEqual:(id)object {
     if([object isKindOfClass:[CEOMetaRule class]]) {
         CEOMetaRule* other = (CEOMetaRule*)object;
-        return [self.name isEqual:other.name] && [self.body isEqual:other.body];
+        return [self.name isEqual:other.name] && [self.body isEqual:other.body] && [self.args isEqual:other.args];
     }
     return NO;
 }
 
 - (NSUInteger)hash {
-    return [name_ hash] + [body_ hash];
+    return [name_ hash] + [body_ hash] + [self.args hash];
 }
 
 - (NSString*)description {
-    return [NSString stringWithFormat:@"%@ = %@", name_, body_];
+    return [NSString stringWithFormat:@"%@ %@ = %@", name_, self.args, body_];
 }
 
 - (NSString*)compile {
