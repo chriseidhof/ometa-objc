@@ -12,7 +12,7 @@ working already:
     
       num = dig+ : ds -> {{{ @([[ds componentsJoinedByString:@""] integerValue]) }}},
     
-      space = '_',
+      space = ' ',
     
       var = letter:x space* -> {{{x}}},
     

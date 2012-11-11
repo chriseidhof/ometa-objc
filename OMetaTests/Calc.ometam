@@ -7,23 +7,23 @@ ometa Calc {
 
   num = dig+ : ds -> {{{ @([[ds componentsJoinedByString:@""] integerValue]) }}},
 
-  space = '_',
+  spaces = ' '*,
 
-  var = letter:x space* -> {{{x}}},
+  var = letter:x spaces -> {{{x}}},
 
-  prim = var:x -> {{{ self.vars[x] }}}
-       | num
-       | '(' exp:x ')' -> {{{ x }}},
+  prim = var:x spaces -> {{{ self.vars[x] }}}
+       | num:n spaces -> {{{ n }}}
+       | '(' exp:x ')' spaces -> {{{ x }}},
 
-  mulExp = prim:x '*' mulExp:y -> {{{ @([x intValue] * [y intValue]) }}}
-         | prim:x '/' mulExp:y -> {{{ @([x intValue] / [y intValue]) }}}
+  mulExp = prim:x '*' spaces mulExp:y -> {{{ @([x intValue] * [y intValue]) }}}
+         | prim:x '/' spaces mulExp:y -> {{{ @([x intValue] / [y intValue]) }}}
          | prim,
 
-  addExp = mulExp:x '+' exp:y -> {{{ @([x intValue] + [y intValue]) }}}
-         | mulExp:x '-' exp:y -> {{{ @([x intValue] - [y intValue]) }}}
+  addExp = mulExp:x '+' spaces exp:y -> {{{ @([x intValue] + [y intValue]) }}}
+         | mulExp:x '-' spaces exp:y -> {{{ @([x intValue] - [y intValue]) }}}
          | mulExp,
 
-  exp = var:x '=' space* exp:r -> {{{ self.vars[x] = r }}}
+  exp = var:x spaces '=' spaces exp:r -> {{{ self.vars[x] = r }}}
       | addExp
 
 }

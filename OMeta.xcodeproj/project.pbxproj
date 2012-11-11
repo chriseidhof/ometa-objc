@@ -52,9 +52,9 @@
 		8371F4F1164FA9DB00A05F46 /* E.m in Sources */ = {isa = PBXBuildFile; fileRef = 83718B68164AC92900860D8A /* E.m */; };
 		8371F4F2164FA9DB00A05F46 /* EAST.m in Sources */ = {isa = PBXBuildFile; fileRef = 83E20279164BDE4500FED94D /* EAST.m */; };
 		8371F4F3164FA9DB00A05F46 /* EASTEval.m in Sources */ = {isa = PBXBuildFile; fileRef = 83E2027E164BECC900FED94D /* EASTEval.m */; };
-		8371F4F4164FA9DB00A05F46 /* Calc.m in Sources */ = {isa = PBXBuildFile; fileRef = 833ECC2A164D0D7C003CF77D /* Calc.m */; };
 		8371F4F7164FAB5600A05F46 /* ExpRecognizer.ometam in Resources */ = {isa = PBXBuildFile; fileRef = 8371F4F6164FAB5600A05F46 /* ExpRecognizer.ometam */; };
 		8371F4FA164FABAD00A05F46 /* CEOMetaGeneratedCodeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8371F4F9164FABAD00A05F46 /* CEOMetaGeneratedCodeTests.m */; };
+		8371F4FE164FB43B00A05F46 /* Calc.m in Sources */ = {isa = PBXBuildFile; fileRef = 833ECC2A164D0D7C003CF77D /* Calc.m */; };
 		83756C1E164BB2CA00360B28 /* CEOMetaRepeatOne.m in Sources */ = {isa = PBXBuildFile; fileRef = 83756C1D164BB2CA00360B28 /* CEOMetaRepeatOne.m */; };
 		83756C22164BB6DD00360B28 /* CEOMetaNamed.m in Sources */ = {isa = PBXBuildFile; fileRef = 83756C21164BB6DD00360B28 /* CEOMetaNamed.m */; };
 		83756C25164BBD3700360B28 /* CEOMetaAct.m in Sources */ = {isa = PBXBuildFile; fileRef = 83756C24164BBD3700360B28 /* CEOMetaAct.m */; };
@@ -564,8 +564,8 @@
 				8371F4F1164FA9DB00A05F46 /* E.m in Sources */,
 				8371F4F2164FA9DB00A05F46 /* EAST.m in Sources */,
 				8371F4F3164FA9DB00A05F46 /* EASTEval.m in Sources */,
-				8371F4F4164FA9DB00A05F46 /* Calc.m in Sources */,
 				8371F4FA164FABAD00A05F46 /* CEOMetaGeneratedCodeTests.m in Sources */,
+				8371F4FE164FB43B00A05F46 /* Calc.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
