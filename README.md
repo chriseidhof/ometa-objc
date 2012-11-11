@@ -42,8 +42,10 @@ And this is how you use it:
     STAssertTrue([result.result isEqual:@400], @"Calculator should calculate");
 
 
-If you change the code generator, it helps to re-indent the generated
-files before inspecting them.
+If you want to debug the code generator, it helps to re-indent the generated
+files before inspecting them. Currently, the debug process for this is a
+bit painful (if you generate code that doesn't compile the entire
+project doesn't compile).
 
 # Links
 
