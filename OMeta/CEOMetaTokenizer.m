@@ -22,6 +22,7 @@
 
 - (NSArray*)tokenize:(NSString*)input {
     scanner = [NSScanner scannerWithString:input];
+    scanner.charactersToBeSkipped = nil;
     NSMutableArray* tokens = [NSMutableArray array];
     while (![scanner isAtEnd]) {
         NSArray* nextTokens = [self parseTokens];

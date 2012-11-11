@@ -46,7 +46,7 @@
 }
 
 - (NSString*)compile {
-    NSString* expression = [NSString stringWithFormat:@"return [self evaluateString:stream string:@\"%@\"]; ", string_];
+    NSString* expression = [NSString stringWithFormat:@"return [self evaluateString:stream string:@\"%@\"]; ", [string_ stringByReplacingOccurrencesOfString:@"\"" withString:@"\\\""]];
     return expression;
 }
 

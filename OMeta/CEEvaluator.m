@@ -24,7 +24,7 @@
 
 - (CEResultAndStream*)evaluateChoice:(id<Stream>)stream left:(evaluator)left right:(evaluator)right {
     CEResultAndStream* x = left(stream);
-    if(x.result != nil) {
+    if(!x.failed) {
         return x;
     }
     return right(stream);
@@ -32,35 +32,35 @@
 
 - (CEResultAndStream*)evaluateSeq:(id<Stream>)stream left:(evaluator)left right:(evaluator)right {
     CEResultAndStream* x = left(stream);
-    if(x.result != nil) {
+    if(!x.failed) {
         CEResultAndStream* y = right(x.stream);
-        if(y.result != nil) {
-            return [[CEResultAndStream alloc] initWithResult:@[x.result,y.result] stream:y.stream];
+        if(!y.failed) {
+            return [CEResultAndStream result:@[x.result ? x.result : [NSNull null],y.result ? y.result : [NSNull null]] stream:y.stream];
         }
     }
-    return [[CEResultAndStream alloc] initWithResult:nil stream:stream];
+    return fail(stream);
 }
 
 - (CEResultAndStream*)evaluateMany:(id<Stream>)stream body:(evaluator)body {
     CEResultAndStream* x = body(stream);
-    if(x.result) {
+    if(!x.failed) {
         CEResultAndStream* y = [self evaluateMany:x.stream body:body];
         if(y.result) {
-            return [[CEResultAndStream alloc] initWithResult:[@[x.result] arrayByAddingObjectsFromArray:y.result] stream:y.stream];
+            return [CEResultAndStream result:[@[x.result] arrayByAddingObjectsFromArray:y.result] stream:y.stream];
         }
     }
-    return [[CEResultAndStream alloc] initWithResult:@[] stream:stream];
+    return [CEResultAndStream result:@[] stream:stream];
 }
 
 - (CEResultAndStream*)evaluateManyOne:(id<Stream>)stream body:(evaluator)body {
     CEResultAndStream* x = body(stream);
-    if(x.result) {
+    if(!x.failed) {
         CEResultAndStream* y = [self evaluateMany:x.stream body:body];
         if(y.result) {
-            return [[CEResultAndStream alloc] initWithResult:[@[x.result] arrayByAddingObjectsFromArray:y.result] stream:y.stream];
+            return [CEResultAndStream result:[@[x.result] arrayByAddingObjectsFromArray:y.result] stream:y.stream];
         }
     }
-    return [[CEResultAndStream alloc] initWithResult:nil stream:stream];
+    return fail(stream);
 }
 
 - (CEResultAndStream*)evaluateChar:(id<Stream>)stream char:(char)char_ {
@@ -70,7 +70,7 @@
             return [stream token];
         }
     }
-    return [[CEResultAndStream alloc] initWithResult:nil stream:stream];
+    return fail(stream);
 }
 
 - (CEResultAndStream*)evaluateString:(id<Stream>)stream string:(NSString*)string_ {
@@ -80,7 +80,7 @@
             return [stream token];
         }
     }
-    return [[CEResultAndStream alloc] initWithResult:nil stream:stream];
+    return fail(stream);
 }
 
 
@@ -94,15 +94,19 @@
 
 - (CEResultAndStream*)not:(id<Stream>)stream body:(evaluator)body {
     CEResultAndStream* resultAndStream = body(stream);
-    if(resultAndStream.result) {
-        return [[CEResultAndStream alloc] initWithResult:nil stream:stream];
+    if(resultAndStream.failed) {
+        return [stream token];
     } else {
-        return [[CEResultAndStream alloc] initWithResult:@YES stream:resultAndStream.stream];
+        return fail(stream);        
     }
 }
 
+- (CEResultAndStream*)empty:(id<Stream>)stream {
+    return [CEResultAndStream result:nil stream:stream];
+}
+
 - (CEResultAndStream*)eof:(id<Stream>)stream {
-    return [[CEResultAndStream alloc] initWithResult:@([stream peek] == nil) stream:stream];
+    return [CEResultAndStream result:@([stream peek] == nil) stream:stream];
 }
 
 @end

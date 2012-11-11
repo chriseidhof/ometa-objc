@@ -61,15 +61,15 @@
     }] componentsJoinedByString:@"\n"];
     return [@[varDefinitions, @"\nCEResultAndStream* result = ^{\n",
             body,
-            @"}();\n if(result.result",
+            @"}();\n if(!result.failed",
             condition,
             @") { \n",
             @"id actResult = ",
             act_,
             @";\n",
-            @"return [[CEResultAndStream alloc] initWithResult:actResult stream:result.stream];\n",
+            @"return [CEResultAndStream result:actResult stream:result.stream];\n",
             @"} else {\n",
-            @"return [[CEResultAndStream alloc] initWithResult:nil stream:stream];\n",
+            @"return fail(stream);\n",
             @"}"
             ] componentsJoinedByString:@" "];
 }

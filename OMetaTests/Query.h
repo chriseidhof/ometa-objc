@@ -7,9 +7,12 @@
 //
 
 #import "CEEvaluator.h"
+#import <Foundation/Foundation.h>
+#import <CoreData/CoreData.h>
 
 @interface Query : CEEvaluator
 
 - (CEResultAndStream*)query:(id<Stream>)query;
+@property (nonatomic,strong) NSManagedObjectContext* managedObjectContext;
 
 @end

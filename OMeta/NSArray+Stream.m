@@ -21,9 +21,9 @@
     if(self.count) {
         id token = self[0];
         id rest = [self subarrayWithRange:NSMakeRange(1, self.count-1)];
-        return [[CEResultAndStream alloc] initWithResult:token stream:rest];
+        return [CEResultAndStream result:token stream:rest];
     }
-    return [[CEResultAndStream alloc] initWithResult:nil stream:nil];
+    return fail(nil);
 }
 
 

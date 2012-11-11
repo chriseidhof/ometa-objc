@@ -43,9 +43,4 @@
     STAssertTrue([result.result isEqual:@400], @"Calculator should work");
 }
 
-- (void)testQuery {
-    Query* query = [[Query alloc] init];
-    [query query:@"select * from User where a = b"];
-}
-
 @end

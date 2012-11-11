@@ -11,19 +11,28 @@
 @interface CEResultAndStream () {
     id result_;
     id stream_;
+    BOOL failed_;
 }
 
 @end
 
 @implementation CEResultAndStream
 
-- (id)initWithResult:(id)result stream:(id)stream {
-    self = [super init];
-    if(self) {
-        result_ = result;
-        stream_ = stream;
++ (id)result:(id)result stream:(id)stream {
+    CEResultAndStream* r = [[[self class] alloc] init];
+    if(r) {
+        r->result_ = result;
+        r->stream_ = stream;
+        r->failed_ = NO;
     }
-    return self;
+    return r;
+}
+
++ (id)failWithStream:(id)stream {
+    CEResultAndStream* r = [[[self class] alloc] init];
+    r->stream_ = stream;
+    r->failed_ = YES;
+    return r;
 }
 
 - (id)result {
@@ -32,6 +41,10 @@
 
 - (id)stream {
     return stream_;
+}
+
+- (BOOL)failed {
+    return failed_;
 }
 
 - (NSString*)description {

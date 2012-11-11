@@ -9,15 +9,19 @@ return [self selectQuery:stream];
 
 - (CEResultAndStream*)spaces:(id)stream {
 return [self evaluateMany:stream body:^(id stream) {
-return [self evaluateString:stream string:@""]; 
+return [self evaluateString:stream string:@" "]; 
 }];
 }
 
 - (CEResultAndStream*)fields:(id)stream {
+return [self evaluateSeq:stream left:^(id stream) {
 return [self evaluateString:stream string:@"*"]; 
+ } right:^(id stream) { 
+return [self spaces:stream];
+ }];
 }
 
-- (CEResultAndStream*)letter:(id)stream {
+- (CEResultAndStream*)lower:(id)stream {
 __block id d; 
 CEResultAndStream* result = ^{
  CEResultAndStream* dResult = ^{
@@ -25,12 +29,36 @@ return [self char:stream];
 }();
 d = dResult.result;
 return dResult; }();
- if(result.result  && [d characterAtIndex:0] >= 'a' && [d characterAtIndex:0] <= 'z'  ) { 
- id actResult =  d  ;
- return [[CEResultAndStream alloc] initWithResult:actResult stream:result.stream];
+ if(!result.failed  &&  [d characterAtIndex:0] >= 'a' && [d characterAtIndex:0] <= 'z'  ) { 
+ id actResult =   d  ;
+ return [CEResultAndStream result:actResult stream:result.stream];
  } else {
- return [[CEResultAndStream alloc] initWithResult:nil stream:stream];
+ return fail(stream);
  }
+}
+
+- (CEResultAndStream*)upper:(id)stream {
+__block id d; 
+CEResultAndStream* result = ^{
+ CEResultAndStream* dResult = ^{
+return [self char:stream];
+}();
+d = dResult.result;
+return dResult; }();
+ if(!result.failed  &&  [d characterAtIndex:0] >= 'A' && [d characterAtIndex:0] <= 'Z'  ) { 
+ id actResult =   d  ;
+ return [CEResultAndStream result:actResult stream:result.stream];
+ } else {
+ return fail(stream);
+ }
+}
+
+- (CEResultAndStream*)letter:(id)stream {
+return [self evaluateChoice:stream left:^(id stream) {
+return [self lower:stream];
+ } right:^(id stream) { 
+return [self upper:stream];
+ }];
 }
 
 - (CEResultAndStream*)identifier:(id)stream {
@@ -47,21 +75,37 @@ return nameResult;
  } right:^(id stream) { 
 return [self spaces:stream];
  }]; }();
- if(result.result  ) { 
- id actResult =  [name componentsJoinedByString:@""]  ;
- return [[CEResultAndStream alloc] initWithResult:actResult stream:result.stream];
+ if(!result.failed  ) { 
+ id actResult =   [name componentsJoinedByString:@""]  ;
+ return [CEResultAndStream result:actResult stream:result.stream];
  } else {
- return [[CEResultAndStream alloc] initWithResult:nil stream:stream];
+ return fail(stream);
  }
 }
 
 - (CEResultAndStream*)selectQuery:(id)stream {
 __block id fields;
 __block id entityName;
-__block id where; 
+__block id where;
+__block id order; 
 CEResultAndStream* result = ^{
  return [self evaluateSeq:stream left:^(id stream) {
-return [self evaluateString:stream string:@"select"]; 
+return [self evaluateString:stream string:@"s"]; 
+ } right:^(id stream) { 
+return [self evaluateSeq:stream left:^(id stream) {
+return [self evaluateString:stream string:@"e"]; 
+ } right:^(id stream) { 
+return [self evaluateSeq:stream left:^(id stream) {
+return [self evaluateString:stream string:@"l"]; 
+ } right:^(id stream) { 
+return [self evaluateSeq:stream left:^(id stream) {
+return [self evaluateString:stream string:@"e"]; 
+ } right:^(id stream) { 
+return [self evaluateSeq:stream left:^(id stream) {
+return [self evaluateString:stream string:@"c"]; 
+ } right:^(id stream) { 
+return [self evaluateSeq:stream left:^(id stream) {
+return [self evaluateString:stream string:@"t"]; 
  } right:^(id stream) { 
 return [self evaluateSeq:stream left:^(id stream) {
 return [self spaces:stream];
@@ -74,7 +118,16 @@ fields = fieldsResult.result;
 return fieldsResult;
  } right:^(id stream) { 
 return [self evaluateSeq:stream left:^(id stream) {
-return [self evaluateString:stream string:@"from"]; 
+return [self evaluateString:stream string:@"f"]; 
+ } right:^(id stream) { 
+return [self evaluateSeq:stream left:^(id stream) {
+return [self evaluateString:stream string:@"r"]; 
+ } right:^(id stream) { 
+return [self evaluateSeq:stream left:^(id stream) {
+return [self evaluateString:stream string:@"o"]; 
+ } right:^(id stream) { 
+return [self evaluateSeq:stream left:^(id stream) {
+return [self evaluateString:stream string:@"m"]; 
  } right:^(id stream) { 
 return [self evaluateSeq:stream left:^(id stream) {
 return [self spaces:stream];
@@ -86,33 +139,66 @@ return [self identifier:stream];
 entityName = entityNameResult.result;
 return entityNameResult;
  } right:^(id stream) { 
+return [self evaluateSeq:stream left:^(id stream) {
 CEResultAndStream* whereResult = ^{
 return [self whereClause:stream];
 }();
 where = whereResult.result;
 return whereResult;
+ } right:^(id stream) { 
+CEResultAndStream* orderResult = ^{
+return [self orderClause:stream];
+}();
+order = orderResult.result;
+return orderResult;
+ }];
+ }];
+ }];
+ }];
+ }];
+ }];
+ }];
+ }];
+ }];
  }];
  }];
  }];
  }];
  }];
  }]; }();
- if(result.result  ) { 
- id actResult =  NSFetchRequest* f = [NSFetchRequest fetchRequestWithEntityName:entityName];
+ if(!result.failed  ) { 
+ id actResult =  
+    ^{
+    NSFetchRequest* f = [NSFetchRequest fetchRequestWithEntityName:entityName];
     f.predicate = where;
+    f.sortDescriptors = order;
     return [self.managedObjectContext executeFetchRequest:f error:NULL];
+    }()
    ;
- return [[CEResultAndStream alloc] initWithResult:actResult stream:result.stream];
+ return [CEResultAndStream result:actResult stream:result.stream];
  } else {
- return [[CEResultAndStream alloc] initWithResult:nil stream:stream];
+ return fail(stream);
  }
 }
 
 - (CEResultAndStream*)whereClause:(id)stream {
+return [self evaluateChoice:stream left:^(id stream) {
 __block id e; 
 CEResultAndStream* result = ^{
  return [self evaluateSeq:stream left:^(id stream) {
-return [self evaluateString:stream string:@"where "]; 
+return [self evaluateString:stream string:@"w"]; 
+ } right:^(id stream) { 
+return [self evaluateSeq:stream left:^(id stream) {
+return [self evaluateString:stream string:@"h"]; 
+ } right:^(id stream) { 
+return [self evaluateSeq:stream left:^(id stream) {
+return [self evaluateString:stream string:@"e"]; 
+ } right:^(id stream) { 
+return [self evaluateSeq:stream left:^(id stream) {
+return [self evaluateString:stream string:@"r"]; 
+ } right:^(id stream) { 
+return [self evaluateSeq:stream left:^(id stream) {
+return [self evaluateString:stream string:@"e"]; 
  } right:^(id stream) { 
 return [self evaluateSeq:stream left:^(id stream) {
 return [self spaces:stream];
@@ -123,25 +209,32 @@ return [self boolExpr:stream];
 e = eResult.result;
 return eResult;
  }];
+ }];
+ }];
+ }];
+ }];
  }]; }();
- if(result.result  ) { 
- id actResult =  e  ;
- return [[CEResultAndStream alloc] initWithResult:actResult stream:result.stream];
+ if(!result.failed  ) { 
+ id actResult =   e  ;
+ return [CEResultAndStream result:actResult stream:result.stream];
  } else {
- return [[CEResultAndStream alloc] initWithResult:nil stream:stream];
+ return fail(stream);
  }
+ } right:^(id stream) { 
+return [self empty:stream];
+ }];
 }
 
 - (CEResultAndStream*)boolExpr:(id)stream {
-__block id l;
+__block id field;
 __block id r; 
 CEResultAndStream* result = ^{
  return [self evaluateSeq:stream left:^(id stream) {
-CEResultAndStream* lResult = ^{
-return [self identier:stream];
+CEResultAndStream* fieldResult = ^{
+return [self identifier:stream];
 }();
-l = lResult.result;
-return lResult;
+field = fieldResult.result;
+return fieldResult;
  } right:^(id stream) { 
 return [self evaluateSeq:stream left:^(id stream) {
 return [self evaluateString:stream string:@"="]; 
@@ -150,18 +243,204 @@ return [self evaluateSeq:stream left:^(id stream) {
 return [self spaces:stream];
  } right:^(id stream) { 
 CEResultAndStream* rResult = ^{
-return [self identifier:stream];
+return [self literal:stream];
 }();
 r = rResult.result;
 return rResult;
  }];
  }];
  }]; }();
- if(result.result  ) { 
- id actResult =  [NSString stringWithFormat:@"%@ = %@", l, r]  ;
- return [[CEResultAndStream alloc] initWithResult:actResult stream:result.stream];
+ if(!result.failed  ) { 
+ id actResult =   
+  ^{
+  NSString* formatString = [field stringByAppendingString:@" = %@"];
+  return [NSPredicate predicateWithFormat:formatString, r];
+  }();
+   ;
+ return [CEResultAndStream result:actResult stream:result.stream];
  } else {
- return [[CEResultAndStream alloc] initWithResult:nil stream:stream];
+ return fail(stream);
  }
+}
+
+- (CEResultAndStream*)literal:(id)stream {
+return [self stringLiteral:stream];
+}
+
+- (CEResultAndStream*)quote:(id)stream {
+return [self evaluateString:stream string:@"'"]; 
+}
+
+- (CEResultAndStream*)stringLiteral:(id)stream {
+__block id contents; 
+CEResultAndStream* result = ^{
+ return [self evaluateSeq:stream left:^(id stream) {
+return [self quote:stream];
+ } right:^(id stream) { 
+return [self evaluateSeq:stream left:^(id stream) {
+CEResultAndStream* contentsResult = ^{
+return [self evaluateMany:stream body:^(id stream) {
+return [self not:stream body:^(id stream) {
+return [self quote:stream];
+ }];
+}];
+}();
+contents = contentsResult.result;
+return contentsResult;
+ } right:^(id stream) { 
+return [self quote:stream];
+ }];
+ }]; }();
+ if(!result.failed  ) { 
+ id actResult =   [contents componentsJoinedByString:@""]  ;
+ return [CEResultAndStream result:actResult stream:result.stream];
+ } else {
+ return fail(stream);
+ }
+}
+
+- (CEResultAndStream*)orderClause:(id)stream {
+return [self evaluateChoice:stream left:^(id stream) {
+__block id i; 
+CEResultAndStream* result = ^{
+ return [self evaluateSeq:stream left:^(id stream) {
+return [self evaluateString:stream string:@"o"]; 
+ } right:^(id stream) { 
+return [self evaluateSeq:stream left:^(id stream) {
+return [self evaluateString:stream string:@"r"]; 
+ } right:^(id stream) { 
+return [self evaluateSeq:stream left:^(id stream) {
+return [self evaluateString:stream string:@"d"]; 
+ } right:^(id stream) { 
+return [self evaluateSeq:stream left:^(id stream) {
+return [self evaluateString:stream string:@"e"]; 
+ } right:^(id stream) { 
+return [self evaluateSeq:stream left:^(id stream) {
+return [self evaluateString:stream string:@"r"]; 
+ } right:^(id stream) { 
+return [self evaluateSeq:stream left:^(id stream) {
+return [self evaluateString:stream string:@" "]; 
+ } right:^(id stream) { 
+return [self evaluateSeq:stream left:^(id stream) {
+return [self spaces:stream];
+ } right:^(id stream) { 
+return [self evaluateSeq:stream left:^(id stream) {
+return [self evaluateString:stream string:@"b"]; 
+ } right:^(id stream) { 
+return [self evaluateSeq:stream left:^(id stream) {
+return [self evaluateString:stream string:@"y"]; 
+ } right:^(id stream) { 
+return [self evaluateSeq:stream left:^(id stream) {
+return [self evaluateString:stream string:@" "]; 
+ } right:^(id stream) { 
+return [self evaluateSeq:stream left:^(id stream) {
+return [self spaces:stream];
+ } right:^(id stream) { 
+CEResultAndStream* iResult = ^{
+return [self sortDescriptor:stream];
+}();
+i = iResult.result;
+return iResult;
+ }];
+ }];
+ }];
+ }];
+ }];
+ }];
+ }];
+ }];
+ }];
+ }];
+ }]; }();
+ if(!result.failed  ) { 
+ id actResult =   @[i]  ;
+ return [CEResultAndStream result:actResult stream:result.stream];
+ } else {
+ return fail(stream);
+ }
+ } right:^(id stream) { 
+return [self empty:stream];
+ }];
+}
+
+- (CEResultAndStream*)sortDescriptor:(id)stream {
+__block id l;
+__block id o; 
+CEResultAndStream* result = ^{
+ return [self evaluateSeq:stream left:^(id stream) {
+CEResultAndStream* lResult = ^{
+return [self identifier:stream];
+}();
+l = lResult.result;
+return lResult;
+ } right:^(id stream) { 
+CEResultAndStream* oResult = ^{
+return [self ordering:stream];
+}();
+o = oResult.result;
+return oResult;
+ }]; }();
+ if(!result.failed  ) { 
+ id actResult =   [NSSortDescriptor sortDescriptorWithKey:l ascending:[o boolValue]]  ;
+ return [CEResultAndStream result:actResult stream:result.stream];
+ } else {
+ return fail(stream);
+ }
+}
+
+- (CEResultAndStream*)ordering:(id)stream {
+return [self evaluateChoice:stream left:^(id stream) {
+ 
+CEResultAndStream* result = ^{
+ return [self evaluateSeq:stream left:^(id stream) {
+return [self evaluateString:stream string:@"A"]; 
+ } right:^(id stream) { 
+return [self evaluateSeq:stream left:^(id stream) {
+return [self evaluateString:stream string:@"S"]; 
+ } right:^(id stream) { 
+return [self evaluateString:stream string:@"C"]; 
+ }];
+ }]; }();
+ if(!result.failed  ) { 
+ id actResult =   @YES  ;
+ return [CEResultAndStream result:actResult stream:result.stream];
+ } else {
+ return fail(stream);
+ }
+ } right:^(id stream) { 
+return [self evaluateChoice:stream left:^(id stream) {
+ 
+CEResultAndStream* result = ^{
+ return [self evaluateSeq:stream left:^(id stream) {
+return [self evaluateString:stream string:@"D"]; 
+ } right:^(id stream) { 
+return [self evaluateSeq:stream left:^(id stream) {
+return [self evaluateString:stream string:@"E"]; 
+ } right:^(id stream) { 
+return [self evaluateSeq:stream left:^(id stream) {
+return [self evaluateString:stream string:@"S"]; 
+ } right:^(id stream) { 
+return [self evaluateString:stream string:@"C"]; 
+ }];
+ }];
+ }]; }();
+ if(!result.failed  ) { 
+ id actResult =   @NO  ;
+ return [CEResultAndStream result:actResult stream:result.stream];
+ } else {
+ return fail(stream);
+ }
+ } right:^(id stream) { 
+ 
+CEResultAndStream* result = ^{
+ return [self empty:stream]; }();
+ if(!result.failed  ) { 
+ id actResult =   @YES  ;
+ return [CEResultAndStream result:actResult stream:result.stream];
+ } else {
+ return fail(stream);
+ }
+ }];
+ }];
 }
 @end

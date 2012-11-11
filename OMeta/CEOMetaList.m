@@ -56,15 +56,15 @@
     for(NSInteger i = 0; i < items_.count; i++) {
         id<CEOMetaExp> item = items_[i];
         NSString* compiledItem = [item compile];
-        [compiledItems appendString:[NSString stringWithFormat:@"CEResultAndStream* result_%d = ^(id stream){ \n %@; \n }(%@);\nif(!result_%d.result) { \nreturn [[CEResultAndStream alloc] initWithResult:nil stream:stream]; \n}\n", i, compiledItem, currentStream, i]];
+        [compiledItems appendString:[NSString stringWithFormat:@"CEResultAndStream* result_%d = ^(id stream){ \n %@; \n }(%@);\nif(result_%d.failed) { \nreturn fail(stream); \n}\n", i, compiledItem, currentStream, i]];
         currentStream = [NSString stringWithFormat:@"result_%d.stream", i];
         [results addObject:[NSString stringWithFormat:@"result_%d.result", i]];
     }
     NSString* listLike = @"CEResultAndStream* listLike = [self anything:stream];";
     NSString* empty = [NSString stringWithFormat:@"CEResultAndStream* isEmpty = [self eof:%@];", currentStream];
-    NSString* returnVal = [NSString stringWithFormat:@"return [[CEResultAndStream alloc] initWithResult:@[%@] stream:listLike.stream];\n", [results componentsJoinedByString:@" , "]];
+    NSString* returnVal = [NSString stringWithFormat:@"return [CEResultAndStream result:@[%@] stream:listLike.stream];\n", [results componentsJoinedByString:@" , "]];
 
-    NSString* test = [NSString stringWithFormat:@"if ([[isEmpty result] boolValue]) {\n%@\n} else {\n return [[CEResultAndStream alloc] initWithResult:nil stream:stream]; }\n", returnVal];
+    NSString* test = [NSString stringWithFormat:@"if ([[isEmpty result] boolValue]) {\n%@\n} else {\n return fail(stream); }\n", returnVal];
     
     return [@[listLike,compiledItems,empty,test] componentsJoinedByString:@"\n"];
 }

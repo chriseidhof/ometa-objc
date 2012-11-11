@@ -48,7 +48,7 @@
 - (NSString*)compile {
     NSString* body = [body_ compile];
     NSArray* expression =
-    @[@"return [self evaluateNot:stream body:^(id stream) {",
+    @[@"return [self not:stream body:^(id stream) {",
     body,
     @" }];"];
     return [expression componentsJoinedByString:@"\n"];

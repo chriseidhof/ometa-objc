@@ -50,13 +50,15 @@
 		8371F4EE164FA9C000A05F46 /* EAST.ometam in Resources */ = {isa = PBXBuildFile; fileRef = 8371F4EB164FA9C000A05F46 /* EAST.ometam */; };
 		8371F4EF164FA9C000A05F46 /* EASTEval.ometam in Resources */ = {isa = PBXBuildFile; fileRef = 8371F4EC164FA9C000A05F46 /* EASTEval.ometam */; };
 		8371F4F7164FAB5600A05F46 /* ExpRecognizer.ometam in Resources */ = {isa = PBXBuildFile; fileRef = 8371F4F6164FAB5600A05F46 /* ExpRecognizer.ometam */; };
-		8371F4FA164FABAD00A05F46 /* CEOMetaGeneratedCodeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8371F4F9164FABAD00A05F46 /* CEOMetaGeneratedCodeTests.m */; };
 		8371F500164FD88C00A05F46 /* Query.ometam in Resources */ = {isa = PBXBuildFile; fileRef = 8371F4FF164FD88C00A05F46 /* Query.ometam */; };
-		8371F50A164FDD0300A05F46 /* E.m in Sources */ = {isa = PBXBuildFile; fileRef = 8371F505164FDD0300A05F46 /* E.m */; };
-		8371F50B164FDD0300A05F46 /* EAST.m in Sources */ = {isa = PBXBuildFile; fileRef = 8371F507164FDD0300A05F46 /* EAST.m */; };
-		8371F50C164FDD0300A05F46 /* EASTEval.m in Sources */ = {isa = PBXBuildFile; fileRef = 8371F509164FDD0300A05F46 /* EASTEval.m */; };
-		8371F50F164FDD0E00A05F46 /* Calc.m in Sources */ = {isa = PBXBuildFile; fileRef = 8371F50E164FDD0E00A05F46 /* Calc.m */; };
-		8371F512164FDD2700A05F46 /* Query.m in Sources */ = {isa = PBXBuildFile; fileRef = 8371F511164FDD2700A05F46 /* Query.m */; };
+		8371F51B164FE50800A05F46 /* EASTEval.m in Sources */ = {isa = PBXBuildFile; fileRef = 8371F509164FDD0300A05F46 /* EASTEval.m */; };
+		8371F51C164FE50800A05F46 /* Calc.m in Sources */ = {isa = PBXBuildFile; fileRef = 8371F50E164FDD0E00A05F46 /* Calc.m */; };
+		8371F51D164FE50800A05F46 /* Query.m in Sources */ = {isa = PBXBuildFile; fileRef = 8371F511164FDD2700A05F46 /* Query.m */; };
+		8371F51E164FE50800A05F46 /* EAST.m in Sources */ = {isa = PBXBuildFile; fileRef = 8371F507164FDD0300A05F46 /* EAST.m */; };
+		8371F51F164FE50800A05F46 /* E.m in Sources */ = {isa = PBXBuildFile; fileRef = 8371F505164FDD0300A05F46 /* E.m */; };
+		8371F520164FE50800A05F46 /* CEOMetaGeneratedCodeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8371F4F9164FABAD00A05F46 /* CEOMetaGeneratedCodeTests.m */; };
+		8371F52B164FED0A00A05F46 /* TestModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8371F521164FE9A000A05F46 /* TestModel.xcdatamodeld */; };
+		8371F52E164FEF6200A05F46 /* CEMetaTestQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 8371F52D164FEF6200A05F46 /* CEMetaTestQuery.m */; };
 		83756C1E164BB2CA00360B28 /* CEOMetaRepeatOne.m in Sources */ = {isa = PBXBuildFile; fileRef = 83756C1D164BB2CA00360B28 /* CEOMetaRepeatOne.m */; };
 		83756C22164BB6DD00360B28 /* CEOMetaNamed.m in Sources */ = {isa = PBXBuildFile; fileRef = 83756C21164BB6DD00360B28 /* CEOMetaNamed.m */; };
 		83756C25164BBD3700360B28 /* CEOMetaAct.m in Sources */ = {isa = PBXBuildFile; fileRef = 83756C24164BBD3700360B28 /* CEOMetaAct.m */; };
@@ -160,6 +162,9 @@
 		8371F50E164FDD0E00A05F46 /* Calc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Calc.m; sourceTree = "<group>"; };
 		8371F510164FDD2700A05F46 /* Query.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Query.h; sourceTree = "<group>"; };
 		8371F511164FDD2700A05F46 /* Query.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Query.m; sourceTree = "<group>"; };
+		8371F522164FE9A000A05F46 /* TestModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TestModel.xcdatamodel; sourceTree = "<group>"; };
+		8371F52C164FEF6100A05F46 /* CEMetaTestQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEMetaTestQuery.h; sourceTree = "<group>"; };
+		8371F52D164FEF6200A05F46 /* CEMetaTestQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEMetaTestQuery.m; sourceTree = "<group>"; };
 		83756C1C164BB2CA00360B28 /* CEOMetaRepeatOne.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEOMetaRepeatOne.h; sourceTree = "<group>"; };
 		83756C1D164BB2CA00360B28 /* CEOMetaRepeatOne.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEOMetaRepeatOne.m; sourceTree = "<group>"; };
 		83756C20164BB6DD00360B28 /* CEOMetaNamed.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEOMetaNamed.h; sourceTree = "<group>"; };
@@ -285,7 +290,10 @@
 				83718B3D164A70ED00860D8A /* CEOMetaParserTests.m */,
 				8371F4F8164FABAD00A05F46 /* CEOMetaGeneratedCodeTests.h */,
 				8371F4F9164FABAD00A05F46 /* CEOMetaGeneratedCodeTests.m */,
+				8371F52C164FEF6100A05F46 /* CEMetaTestQuery.h */,
+				8371F52D164FEF6200A05F46 /* CEMetaTestQuery.m */,
 				83718B14164A6AA900860D8A /* Supporting Files */,
+				8371F521164FE9A000A05F46 /* TestModel.xcdatamodeld */,
 			);
 			path = OMetaTests;
 			sourceTree = "<group>";
@@ -560,6 +568,7 @@
 				833ECC3E164E51CE003CF77D /* CEOperatorToken.m in Sources */,
 				833ECC41164E6A5C003CF77D /* NSString+Extras.m in Sources */,
 				833ECC44164E70D0003CF77D /* CELiteralToken.m in Sources */,
+				8371F52B164FED0A00A05F46 /* TestModel.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -570,12 +579,13 @@
 				83718B1B164A6AA900860D8A /* OMetaTests.m in Sources */,
 				83718B29164A6B7E00860D8A /* CEOMetaTokenizerTests.m in Sources */,
 				83718B3E164A70ED00860D8A /* CEOMetaParserTests.m in Sources */,
-				8371F4FA164FABAD00A05F46 /* CEOMetaGeneratedCodeTests.m in Sources */,
-				8371F50A164FDD0300A05F46 /* E.m in Sources */,
-				8371F50B164FDD0300A05F46 /* EAST.m in Sources */,
-				8371F50C164FDD0300A05F46 /* EASTEval.m in Sources */,
-				8371F50F164FDD0E00A05F46 /* Calc.m in Sources */,
-				8371F512164FDD2700A05F46 /* Query.m in Sources */,
+				8371F51B164FE50800A05F46 /* EASTEval.m in Sources */,
+				8371F51C164FE50800A05F46 /* Calc.m in Sources */,
+				8371F51D164FE50800A05F46 /* Query.m in Sources */,
+				8371F51E164FE50800A05F46 /* EAST.m in Sources */,
+				8371F51F164FE50800A05F46 /* E.m in Sources */,
+				8371F520164FE50800A05F46 /* CEOMetaGeneratedCodeTests.m in Sources */,
+				8371F52E164FEF6200A05F46 /* CEMetaTestQuery.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -755,6 +765,16 @@
 			);
 			currentVersion = 83718B04164A6AA900860D8A /* OMeta.xcdatamodel */;
 			path = OMeta.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+		8371F521164FE9A000A05F46 /* TestModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				8371F522164FE9A000A05F46 /* TestModel.xcdatamodel */,
+			);
+			currentVersion = 8371F522164FE9A000A05F46 /* TestModel.xcdatamodel */;
+			path = TestModel.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

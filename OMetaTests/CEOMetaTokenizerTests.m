@@ -50,7 +50,10 @@
     STAssertEqualObjects(tokenized, expectedOutput, @"Expect escaping to work");
 }
 
-
+- (void)testSpace {
+    NSArray* tokenized = [tokenizer tokenize:@"' '"];
+    STAssertEqualObjects(tokenized, @[LIT(@" ")], @"Should tokenize space");
+}
 
 
 @end

@@ -19,22 +19,22 @@ x = xResult.result;
 return xResult;
  }];; 
  }(listLike.result);
-if(!result_0.result) { 
-return [[CEResultAndStream alloc] initWithResult:nil stream:stream]; 
+if(result_0.failed) { 
+return fail(stream); 
 }
 
 CEResultAndStream* isEmpty = [self eof:result_0.stream];
 if ([[isEmpty result] boolValue]) {
-return [[CEResultAndStream alloc] initWithResult:@[result_0.result] stream:listLike.stream];
+return [CEResultAndStream result:@[result_0.result] stream:listLike.stream];
 
 } else {
- return [[CEResultAndStream alloc] initWithResult:nil stream:stream]; }
+ return fail(stream); }
  }();
- if(result.result  ) { 
- id actResult =  x  ;
- return [[CEResultAndStream alloc] initWithResult:actResult stream:result.stream];
+ if(!result.failed  ) { 
+ id actResult =   x  ;
+ return [CEResultAndStream result:actResult stream:result.stream];
  } else {
- return [[CEResultAndStream alloc] initWithResult:nil stream:stream];
+ return fail(stream);
  }
  } right:^(id stream) { 
 return [self evaluateChoice:stream left:^(id stream) {
@@ -61,22 +61,22 @@ return yResult;
  }];
  }];; 
  }(listLike.result);
-if(!result_0.result) { 
-return [[CEResultAndStream alloc] initWithResult:nil stream:stream]; 
+if(result_0.failed) { 
+return fail(stream); 
 }
 
 CEResultAndStream* isEmpty = [self eof:result_0.stream];
 if ([[isEmpty result] boolValue]) {
-return [[CEResultAndStream alloc] initWithResult:@[result_0.result] stream:listLike.stream];
+return [CEResultAndStream result:@[result_0.result] stream:listLike.stream];
 
 } else {
- return [[CEResultAndStream alloc] initWithResult:nil stream:stream]; }
+ return fail(stream); }
  }();
- if(result.result  ) { 
- id actResult =  @([x intValue] + [y intValue])  ;
- return [[CEResultAndStream alloc] initWithResult:actResult stream:result.stream];
+ if(!result.failed  ) { 
+ id actResult =   @([x intValue] + [y intValue])  ;
+ return [CEResultAndStream result:actResult stream:result.stream];
  } else {
- return [[CEResultAndStream alloc] initWithResult:nil stream:stream];
+ return fail(stream);
  }
  } right:^(id stream) { 
 return [self evaluateChoice:stream left:^(id stream) {
@@ -103,22 +103,22 @@ return yResult;
  }];
  }];; 
  }(listLike.result);
-if(!result_0.result) { 
-return [[CEResultAndStream alloc] initWithResult:nil stream:stream]; 
+if(result_0.failed) { 
+return fail(stream); 
 }
 
 CEResultAndStream* isEmpty = [self eof:result_0.stream];
 if ([[isEmpty result] boolValue]) {
-return [[CEResultAndStream alloc] initWithResult:@[result_0.result] stream:listLike.stream];
+return [CEResultAndStream result:@[result_0.result] stream:listLike.stream];
 
 } else {
- return [[CEResultAndStream alloc] initWithResult:nil stream:stream]; }
+ return fail(stream); }
  }();
- if(result.result  ) { 
- id actResult =  @([x intValue] * [y intValue])  ;
- return [[CEResultAndStream alloc] initWithResult:actResult stream:result.stream];
+ if(!result.failed  ) { 
+ id actResult =   @([x intValue] * [y intValue])  ;
+ return [CEResultAndStream result:actResult stream:result.stream];
  } else {
- return [[CEResultAndStream alloc] initWithResult:nil stream:stream];
+ return fail(stream);
  }
  } right:^(id stream) { 
 return [self evaluateChoice:stream left:^(id stream) {
@@ -145,22 +145,22 @@ return yResult;
  }];
  }];; 
  }(listLike.result);
-if(!result_0.result) { 
-return [[CEResultAndStream alloc] initWithResult:nil stream:stream]; 
+if(result_0.failed) { 
+return fail(stream); 
 }
 
 CEResultAndStream* isEmpty = [self eof:result_0.stream];
 if ([[isEmpty result] boolValue]) {
-return [[CEResultAndStream alloc] initWithResult:@[result_0.result] stream:listLike.stream];
+return [CEResultAndStream result:@[result_0.result] stream:listLike.stream];
 
 } else {
- return [[CEResultAndStream alloc] initWithResult:nil stream:stream]; }
+ return fail(stream); }
  }();
- if(result.result  ) { 
- id actResult =  @([x intValue] - [y intValue])  ;
- return [[CEResultAndStream alloc] initWithResult:actResult stream:result.stream];
+ if(!result.failed  ) { 
+ id actResult =   @([x intValue] - [y intValue])  ;
+ return [CEResultAndStream result:actResult stream:result.stream];
  } else {
- return [[CEResultAndStream alloc] initWithResult:nil stream:stream];
+ return fail(stream);
  }
  } right:^(id stream) { 
 __block id x;
@@ -186,22 +186,22 @@ return yResult;
  }];
  }];; 
  }(listLike.result);
-if(!result_0.result) { 
-return [[CEResultAndStream alloc] initWithResult:nil stream:stream]; 
+if(result_0.failed) { 
+return fail(stream); 
 }
 
 CEResultAndStream* isEmpty = [self eof:result_0.stream];
 if ([[isEmpty result] boolValue]) {
-return [[CEResultAndStream alloc] initWithResult:@[result_0.result] stream:listLike.stream];
+return [CEResultAndStream result:@[result_0.result] stream:listLike.stream];
 
 } else {
- return [[CEResultAndStream alloc] initWithResult:nil stream:stream]; }
+ return fail(stream); }
  }();
- if(result.result  ) { 
- id actResult =  @([x intValue] / [y intValue])  ;
- return [[CEResultAndStream alloc] initWithResult:actResult stream:result.stream];
+ if(!result.failed  ) { 
+ id actResult =   @([x intValue] / [y intValue])  ;
+ return [CEResultAndStream result:actResult stream:result.stream];
  } else {
- return [[CEResultAndStream alloc] initWithResult:nil stream:stream];
+ return fail(stream);
  }
  }];
  }];

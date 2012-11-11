@@ -8,10 +8,14 @@
 
 #import <Foundation/Foundation.h>
 
+#define fail(x) [CEResultAndStream failWithStream:x]
+
 @interface CEResultAndStream : NSObject
 
-- (id)initWithResult:(id)result stream:(id)stream;
++ (id)result:(id)result stream:(id)stream;
++ (id)failWithStream:(id)stream;
 - (id)result;
+- (BOOL)failed;
 - (id)stream;
 
 @end

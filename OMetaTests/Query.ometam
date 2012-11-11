@@ -1,14 +1,34 @@
 ometa Query {
   query = selectQuery,
   spaces = ' ' *,
-  fields ='*',
-  letter = char:d ? {{{ [d characterAtIndex:0] >= 'a' && [d characterAtIndex:0] <= 'z' }}} -> {{{ d }}},
+  fields = '*' spaces,
+  lower = char:d ? {{{ [d characterAtIndex:0] >= 'a' && [d characterAtIndex:0] <= 'z' }}} -> {{{ d }}},
+  upper = char:d ? {{{ [d characterAtIndex:0] >= 'A' && [d characterAtIndex:0] <= 'Z' }}} -> {{{ d }}},
+  letter = lower | upper,
   identifier = letter* : name spaces -> {{{ [name componentsJoinedByString:@""] }}},
-  selectQuery = 'select' spaces fields:fields 'from' spaces identifier:entityName whereClause:where -> {{{
+  selectQuery = 's' 'e' 'l' 'e' 'c' 't' spaces fields:fields 'f''r''o''m' spaces identifier:entityName whereClause:where orderClause:order -> {{{
+    ^{
     NSFetchRequest* f = [NSFetchRequest fetchRequestWithEntityName:entityName];
     f.predicate = where;
+    f.sortDescriptors = order;
     return [self.managedObjectContext executeFetchRequest:f error:NULL];
+    }()
   }}} ,
-  whereClause = 'where ' spaces boolExpr:e -> {{{ e }}} ,
-  boolExpr = identier:l '=' spaces identifier:r -> {{{ [NSString stringWithFormat:@"%@ = %@", l, r] }}}
+  whereClause = 'w' 'h' 'e' 'r' 'e' spaces boolExpr:e -> {{{ e }}}
+              | empty,
+  boolExpr = identifier:field '=' spaces literal:r -> {{{ 
+  ^{
+  NSString* formatString = [field stringByAppendingString:@" = %@"];
+  return [NSPredicate predicateWithFormat:formatString, r];
+  }();
+  }}},
+  literal = stringLiteral,
+  quote = '\'',
+  stringLiteral = quote ((~ quote) * : contents) quote -> {{{ [contents componentsJoinedByString:@""] }}} ,
+  orderClause = 'o' 'r' 'd' 'e' 'r' ' ' spaces 'b' 'y' ' ' spaces sortDescriptor:i -> {{{ @[i] }}}
+              | empty,
+  sortDescriptor = identifier:l ordering:o -> {{{ [NSSortDescriptor sortDescriptorWithKey:l ascending:[o boolValue]] }}},
+  ordering = 'A''S''C' -> {{{ @YES }}}
+           | 'D''E''S''C' -> {{{ @NO }}}
+           | empty -> {{{ @YES }}}
 }

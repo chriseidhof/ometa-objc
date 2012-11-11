@@ -11,11 +11,11 @@ return [self char:stream];
 }();
 d = dResult.result;
 return dResult; }();
- if(result.result  && [d characterAtIndex:0] >= '0' && [d characterAtIndex:0] <= '9'  ) { 
- id actResult =  d  ;
- return [[CEResultAndStream alloc] initWithResult:actResult stream:result.stream];
+ if(!result.failed  &&  [d characterAtIndex:0] >= '0' && [d characterAtIndex:0] <= '9'  ) { 
+ id actResult =   d  ;
+ return [CEResultAndStream result:actResult stream:result.stream];
  } else {
- return [[CEResultAndStream alloc] initWithResult:nil stream:stream];
+ return fail(stream);
  }
 }
 
@@ -29,11 +29,11 @@ return [self dig:stream];
 }();
 ds = dsResult.result;
 return dsResult; }();
- if(result.result  ) { 
- id actResult =  @[@"n", @([[ds componentsJoinedByString:@""] integerValue])]  ;
- return [[CEResultAndStream alloc] initWithResult:actResult stream:result.stream];
+ if(!result.failed  ) { 
+ id actResult =   @[@"n", @([[ds componentsJoinedByString:@""] integerValue])]  ;
+ return [CEResultAndStream result:actResult stream:result.stream];
  } else {
- return [[CEResultAndStream alloc] initWithResult:nil stream:stream];
+ return fail(stream);
  }
 }
 
@@ -59,11 +59,11 @@ y = yResult.result;
 return yResult;
  }];
  }]; }();
- if(result.result  ) { 
- id actResult =  @[@"m",x,y]  ;
- return [[CEResultAndStream alloc] initWithResult:actResult stream:result.stream];
+ if(!result.failed  ) { 
+ id actResult =   @[@"m",x,y]  ;
+ return [CEResultAndStream result:actResult stream:result.stream];
  } else {
- return [[CEResultAndStream alloc] initWithResult:nil stream:stream];
+ return fail(stream);
  }
  } right:^(id stream) { 
 return [self evaluateChoice:stream left:^(id stream) {
@@ -87,11 +87,11 @@ y = yResult.result;
 return yResult;
  }];
  }]; }();
- if(result.result  ) { 
- id actResult =  @[@"d",x,y]  ;
- return [[CEResultAndStream alloc] initWithResult:actResult stream:result.stream];
+ if(!result.failed  ) { 
+ id actResult =   @[@"d",x,y]  ;
+ return [CEResultAndStream result:actResult stream:result.stream];
  } else {
- return [[CEResultAndStream alloc] initWithResult:nil stream:stream];
+ return fail(stream);
  }
  } right:^(id stream) { 
 return [self num:stream];
@@ -121,11 +121,11 @@ y = yResult.result;
 return yResult;
  }];
  }]; }();
- if(result.result  ) { 
- id actResult =  @[@"a",x,y]  ;
- return [[CEResultAndStream alloc] initWithResult:actResult stream:result.stream];
+ if(!result.failed  ) { 
+ id actResult =   @[@"a",x,y]  ;
+ return [CEResultAndStream result:actResult stream:result.stream];
  } else {
- return [[CEResultAndStream alloc] initWithResult:nil stream:stream];
+ return fail(stream);
  }
  } right:^(id stream) { 
 return [self evaluateChoice:stream left:^(id stream) {
@@ -149,11 +149,11 @@ y = yResult.result;
 return yResult;
  }];
  }]; }();
- if(result.result  ) { 
- id actResult =  @[@"r",x,y]  ;
- return [[CEResultAndStream alloc] initWithResult:actResult stream:result.stream];
+ if(!result.failed  ) { 
+ id actResult =   @[@"r",x,y]  ;
+ return [CEResultAndStream result:actResult stream:result.stream];
  } else {
- return [[CEResultAndStream alloc] initWithResult:nil stream:stream];
+ return fail(stream);
  }
  } right:^(id stream) { 
 return [self fac:stream];
