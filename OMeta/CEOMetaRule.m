@@ -7,6 +7,7 @@
 //
 
 #import "CEOMetaRule.h"
+#import "CEOMetaNamed.h"
 
 @interface CEOMetaRule () {
     NSString* name_;
@@ -51,10 +52,26 @@
 }
 
 - (NSString*)compile {
-    NSString* header = [@[@"- (CEResultAndStream*)", self.name, @":(id)stream {"] componentsJoinedByString:@""];
+    NSMutableString* vars = [NSMutableString string];
+    for(CEOMetaNamed* named in self.args) {
+        [vars appendString:@" :(id)_"];
+        [vars appendString:named.name];
+    }
+    NSString* header = [@[@"- (CEResultAndStream*)", self.name, @":(id)stream ", vars, @"{"] componentsJoinedByString:@""];
+    
+    NSMutableString* args = [NSMutableString string];
+    for(CEOMetaNamed* named in self.args) {
+        [args appendString:@"id "];
+        [args appendString:named.name];
+        [args appendString:@" = _"];
+        [args appendString:named.name];
+        [args appendString:@";\n"];
+    }
+
+
     NSString* body = [[self body] compile];
     NSString* footer = @"}";
-    return [@[header, body, footer] componentsJoinedByString:@"\n"];
+    return [@[header, args, body, footer] componentsJoinedByString:@"\n"];
 }
 
 @end

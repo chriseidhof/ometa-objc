@@ -4,16 +4,19 @@
 
 
 - (CEResultAndStream*)query:(id)stream {
+
 return [self selectQuery:stream];
 }
 
 - (CEResultAndStream*)spaces:(id)stream {
+
 return [self evaluateMany:stream body:^(id stream) {
 return [self evaluateString:stream string:@" "]; 
 }];
 }
 
 - (CEResultAndStream*)fields:(id)stream {
+
 return [self evaluateSeq:stream left:^(id stream) {
 return [self evaluateString:stream string:@"*"]; 
  } right:^(id stream) { 
@@ -22,6 +25,7 @@ return [self spaces:stream];
 }
 
 - (CEResultAndStream*)kSelect:(id)stream {
+
 return [self evaluateSeq:stream left:^(id stream) {
 return [self evaluateString:stream string:@"s"]; 
  } right:^(id stream) { 
@@ -54,6 +58,7 @@ return [self spaces:stream];
 }
 
 - (CEResultAndStream*)kFrom:(id)stream {
+
 return [self evaluateSeq:stream left:^(id stream) {
 return [self evaluateString:stream string:@"f"]; 
  } right:^(id stream) { 
@@ -78,6 +83,7 @@ return [self spaces:stream];
 }
 
 - (CEResultAndStream*)kOrder:(id)stream {
+
 return [self evaluateSeq:stream left:^(id stream) {
 return [self evaluateString:stream string:@"o"]; 
  } right:^(id stream) { 
@@ -102,6 +108,7 @@ return [self evaluateString:stream string:@" "];
 }
 
 - (CEResultAndStream*)kBy:(id)stream {
+
 return [self evaluateSeq:stream left:^(id stream) {
 return [self evaluateString:stream string:@"b"]; 
  } right:^(id stream) { 
@@ -118,6 +125,7 @@ return [self spaces:stream];
 }
 
 - (CEResultAndStream*)kWhere:(id)stream {
+
 return [self evaluateSeq:stream left:^(id stream) {
 return [self evaluateString:stream string:@"w"]; 
  } right:^(id stream) { 
@@ -146,6 +154,7 @@ return [self spaces:stream];
 }
 
 - (CEResultAndStream*)kASC:(id)stream {
+
 return [self evaluateSeq:stream left:^(id stream) {
 return [self evaluateString:stream string:@"A"]; 
  } right:^(id stream) { 
@@ -162,6 +171,7 @@ return [self spaces:stream];
 }
 
 - (CEResultAndStream*)kDESC:(id)stream {
+
 return [self evaluateSeq:stream left:^(id stream) {
 return [self evaluateString:stream string:@"D"]; 
  } right:^(id stream) { 
@@ -182,6 +192,7 @@ return [self spaces:stream];
 }
 
 - (CEResultAndStream*)lower:(id)stream {
+
 __block id d; 
 CEResultAndStream* result = ^{
  CEResultAndStream* dResult = ^{
@@ -198,6 +209,7 @@ return dResult; }();
 }
 
 - (CEResultAndStream*)upper:(id)stream {
+
 __block id d; 
 CEResultAndStream* result = ^{
  CEResultAndStream* dResult = ^{
@@ -214,6 +226,7 @@ return dResult; }();
 }
 
 - (CEResultAndStream*)letter:(id)stream {
+
 return [self evaluateChoice:stream left:^(id stream) {
 return [self lower:stream];
  } right:^(id stream) { 
@@ -222,6 +235,7 @@ return [self upper:stream];
 }
 
 - (CEResultAndStream*)identifier:(id)stream {
+
 __block id name; 
 CEResultAndStream* result = ^{
  return [self evaluateSeq:stream left:^(id stream) {
@@ -244,6 +258,7 @@ return [self spaces:stream];
 }
 
 - (CEResultAndStream*)selectQuery:(id)stream {
+
 __block id fields;
 __block id entityName;
 __block id where;
@@ -302,6 +317,7 @@ return orderResult;
 }
 
 - (CEResultAndStream*)whereClause:(id)stream {
+
 return [self evaluateChoice:stream left:^(id stream) {
 __block id e; 
 CEResultAndStream* result = ^{
@@ -326,6 +342,7 @@ return [self empty:stream];
 }
 
 - (CEResultAndStream*)boolExpr:(id)stream {
+
 __block id field;
 __block id r; 
 CEResultAndStream* result = ^{
@@ -364,14 +381,17 @@ return rResult;
 }
 
 - (CEResultAndStream*)literal:(id)stream {
+
 return [self stringLiteral:stream];
 }
 
 - (CEResultAndStream*)quote:(id)stream {
+
 return [self evaluateString:stream string:@"'"]; 
 }
 
 - (CEResultAndStream*)stringLiteral:(id)stream {
+
 __block id contents; 
 CEResultAndStream* result = ^{
  return [self evaluateSeq:stream left:^(id stream) {
@@ -400,6 +420,7 @@ return [self quote:stream];
 }
 
 - (CEResultAndStream*)orderClause:(id)stream {
+
 return [self evaluateChoice:stream left:^(id stream) {
 __block id i; 
 CEResultAndStream* result = ^{
@@ -428,6 +449,7 @@ return [self empty:stream];
 }
 
 - (CEResultAndStream*)sortDescriptor:(id)stream {
+
 __block id l;
 __block id o; 
 CEResultAndStream* result = ^{
@@ -453,6 +475,7 @@ return oResult;
 }
 
 - (CEResultAndStream*)ordering:(id)stream {
+
 return [self evaluateChoice:stream left:^(id stream) {
  
 CEResultAndStream* result = ^{

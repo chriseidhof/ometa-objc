@@ -36,7 +36,7 @@
 }
 
 - (NSArray*)parseTokens {
-    NSArray* result = [self parseKeyword];
+    NSArray* result = [self parseRuleAppOrKeyword];
     if(!result) result = [self parseComment];
     if(!result) result = [self parseLiteral];
     if(!result) result = [self parseCodeBlock];
@@ -54,6 +54,15 @@
         return @[];
     }
     return nil;
+}
+
+- (NSArray*)parseRuleAppOrKeyword {
+    NSArray* result = [self parseKeyword];
+    if(result.count == 1 && [scanner scanString:@"(" intoString:NULL]) {
+        CEKeywordToken* keyword = result[0];
+        return @[RULEAPP(keyword.keyword)];
+    }
+    return result;
 }
 
 - (NSArray*)parseKeyword {

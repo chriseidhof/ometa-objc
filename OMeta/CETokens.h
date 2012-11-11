@@ -10,3 +10,4 @@
 #import "CECodeToken.h"
 #import "CEOperatorToken.h"
 #import "CELiteralToken.h"
+#import "CERuleApplicationToken.h"

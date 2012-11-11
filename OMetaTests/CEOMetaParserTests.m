@@ -52,9 +52,9 @@
 }
 
 - (void)testParseRuleApp {
-    id ast = [parser parse:@"ometa X { token :t = space* t, x = token ( 'x' )}"];
-    STAssertNotNil(ast, @"Should parse + followed by name");
-    STAssertFalse(YES, @"TODO: ask original ometa authors about this rule. Is this application or a token followed by 'x'?");
+    CEOMetaProgram* ast = [parser parse:@"ometa X { x = token({{{y}}})}"];
+    CEOMetaRule* rule = ast.rules[0];
+    STAssertEqualObjects(rule.body, [[CEOMetaRuleApp alloc] initWithRuleName:@"token" args:@[@"y"]], @"Should parse rule application");
 }
 
 #pragma mark Larger Tests

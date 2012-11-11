@@ -12,5 +12,6 @@
 @interface CEOMetaNamed : NSObject <CEOMetaExp>
 
 - (id)initWithName:(NSString*)name body:(id<CEOMetaExp>)body;
+- (NSString*)name;
 
 @end

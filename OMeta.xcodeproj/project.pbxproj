@@ -52,11 +52,9 @@
 		8371F4F7164FAB5600A05F46 /* ExpRecognizer.ometam in Resources */ = {isa = PBXBuildFile; fileRef = 8371F4F6164FAB5600A05F46 /* ExpRecognizer.ometam */; };
 		8371F500164FD88C00A05F46 /* Query.ometam in Resources */ = {isa = PBXBuildFile; fileRef = 8371F4FF164FD88C00A05F46 /* Query.ometam */; };
 		8371F51B164FE50800A05F46 /* EASTEval.m in Sources */ = {isa = PBXBuildFile; fileRef = 8371F509164FDD0300A05F46 /* EASTEval.m */; };
-		8371F51C164FE50800A05F46 /* Calc.m in Sources */ = {isa = PBXBuildFile; fileRef = 8371F50E164FDD0E00A05F46 /* Calc.m */; };
 		8371F51D164FE50800A05F46 /* Query.m in Sources */ = {isa = PBXBuildFile; fileRef = 8371F511164FDD2700A05F46 /* Query.m */; };
 		8371F51E164FE50800A05F46 /* EAST.m in Sources */ = {isa = PBXBuildFile; fileRef = 8371F507164FDD0300A05F46 /* EAST.m */; };
 		8371F51F164FE50800A05F46 /* E.m in Sources */ = {isa = PBXBuildFile; fileRef = 8371F505164FDD0300A05F46 /* E.m */; };
-		8371F520164FE50800A05F46 /* CEOMetaGeneratedCodeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8371F4F9164FABAD00A05F46 /* CEOMetaGeneratedCodeTests.m */; };
 		8371F52B164FED0A00A05F46 /* TestModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8371F521164FE9A000A05F46 /* TestModel.xcdatamodeld */; };
 		8371F52E164FEF6200A05F46 /* CEMetaTestQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 8371F52D164FEF6200A05F46 /* CEMetaTestQuery.m */; };
 		83756C1E164BB2CA00360B28 /* CEOMetaRepeatOne.m in Sources */ = {isa = PBXBuildFile; fileRef = 83756C1D164BB2CA00360B28 /* CEOMetaRepeatOne.m */; };
@@ -64,6 +62,10 @@
 		83756C25164BBD3700360B28 /* CEOMetaAct.m in Sources */ = {isa = PBXBuildFile; fileRef = 83756C24164BBD3700360B28 /* CEOMetaAct.m */; };
 		83E20282164BF6D200FED94D /* CEOMetaList.m in Sources */ = {isa = PBXBuildFile; fileRef = 83E20281164BF6D200FED94D /* CEOMetaList.m */; };
 		83E20289164C03C400FED94D /* NSArray+Stream.m in Sources */ = {isa = PBXBuildFile; fileRef = 83E20288164C03C400FED94D /* NSArray+Stream.m */; };
+		83F86FD516501C700032A019 /* CERuleApplicationToken.m in Sources */ = {isa = PBXBuildFile; fileRef = 83F86FD416501C700032A019 /* CERuleApplicationToken.m */; };
+		83F86FD916501E6C0032A019 /* CEOMetaRuleApp.m in Sources */ = {isa = PBXBuildFile; fileRef = 83F86FD816501E6C0032A019 /* CEOMetaRuleApp.m */; };
+		83F86FDA1650253A0032A019 /* Calc.m in Sources */ = {isa = PBXBuildFile; fileRef = 8371F50E164FDD0E00A05F46 /* Calc.m */; };
+		83F86FDB165025450032A019 /* CEOMetaGeneratedCodeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8371F4F9164FABAD00A05F46 /* CEOMetaGeneratedCodeTests.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -175,6 +177,10 @@
 		83E20281164BF6D200FED94D /* CEOMetaList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEOMetaList.m; sourceTree = "<group>"; };
 		83E20287164C03C400FED94D /* NSArray+Stream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Stream.h"; sourceTree = "<group>"; };
 		83E20288164C03C400FED94D /* NSArray+Stream.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Stream.m"; sourceTree = "<group>"; };
+		83F86FD316501C700032A019 /* CERuleApplicationToken.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CERuleApplicationToken.h; sourceTree = "<group>"; };
+		83F86FD416501C700032A019 /* CERuleApplicationToken.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CERuleApplicationToken.m; sourceTree = "<group>"; };
+		83F86FD716501E6C0032A019 /* CEOMetaRuleApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEOMetaRuleApp.h; sourceTree = "<group>"; };
+		83F86FD816501E6C0032A019 /* CEOMetaRuleApp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEOMetaRuleApp.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -215,6 +221,8 @@
 				833ECC42164E70D0003CF77D /* CELiteralToken.h */,
 				833ECC43164E70D0003CF77D /* CELiteralToken.m */,
 				833ECC45164E7190003CF77D /* CETokens.h */,
+				83F86FD316501C700032A019 /* CERuleApplicationToken.h */,
+				83F86FD416501C700032A019 /* CERuleApplicationToken.m */,
 			);
 			name = Tokens;
 			sourceTree = "<group>";
@@ -336,6 +344,8 @@
 				83756C24164BBD3700360B28 /* CEOMetaAct.m */,
 				83E20280164BF6D200FED94D /* CEOMetaList.h */,
 				83E20281164BF6D200FED94D /* CEOMetaList.m */,
+				83F86FD716501E6C0032A019 /* CEOMetaRuleApp.h */,
+				83F86FD816501E6C0032A019 /* CEOMetaRuleApp.m */,
 			);
 			name = AST;
 			sourceTree = "<group>";
@@ -569,6 +579,8 @@
 				833ECC41164E6A5C003CF77D /* NSString+Extras.m in Sources */,
 				833ECC44164E70D0003CF77D /* CELiteralToken.m in Sources */,
 				8371F52B164FED0A00A05F46 /* TestModel.xcdatamodeld in Sources */,
+				83F86FD516501C700032A019 /* CERuleApplicationToken.m in Sources */,
+				83F86FD916501E6C0032A019 /* CEOMetaRuleApp.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -580,12 +592,12 @@
 				83718B29164A6B7E00860D8A /* CEOMetaTokenizerTests.m in Sources */,
 				83718B3E164A70ED00860D8A /* CEOMetaParserTests.m in Sources */,
 				8371F51B164FE50800A05F46 /* EASTEval.m in Sources */,
-				8371F51C164FE50800A05F46 /* Calc.m in Sources */,
 				8371F51D164FE50800A05F46 /* Query.m in Sources */,
 				8371F51E164FE50800A05F46 /* EAST.m in Sources */,
 				8371F51F164FE50800A05F46 /* E.m in Sources */,
-				8371F520164FE50800A05F46 /* CEOMetaGeneratedCodeTests.m in Sources */,
 				8371F52E164FEF6200A05F46 /* CEMetaTestQuery.m in Sources */,
+				83F86FDA1650253A0032A019 /* Calc.m in Sources */,
+				83F86FDB165025450032A019 /* CEOMetaGeneratedCodeTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

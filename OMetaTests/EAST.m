@@ -4,6 +4,7 @@
 
 
 - (CEResultAndStream*)dig:(id)stream {
+
 __block id d; 
 CEResultAndStream* result = ^{
  CEResultAndStream* dResult = ^{
@@ -20,6 +21,7 @@ return dResult; }();
 }
 
 - (CEResultAndStream*)num:(id)stream {
+
 __block id ds; 
 CEResultAndStream* result = ^{
  CEResultAndStream* dsResult = ^{
@@ -38,6 +40,7 @@ return dsResult; }();
 }
 
 - (CEResultAndStream*)fac:(id)stream {
+
 return [self evaluateChoice:stream left:^(id stream) {
 __block id x;
 __block id y; 
@@ -100,6 +103,7 @@ return [self num:stream];
 }
 
 - (CEResultAndStream*)exp:(id)stream {
+
 return [self evaluateChoice:stream left:^(id stream) {
 __block id x;
 __block id y; 

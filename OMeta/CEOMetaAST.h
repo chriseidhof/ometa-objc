@@ -18,3 +18,4 @@
 #import "CEOMetaNamed.h"
 #import "CEOMetaAct.h"
 #import "CEOMetaList.h"
+#import "CEOMetaRuleApp.h"

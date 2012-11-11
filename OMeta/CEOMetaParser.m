@@ -74,11 +74,11 @@
 
 - (id<CEOMetaExp>)parseArg {
     id<CEOMetaExp> app = nil;
-    @try {
-        app = [self parseApp];
-    }
-    @catch (NSException *exception) {
-    }
+//    @try {
+//        app = [self parseApp];
+//    }
+//    @catch (NSException *exception) {
+//    }
     [self operator:@":"];
     app =  app ? app : [[CEOMetaApp alloc] initWithName:@"anything"];
     NSString* ident = [self identifier];
@@ -222,6 +222,11 @@
 
 - (id<CEOMetaExp>)parseAtom {
     @try {
+        return [self parseRuleApp];
+    }
+    @catch (NSException* e) {
+    }
+    @try {
         return [self parseApp];
     }
     @catch (NSException *exception) {
@@ -254,6 +259,13 @@
     return nil;
 }
 
+- (id<CEOMetaExp>)parseRuleApp {
+    NSString* ruleName = [self ruleAppToken];
+    NSArray* args = [self parseMany:@selector(parseCode) separatedBy:OP(@",")];
+    [self operator:@")"];
+    return [[CEOMetaRuleApp alloc] initWithRuleName:ruleName args:args];
+}
+
 - (id<CEOMetaExp>)parseApp {
     NSString* token = [self identifier];
     return [[CEOMetaApp alloc] initWithName:token];
@@ -275,6 +287,15 @@
         return [[self processNextToken] operator];
     }
     [NSException raise:@"Expected operator" format:@"Expected operator %@, saw \"%@\", context : %@", operator, token, currentTokens];
+    return nil;
+}
+
+- (NSString*)ruleAppToken {
+    id token = [self peek];
+    if([token isKindOfClass:[CERuleApplicationToken class]]) {
+        return [[self processNextToken] ruleName];
+    }
+    [NSException raise:@"Expected rule application" format:@"Expected rule application, saw \"%@\", context : %@", token, currentTokens];
     return nil;
 }
 

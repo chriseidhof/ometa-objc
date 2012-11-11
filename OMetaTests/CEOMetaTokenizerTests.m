@@ -29,7 +29,7 @@
 - (NSString*)program {
     NSArray* lines = @[ @"// a comment\nometa ExpRecognizer{ {{{x}}} "
                          , @"  dig = '0' | '1' | '9',"
-                         , @"  num = dig+"
+                         , @"  num = dig+ test()"
                       , @"}" ];
     return [lines componentsJoinedByString:@"\n"];
 
@@ -39,7 +39,7 @@
     NSArray* tokenized = [tokenizer tokenize:[self program]];
     NSArray* expectedOutput = @[KEYWORD(@"ometa"),KEYWORD(@"ExpRecognizer"), OP(@"{"), CODE(@"x"), 
                                 KEYWORD(@"dig"), OP(@"="), LIT(@"0"), OP(@"|"), LIT(@"1"), OP(@"|"), LIT(@"9"), OP(@","),
-                                KEYWORD(@"num"),OP(@"="),KEYWORD(@"dig"),OP(@"+"),
+                                KEYWORD(@"num"),OP(@"="),KEYWORD(@"dig"),OP(@"+"),RULEAPP(@"test"),OP(@")"),
                                 OP(@"}")];
     STAssertEqualObjects(tokenized, expectedOutput, @"Tokenizer should parse whitespace");
 }

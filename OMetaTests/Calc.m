@@ -3,7 +3,10 @@
 @implementation Calc
 
  - (void)setup { self.vars = [NSMutableDictionary dictionary]; }  
-- (CEResultAndStream*)dig:(id)stream {
+- (CEResultAndStream*)charRange:(id)stream  :(id)_x :(id)_y{
+id x = _x;
+id y = _y;
+
 __block id d; 
 CEResultAndStream* result = ^{
  CEResultAndStream* dResult = ^{
@@ -11,31 +14,26 @@ return [self char:stream];
 }();
 d = dResult.result;
 return dResult; }();
- if(!result.failed  &&  [d characterAtIndex:0] >= '0' && [d characterAtIndex:0] <= '9'  ) { 
+ if(!result.failed  &&  [d characterAtIndex:0] >= [x characterAtIndex:0] && [d characterAtIndex:0] <= [y characterAtIndex:0]  ) { 
  id actResult =   d  ;
  return [CEResultAndStream result:actResult stream:result.stream];
  } else {
  return fail(stream);
  }
+}
+
+- (CEResultAndStream*)dig:(id)stream {
+
+return [self charRange:stream :@"0" :@"9"];
 }
 
 - (CEResultAndStream*)letter:(id)stream {
-__block id d; 
-CEResultAndStream* result = ^{
- CEResultAndStream* dResult = ^{
-return [self char:stream];
-}();
-d = dResult.result;
-return dResult; }();
- if(!result.failed  &&  [d characterAtIndex:0] >= 'a' && [d characterAtIndex:0] <= 'z'  ) { 
- id actResult =   d  ;
- return [CEResultAndStream result:actResult stream:result.stream];
- } else {
- return fail(stream);
- }
+
+return [self charRange:stream :@"a" :@"z"];
 }
 
 - (CEResultAndStream*)num:(id)stream {
+
 __block id ds; 
 CEResultAndStream* result = ^{
  CEResultAndStream* dsResult = ^{
@@ -54,12 +52,14 @@ return dsResult; }();
 }
 
 - (CEResultAndStream*)spaces:(id)stream {
+
 return [self evaluateMany:stream body:^(id stream) {
 return [self evaluateString:stream string:@" "]; 
 }];
 }
 
 - (CEResultAndStream*)var:(id)stream {
+
 __block id x; 
 CEResultAndStream* result = ^{
  return [self evaluateSeq:stream left:^(id stream) {
@@ -80,6 +80,7 @@ return [self spaces:stream];
 }
 
 - (CEResultAndStream*)prim:(id)stream {
+
 return [self evaluateChoice:stream left:^(id stream) {
 __block id x; 
 CEResultAndStream* result = ^{
@@ -148,6 +149,7 @@ return [self spaces:stream];
 }
 
 - (CEResultAndStream*)mulExp:(id)stream {
+
 return [self evaluateChoice:stream left:^(id stream) {
 __block id x;
 __block id y; 
@@ -218,6 +220,7 @@ return [self prim:stream];
 }
 
 - (CEResultAndStream*)addExp:(id)stream {
+
 return [self evaluateChoice:stream left:^(id stream) {
 __block id x;
 __block id y; 
@@ -288,6 +291,7 @@ return [self mulExp:stream];
 }
 
 - (CEResultAndStream*)exp:(id)stream {
+
 return [self evaluateChoice:stream left:^(id stream) {
 __block id x;
 __block id r; 

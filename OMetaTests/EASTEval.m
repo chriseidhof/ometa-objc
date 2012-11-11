@@ -4,6 +4,7 @@
 
 
 - (CEResultAndStream*)eval:(id)stream {
+
 return [self evaluateChoice:stream left:^(id stream) {
 __block id x; 
 CEResultAndStream* result = ^{
