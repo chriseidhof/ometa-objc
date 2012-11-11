@@ -1,0 +1,14 @@
+ometa Query {
+  query = selectQuery,
+  spaces = ' ' *,
+  fields ='*',
+  letter = char:d ? {{{ [d characterAtIndex:0] >= 'a' && [d characterAtIndex:0] <= 'z' }}} -> {{{ d }}},
+  identifier = letter* : name spaces -> {{{ [name componentsJoinedByString:@""] }}},
+  selectQuery = 'select' spaces fields:fields 'from' spaces identifier:entityName whereClause:where -> {{{
+    NSFetchRequest* f = [NSFetchRequest fetchRequestWithEntityName:entityName];
+    f.predicate = where;
+    return [self.managedObjectContext executeFetchRequest:f error:NULL];
+  }}} ,
+  whereClause = 'where ' spaces boolExpr:e -> {{{ e }}} ,
+  boolExpr = identier:l '=' spaces identifier:r -> {{{ [NSString stringWithFormat:@"%@ = %@", l, r] }}}
+}

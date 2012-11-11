@@ -70,6 +70,10 @@
     [self compileAndWriteToFile:[parser parse:[self program:@"EASTEval"]]];
 }
 
+- (void)testQuery {
+    [self compileAndWriteToFile:[parser parse:[self program:@"Query"]]];
+}
+
 #pragma mark Helper methods
 
 - (NSString*)fileNameForProgram:(NSString*)programName {
@@ -83,7 +87,7 @@
 - (void)compileAndWriteToFile:(CEOMetaProgram*)program {
     NSString* compiled = [program compile];
     NSString* name = program.name;
-    NSString* fileName = [[@"/Users/chris/Dropbox/Development/iPhone/testing/OMeta/OMeta/" stringByAppendingPathComponent:name] stringByAppendingPathExtension:@"m"];;
+    NSString* fileName = [[@"/Users/chris/Dropbox/Development/iPhone/testing/OMeta/OMetaTests/" stringByAppendingPathComponent:name] stringByAppendingPathExtension:@"m"];;
     NSString* header = [@[@"#import \"", name, @".h\"\n\n"] componentsJoinedByString:@""];;
     [[header stringByAppendingString:compiled] writeToFile:fileName atomically:YES encoding:NSUTF8StringEncoding error:nil];
 }

@@ -17,6 +17,7 @@
 #import "EAST.h"
 #import "Calc.h"
 #import "EASTEval.h"
+#import "Query.h"
 
 @implementation CEOMetaGeneratedCodeTests
 
@@ -40,6 +41,11 @@
     [calc exp:@"x=x*x"];
     CEResultAndStream* result = [calc exp:@"x"];
     STAssertTrue([result.result isEqual:@400], @"Calculator should work");
+}
+
+- (void)testQuery {
+    Query* query = [[Query alloc] init];
+    [query query:@"select * from User where a = b"];
 }
 
 @end
