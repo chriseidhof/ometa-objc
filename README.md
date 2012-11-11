@@ -55,6 +55,17 @@ And this is how you use it:
     CEResultAndStream* result = [calc exp:@"x"];
     STAssertTrue([result.result isEqual:@400], @"Calculator should calculate.");
 
+Another interesting example is Query.ometa, translating code like this:
+
+    NSString* q = [NSString stringWithFormat:@"select * from User where name='foo' order by birthDate DESC"];
+    NSArray* result = [query query:q].result;
+
+into this
+    
+    NSFetchRequest* f = [NSFetchRequest fetchRequestWithEntityName:@"User"];
+    f.predicate = [NSPredicate predicateWithFormat:@"name = %@", @"foo"]
+    f.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"birthDate" ascending:NO]];
+    return [self.managedObjectContext executeFetchRequest:f error:NULL];
 
 If you want to debug the code generator, it helps to re-indent the generated
 files before inspecting them. Currently, the debug process for this is a
