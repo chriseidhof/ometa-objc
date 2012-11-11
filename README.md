@@ -33,6 +33,15 @@ working already:
     
     }
 
+And this is how you use it:
+
+    Calc* calc = [[Calc alloc] init];
+    [calc exp:@"x=10+10"];
+    [calc exp:@"x=x*x"];
+    CEResultAndStream* result = [calc exp:@"x"];
+    STAssertTrue([result.result isEqual:@400], @"Calculator should calculate");
+
+
 If you change the code generator, it helps to re-indent the generated
 files before inspecting them.
 
