@@ -26,23 +26,10 @@
     tokenizer = [[CEOMetaTokenizer alloc] init];
 }
 
-- (void)tearDown
-{
-    // Tear-down code here.
-    
-    [super tearDown];
-}
-
 - (NSString*)program {
     NSArray* lines = @[ @"ometa ExpRecognizer{ {{{x}}} "
                          , @"  dig = '0' | '1' | '9',"
                          , @"  num = dig+"
-//                         , @"  fac = fac ’*’ num"
-//                         , @"    | fac ’/’ num"
-//                         , @"    | num ,"
-//                         , @"  exp = exp ’+’ fac"
-//                         , @"    | exp ’-’ fac"
-//                         , @"    | fac"
                       , @"}" ];
     return [lines componentsJoinedByString:@"\n"];
 
@@ -56,5 +43,14 @@
                                 OP(@"}")];
     STAssertEqualObjects(tokenized, expectedOutput, @"Tokenizer should parse whitespace");
 }
+
+- (void)testEscape {
+    NSArray* tokenized = [tokenizer tokenize:@"'\\n' '\\''"];
+    NSArray* expectedOutput = @[LIT(@"\\n"), LIT(@"'")];
+    STAssertEqualObjects(tokenized, expectedOutput, @"Expect escaping to work");
+}
+
+
+
 
 @end

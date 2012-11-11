@@ -1,0 +1,10 @@
+ometa E {
+dig = char : d ? {{{ [d characterAtIndex:0] >= '0' && [d characterAtIndex:0] <= '9' }}} -> {{{ d }}} ,
+num = ( dig + ) : ds -> {{{ @([[ds componentsJoinedByString:@""] integerValue]) }}} ,
+fac = num : x '*' fac : y -> {{{ @([x integerValue] * [y integerValue]) }}}
+    | num : x '/' fac : y -> {{{ @([x integerValue] / [y integerValue]) }}}
+    | num ,
+exp = fac : x '+' exp : y -> {{{ @([x integerValue] + [y integerValue]) }}}
+    | fac : x '-' exp : y -> {{{ @([x integerValue] - [y integerValue]) }}}
+    | fac
+}

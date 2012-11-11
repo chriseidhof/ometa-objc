@@ -1,0 +1,7 @@
+ometa EASTEval {
+eval = ['n' anything:x] -> {{{ x }}} 
+     | ['a' eval:x  eval:y] -> {{{ @([x intValue] + [y intValue]) }}} 
+     | ['m' eval:x  eval:y] -> {{{ @([x intValue] * [y intValue]) }}} 
+     | ['r' eval:x  eval:y] -> {{{ @([x intValue] - [y intValue]) }}} 
+     | ['d' eval:x  eval:y] -> {{{ @([x intValue] / [y intValue]) }}} 
+}

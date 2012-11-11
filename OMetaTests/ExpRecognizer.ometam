@@ -1,0 +1,6 @@
+ometa ExpRecognizer {
+   num = dig*,
+   fac = num '*' fac | num '/' fac | num, 
+   exp = fac '+' exp | fac '-' exp, 
+   dig = '0' | '1'
+}
