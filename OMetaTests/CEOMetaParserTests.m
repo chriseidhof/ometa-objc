@@ -9,14 +9,7 @@
 #import "CEOMetaParserTests.h"
 #import "CEOMetaParser.h"
 #import "CEOMetaTokenizer.h"
-#import "CEOMetaProgram.h"
-#import "CEOMetaRule.h"
-#import "CEOMetaApp.h"
-#import "CEOMetaChoice.h"
-#import "CEOMetaSeq.h"
-#import "CEOMetaRepeatMany.h"
-#import "CEOMetaNot.h"
-#import "CEOMetaString.h"
+#import "CEOMetaAST.h"
 
 @interface CEOMetaParserTests () {
     CEOMetaParser* parser;

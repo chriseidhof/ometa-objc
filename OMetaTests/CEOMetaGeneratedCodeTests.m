@@ -6,6 +6,12 @@
 //  Copyright (c) 2012 Chris Eidhof. All rights reserved.
 //
 
+// ************
+//     NOTE
+// ************
+// In order for these tests to succeed, you might need to run the test-suite twice
+// (the files here get generated in the CEOMetaParserTests class)
+
 #import "CEOMetaGeneratedCodeTests.h"
 #import "E.h"
 #import "EAST.h"

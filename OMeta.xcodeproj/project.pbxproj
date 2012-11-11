@@ -150,6 +150,7 @@
 		8371F4F6164FAB5600A05F46 /* ExpRecognizer.ometam */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ExpRecognizer.ometam; sourceTree = "<group>"; };
 		8371F4F8164FABAD00A05F46 /* CEOMetaGeneratedCodeTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEOMetaGeneratedCodeTests.h; sourceTree = "<group>"; };
 		8371F4F9164FABAD00A05F46 /* CEOMetaGeneratedCodeTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEOMetaGeneratedCodeTests.m; sourceTree = "<group>"; };
+		8371F4FD164FAE1600A05F46 /* CEOMetaAST.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CEOMetaAST.h; sourceTree = "<group>"; };
 		83756C1C164BB2CA00360B28 /* CEOMetaRepeatOne.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEOMetaRepeatOne.h; sourceTree = "<group>"; };
 		83756C1D164BB2CA00360B28 /* CEOMetaRepeatOne.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEOMetaRepeatOne.m; sourceTree = "<group>"; };
 		83756C20164BB6DD00360B28 /* CEOMetaNamed.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEOMetaNamed.h; sourceTree = "<group>"; };
@@ -195,8 +196,6 @@
 		833ECC35164E512F003CF77D /* Tokens */ = {
 			isa = PBXGroup;
 			children = (
-				83718B2A164A6B9C00860D8A /* CEOMetaTokenizer.h */,
-				83718B2B164A6B9C00860D8A /* CEOMetaTokenizer.m */,
 				833ECC36164E513C003CF77D /* CEKeywordToken.h */,
 				833ECC37164E513C003CF77D /* CEKeywordToken.m */,
 				833ECC39164E519B003CF77D /* CECodeToken.h */,
@@ -244,22 +243,13 @@
 		83718AF1164A6AA900860D8A /* OMeta */ = {
 			isa = PBXGroup;
 			children = (
-				83718B37164A6FCB00860D8A /* THBlocks.h */,
-				83718B34164A6FB100860D8A /* NSArray+Extensions.h */,
-				83718B35164A6FB100860D8A /* NSArray+Extensions.m */,
 				83718AFA164A6AA900860D8A /* CEAppDelegate.h */,
 				83718AFB164A6AA900860D8A /* CEAppDelegate.m */,
 				83718B03164A6AA900860D8A /* OMeta.xcdatamodeld */,
+				8371F4FB164FAD3800A05F46 /* Parser/Tokenizer */,
+				83718B62164AC26500860D8A /* Evaluator */,
+				8371F4FC164FAD7500A05F46 /* Categories */,
 				83718AF2164A6AA900860D8A /* Supporting Files */,
-				83718B24164A6B0C00860D8A /* CEOMetaParser.h */,
-				83718B25164A6B0C00860D8A /* CEOMetaParser.m */,
-				833ECC35164E512F003CF77D /* Tokens */,
-				83718B3B164A70CE00860D8A /* OMeta AST */,
-				83718B5F164ABF7C00860D8A /* CEResultAndStream.h */,
-				83718B60164ABF7D00860D8A /* CEResultAndStream.m */,
-				83E2027C164BECB700FED94D /* Generated */,
-				833ECC3F164E6A5B003CF77D /* NSString+Extras.h */,
-				833ECC40164E6A5C003CF77D /* NSString+Extras.m */,
 			);
 			path = OMeta;
 			sourceTree = "<group>";
@@ -304,18 +294,10 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		83718B3B164A70CE00860D8A /* OMeta AST */ = {
+		83718B5B164AB9DF00860D8A /* AST */ = {
 			isa = PBXGroup;
 			children = (
-				83718B62164AC26500860D8A /* BaseClasses */,
-				83718B5B164AB9DF00860D8A /* Values */,
-			);
-			name = "OMeta AST";
-			sourceTree = "<group>";
-		};
-		83718B5B164AB9DF00860D8A /* Values */ = {
-			isa = PBXGroup;
-			children = (
+				8371F4FD164FAE1600A05F46 /* CEOMetaAST.h */,
 				83718B38164A70C900860D8A /* CEOMetaProgram.h */,
 				83718B39164A70C900860D8A /* CEOMetaProgram.m */,
 				83718B45164A78BE00860D8A /* CEOMetaRule.h */,
@@ -342,12 +324,14 @@
 				83E20280164BF6D200FED94D /* CEOMetaList.h */,
 				83E20281164BF6D200FED94D /* CEOMetaList.m */,
 			);
-			name = Values;
+			name = AST;
 			sourceTree = "<group>";
 		};
-		83718B62164AC26500860D8A /* BaseClasses */ = {
+		83718B62164AC26500860D8A /* Evaluator */ = {
 			isa = PBXGroup;
 			children = (
+				83718B5F164ABF7C00860D8A /* CEResultAndStream.h */,
+				83718B60164ABF7D00860D8A /* CEResultAndStream.m */,
 				83718B63164AC28300860D8A /* CEEvaluator.h */,
 				83718B64164AC28300860D8A /* CEEvaluator.m */,
 				83718B6B164AD12300860D8A /* NSString+Stream.h */,
@@ -355,7 +339,7 @@
 				83E20287164C03C400FED94D /* NSArray+Stream.h */,
 				83E20288164C03C400FED94D /* NSArray+Stream.m */,
 			);
-			name = BaseClasses;
+			name = Evaluator;
 			sourceTree = "<group>";
 		};
 		8371F4F0164FA9C600A05F46 /* Example Programs */ = {
@@ -386,11 +370,29 @@
 			name = Compiled;
 			sourceTree = "<group>";
 		};
-		83E2027C164BECB700FED94D /* Generated */ = {
+		8371F4FB164FAD3800A05F46 /* Parser/Tokenizer */ = {
 			isa = PBXGroup;
 			children = (
+				83718B2A164A6B9C00860D8A /* CEOMetaTokenizer.h */,
+				83718B2B164A6B9C00860D8A /* CEOMetaTokenizer.m */,
+				83718B24164A6B0C00860D8A /* CEOMetaParser.h */,
+				83718B25164A6B0C00860D8A /* CEOMetaParser.m */,
+				833ECC35164E512F003CF77D /* Tokens */,
+				83718B5B164AB9DF00860D8A /* AST */,
 			);
-			name = Generated;
+			name = Parser/Tokenizer;
+			sourceTree = "<group>";
+		};
+		8371F4FC164FAD7500A05F46 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				83718B37164A6FCB00860D8A /* THBlocks.h */,
+				83718B34164A6FB100860D8A /* NSArray+Extensions.h */,
+				83718B35164A6FB100860D8A /* NSArray+Extensions.m */,
+				833ECC3F164E6A5B003CF77D /* NSString+Extras.h */,
+				833ECC40164E6A5C003CF77D /* NSString+Extras.m */,
+			);
+			name = Categories;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

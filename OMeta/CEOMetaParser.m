@@ -7,18 +7,7 @@
 //
 
 #import "CEOMetaParser.h"
-#import "CEOMetaProgram.h"
-#import "CEOMetaRule.h"
-#import "CEOMetaExp.h"
-#import "CEOMetaChoice.h"
-#import "CEOMetaSeq.h"
-#import "CEOMetaRepeatMany.h"
-#import "CEOMetaNot.h"
-#import "CEOMetaString.h"
-#import "CEOMetaRepeatOne.h"
-#import "CEOMetaNamed.h"
-#import "CEOMetaAct.h"
-#import "CEOMetaList.h"
+#import "CEOMetaAST.h"
 #import "CETokens.h"
 
 @interface CEOMetaParser () {
