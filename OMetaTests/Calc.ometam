@@ -5,7 +5,7 @@ ometa Calc {
   dig = char:d ? {{{ [d characterAtIndex:0] >= '0' && [d characterAtIndex:0] <= '9' }}} -> {{{ d }}},
   letter = char:d ? {{{ [d characterAtIndex:0] >= 'a' && [d characterAtIndex:0] <= 'z' }}} -> {{{ d }}},
 
-  num = (dig+) : ds -> {{{ @([[ds componentsJoinedByString:@""] integerValue]) }}},
+  num = dig+ : ds -> {{{ @([[ds componentsJoinedByString:@""] integerValue]) }}},
 
   space = '_',
 

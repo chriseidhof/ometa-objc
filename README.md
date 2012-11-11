@@ -10,7 +10,7 @@ working already:
       dig = char:d ? {{{ [d characterAtIndex:0] >= '0' && [d characterAtIndex:0] <= '9' }}} -> {{{ d }}},
       letter = char:d ? {{{ [d characterAtIndex:0] >= 'a' && [d characterAtIndex:0] <= 'z' }}} -> {{{ d }}},
     
-      num = (dig+) : ds -> {{{ @([[ds componentsJoinedByString:@""] integerValue]) }}},
+      num = dig+ : ds -> {{{ @([[ds componentsJoinedByString:@""] integerValue]) }}},
     
       space = '_',
     
@@ -66,3 +66,4 @@ in `{{{` and `}}}`. Maybe add an ObjC parser? This will be difficult.
   we support any kind of object?
 * Use a proper pretty-printer for compiling the expressions.
 * Use clang to parse expressions?
+* Think of left-factoring, look at Doaitse's ideas about this, and how OMeta/JS does it
