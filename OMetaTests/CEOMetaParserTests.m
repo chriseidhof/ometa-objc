@@ -176,8 +176,9 @@
 }
 
 - (void)testEscape {
-    id ast = [parser parse:@"ometa X { x='\n', y = '\''}"];
-    STAssertNotNil(ast, @"Should parse an escaped quote");
+    CEOMetaProgram* ast = [parser parse:@"ometa X { x='\\n', y = '\\''}"];
+    STAssertEqualObjects([ast.rules[0] body], [[CEOMetaString alloc] initWithString:@"\\n"], @"Should parse escaped newline");
+    STAssertEqualObjects([ast.rules[1] body], [[CEOMetaString alloc] initWithString:@"'"], @"Should parse escaped quote");
 }
 
 @end

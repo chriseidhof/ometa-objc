@@ -32,7 +32,7 @@
 - (BOOL)isEqual:(id)object {
     if([object isKindOfClass:[self class]]) {
         CEOMetaString* other = (CEOMetaString*)object;
-        return self.string == other.string;
+        return [self.string isEqual:other.string];
     }
     return NO;
 }

@@ -56,12 +56,29 @@
 
 - (NSArray*)parseLiteral {
     if([scanner scanString:@"'" intoString:NULL]) {
+        NSCharacterSet* quoteOrBackslash = [NSCharacterSet characterSetWithCharactersInString:@"'\\"];
+        NSCharacterSet* other = [quoteOrBackslash invertedSet];
+        NSMutableString* result = [NSMutableString string];
         NSString* literal = nil;
-        [scanner scanUpToString:@"'" intoString:&literal];
-        [scanner scanString:@"'" intoString:nil];
-        if(literal) {
-            return @[LIT(literal)];
+        BOOL done = NO;
+        while(!done) {
+            if([scanner scanCharactersFromSet:other intoString:&literal]) {
+                [result appendString:literal];
+            }
+            else if([scanner scanString:@"\\" intoString:NULL]) {
+                if([scanner scanString:@"'" intoString:NULL]) {
+                    [result appendString:@"'"];
+                } else {
+                    [result appendString:@"\\"];
+                }
+            }
+            else if([scanner scanString:@"'" intoString:NULL]) {
+                done = YES;
+            } else {
+                assert(NO);
+            }
         }
+        return @[LIT(result)];
     }
     return nil;
 }
