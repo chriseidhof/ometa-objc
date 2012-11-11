@@ -84,8 +84,7 @@ ideas I have for languages built on top of the ObjC runtime.
 
 # TODO
 
-* Implement parametrized rules
-* Is the last array result checked? WRITE A TESTCASE
+* Implement parametrized rules (in progress)
 * Implement higher-order rules
 * Clean up the parser (it's a bit complicated)
 * Find out how to use this in a real project (how to include this in a Build Phase)

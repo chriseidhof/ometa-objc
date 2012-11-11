@@ -2,7 +2,7 @@ ometa Calc {
 
   {{{ - (void)setup { self.vars = [NSMutableDictionary dictionary]; }  }}}
 
-  charRange :x :y = char:d ? {{{ [d characterAtIndex:0] >= [x characterAtIndex:0] && [d characterAtIndex:0] <= [y characterAtIndex:0] }}} -> {{{ d }}} ,
+  charRange char:x char:y = char:d ? {{{ [d characterAtIndex:0] >= [x characterAtIndex:0] && [d characterAtIndex:0] <= [y characterAtIndex:0] }}} -> {{{ d }}} ,
   dig = charRange({{{@"0"}}},{{{@"9"}}}),
   letter = charRange({{{@"a"}}},{{{@"z"}}}),
 

@@ -57,7 +57,7 @@
     STAssertEqualObjects(rule.body, [[CEOMetaRuleApp alloc] initWithRuleName:@"token" args:@[@"y"]], @"Should parse rule application");
 }
 
-#pragma mark Larger Tests
+#pragma mark Two-phase tests
 
 - (void)testCalc {
     [self compileAndWriteToFile:[parser parse:[self program:@"Calc"]]];
@@ -65,6 +65,11 @@
 - (void)testSimpleProgram {
     id result = [parser parse:[self program:@"ExpRecognizer"]];
     STAssertNotNil(result, @"Tokenizer should parse simple program");
+}
+
+- (void)testList {
+    NSString* list = @"ometa List { parse = [' ']}";
+    [self compileAndWriteToFile:[parser parse:list]];
 }
 
 - (void)testCompileExp {
