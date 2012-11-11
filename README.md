@@ -51,6 +51,12 @@ project doesn't compile).
 
 * http://tinlizzie.org/~awarth/papers/dls07.pdf
 
+# Why?
+
+I wanted to learn OMeta and implementing it yourself is a fun and
+interesting way. I also think it could be very useful to prototype some
+ideas I have for languages built on top of the ObjC runtime.
+
 # TODO
 
 * Implement parametrized rules
