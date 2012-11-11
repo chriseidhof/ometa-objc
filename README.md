@@ -33,13 +33,27 @@ working already:
     
     }
 
+To compile this code into a .m file, you can do the following:
+
+    CEOMetaTokenizer* tokenizer = [[CEOMetaTokenizer alloc] init];
+    parser = [[CEOMetaParser alloc] initWithTokenizer:tokenizer];
+    [self compileAndWriteToFile:[parser parse:input]];
+
+    - (void)compileAndWriteToFile:(CEOMetaProgram*)program {
+        NSString* compiled = [program compile];
+        NSString* name = program.name;
+        NSString* fileName = [[@"/Users/chris/Dropbox/Development/iPhone/testing/OMeta/OMeta/" stringByAppendingPathComponent:name] stringByAppendingPathExtension:@"m"];;
+        NSString* header = [@[@"#import \"", name, @".h\"\n\n"] componentsJoinedByString:@""];;
+        [[header stringByAppendingString:compiled] writeToFile:fileName atomically:YES encoding:NSUTF8StringEncoding error:nil];
+    }
+
 And this is how you use it:
 
     Calc* calc = [[Calc alloc] init];
     [calc exp:@"x=10+10"];
     [calc exp:@"x=x*x"];
     CEResultAndStream* result = [calc exp:@"x"];
-    STAssertTrue([result.result isEqual:@400], @"Calculator should calculate");
+    STAssertTrue([result.result isEqual:@400], @"Calculator should calculate.");
 
 
 If you want to debug the code generator, it helps to re-indent the generated
