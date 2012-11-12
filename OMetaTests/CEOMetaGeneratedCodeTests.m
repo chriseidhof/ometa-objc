@@ -18,6 +18,7 @@
 #import "Calc.h"
 #import "EASTEval.h"
 #import "Query.h"
+#import "Predicate.h"
 
 @implementation CEOMetaGeneratedCodeTests
 
@@ -41,6 +42,11 @@
     [calc exp:@"x=x*x"];
     CEResultAndStream* result = [calc exp:@"x"];
     STAssertTrue([result.result isEqual:@400], @"Calculator should work");
+}
+
+- (void)testSemi {
+    Predicate* predicate = [[Predicate alloc] init];
+    STAssertNil([predicate print:@";"].result, @"Should parse ;");
 }
 
 @end

@@ -12,8 +12,9 @@ ometa Query {
   kWhere = 'w' 'h' 'e' 'r' 'e' ' ' spaces ,
   kASC = 'A' 'S' 'C' spaces,
   kDESC = 'D' 'E' 'S' 'C' spaces,
-  lower = char:d ? {{{ [d characterAtIndex:0] >= 'a' && [d characterAtIndex:0] <= 'z' }}} -> {{{ d }}},
-  upper = char:d ? {{{ [d characterAtIndex:0] >= 'A' && [d characterAtIndex:0] <= 'Z' }}} -> {{{ d }}},
+  charRange :x :y = char:d ? {{{ [d characterAtIndex:0] >= [x characterAtIndex:0] && [d characterAtIndex:0] <= [y characterAtIndex:0] }}} -> {{{ d }}} ,
+  lower = charRange({{{@"a"}}},{{{@"z"}}}),
+  upper = charRange({{{@"A"}}},{{{@"Z"}}}),
   letter = lower | upper,
   identifier = letter* : name spaces -> {{{ [name componentsJoinedByString:@""] }}},
   selectQuery = kSelect fields:fields kFrom identifier:entityName whereClause:where orderClause:order -> {{{

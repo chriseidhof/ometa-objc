@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		83191BA316502DC500F9595F /* List.m in Sources */ = {isa = PBXBuildFile; fileRef = 83191BA216502DC500F9595F /* List.m */; };
+		83191BA7165048BD00F9595F /* Predicate.m in Sources */ = {isa = PBXBuildFile; fileRef = 83191BA6165048BD00F9595F /* Predicate.m */; };
 		833ECC27164D08E6003CF77D /* Calc.ometam in Resources */ = {isa = PBXBuildFile; fileRef = 833ECC26164D08E6003CF77D /* Calc.ometam */; };
 		833ECC38164E513C003CF77D /* CEKeywordToken.m in Sources */ = {isa = PBXBuildFile; fileRef = 833ECC37164E513C003CF77D /* CEKeywordToken.m */; };
 		833ECC3B164E519B003CF77D /* CECodeToken.m in Sources */ = {isa = PBXBuildFile; fileRef = 833ECC3A164E519B003CF77D /* CECodeToken.m */; };
@@ -82,6 +83,8 @@
 /* Begin PBXFileReference section */
 		83191BA116502DC500F9595F /* List.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = List.h; sourceTree = "<group>"; };
 		83191BA216502DC500F9595F /* List.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = List.m; sourceTree = "<group>"; };
+		83191BA5165048BD00F9595F /* Predicate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Predicate.h; sourceTree = "<group>"; };
+		83191BA6165048BD00F9595F /* Predicate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Predicate.m; sourceTree = "<group>"; };
 		833ECC26164D08E6003CF77D /* Calc.ometam */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Calc.ometam; sourceTree = "<group>"; };
 		833ECC36164E513C003CF77D /* CEKeywordToken.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEKeywordToken.h; sourceTree = "<group>"; };
 		833ECC37164E513C003CF77D /* CEKeywordToken.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEKeywordToken.m; sourceTree = "<group>"; };
@@ -397,6 +400,8 @@
 				8371F511164FDD2700A05F46 /* Query.m */,
 				83191BA116502DC500F9595F /* List.h */,
 				83191BA216502DC500F9595F /* List.m */,
+				83191BA5165048BD00F9595F /* Predicate.h */,
+				83191BA6165048BD00F9595F /* Predicate.m */,
 			);
 			name = Compiled;
 			sourceTree = "<group>";
@@ -604,6 +609,7 @@
 				83F86FDA1650253A0032A019 /* Calc.m in Sources */,
 				83F86FDB165025450032A019 /* CEOMetaGeneratedCodeTests.m in Sources */,
 				83191BA316502DC500F9595F /* List.m in Sources */,
+				83191BA7165048BD00F9595F /* Predicate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -74,11 +74,11 @@
 
 - (id<CEOMetaExp>)parseArg {
     id<CEOMetaExp> app = nil;
-//    @try {
-//        app = [self parseApp];
-//    }
-//    @catch (NSException *exception) {
-//    }
+    @try {
+        app = [self parseApp];
+    }
+    @catch (NSException *exception) {
+    }
     [self operator:@":"];
     app =  app ? app : [[CEOMetaApp alloc] initWithName:@"anything"];
     NSString* ident = [self identifier];

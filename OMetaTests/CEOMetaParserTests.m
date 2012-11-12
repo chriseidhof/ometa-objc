@@ -72,6 +72,12 @@
     [self compileAndWriteToFile:[parser parse:list]];
 }
 
+- (void)testPredicate {
+    NSString* predicate = @"ometa Predicate { isTrue = anything : z ? {{{[z intValue] > 6}}} -> {{{nil}}}, semi isTrue:x = ';' -> {{{x[0]}}}, print = semi({{{@[@5]}}})}";
+    [self compileAndWriteToFile:[parser parse:predicate]];
+}
+
+
 - (void)testCompileExp {
     [self compileAndWriteToFile:[parser parse:[self program:@"E"]]];
 }
