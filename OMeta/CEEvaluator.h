@@ -13,6 +13,7 @@
 
 - (id)peek;
 - (CEResultAndStream*)token;
+- (NSInteger)remainingTokens;
 
 @end
 

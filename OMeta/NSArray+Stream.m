@@ -10,6 +10,10 @@
 
 @implementation NSArray (Stream)
 
+- (NSInteger)remainingTokens {
+    return self.count;
+}
+
 - (id)peek {
     if(self.count > 0) {
         return self[0];

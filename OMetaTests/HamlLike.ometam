@@ -1,0 +1,16 @@
+ometa HamlLike {
+  view = '%' className:n -> {{{ [[NSClassFromString(n) alloc] init] }}},
+  property :viewName = anything:p -> {{{ ^{NSLog(@"%@.%@", viewName, p); return p;}() }}},
+  className = identifier,
+  
+  line :context = [ view:x anything:y ] -> {{{ ^{[context addSubview:x]; return x;} }}}
+               // | [ (property(context) : x) anything:y ] -> {{{ x }}}
+               ,
+  
+  identifier = letter* : xs -> {{{[xs componentsJoinedByString:@""]}}},
+  lower = charRange({{{@"a"}}},{{{@"z"}}}),
+  upper = charRange({{{@"A"}}},{{{@"Z"}}}),
+  letter = lower | upper,
+  charRange :x :y = char:d ? {{{ [d characterAtIndex:0] >= [x characterAtIndex:0] && [d characterAtIndex:0] <= [y characterAtIndex:0] }}} -> {{{ d }}} ,
+
+}

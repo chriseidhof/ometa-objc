@@ -44,6 +44,7 @@
 - (CEResultAndStream*)evaluateMany:(id<Stream>)stream body:(evaluator)body {
     CEResultAndStream* x = body(stream);
     if(!x.failed) {
+        assert([stream remainingTokens] > [x.stream remainingTokens]);
         CEResultAndStream* y = [self evaluateMany:x.stream body:body];
         if(y.result) {
             return [CEResultAndStream result:[@[x.result] arrayByAddingObjectsFromArray:y.result] stream:y.stream];
@@ -89,7 +90,10 @@
 }
 
 - (CEResultAndStream*)anything:(id<Stream>)stream {
-    return [stream token];
+    if([stream remainingTokens] > 0) {
+        return [stream token];
+    }
+    return fail(stream);
 }
 
 - (CEResultAndStream*)not:(id<Stream>)stream body:(evaluator)body {
@@ -106,7 +110,10 @@
 }
 
 - (CEResultAndStream*)eof:(id<Stream>)stream {
-    return [CEResultAndStream result:@([stream peek] == nil) stream:stream];
+    if([stream remainingTokens] == 0) {
+        return [CEResultAndStream result:@YES stream:stream];
+    }
+    return fail(stream);
 }
 
 @end

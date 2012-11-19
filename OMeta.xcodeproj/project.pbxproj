@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		830975951657C3E600EC8D51 /* Constraints.ometam in Resources */ = {isa = PBXBuildFile; fileRef = 830975941657C3E600EC8D51 /* Constraints.ometam */; };
+		8309759D1657C4FA00EC8D51 /* Constraints.m in Sources */ = {isa = PBXBuildFile; fileRef = 8309759C1657C4FA00EC8D51 /* Constraints.m */; };
+		830975A11657CC8A00EC8D51 /* CEOMetaTestConstraints.m in Sources */ = {isa = PBXBuildFile; fileRef = 830975A01657CC8A00EC8D51 /* CEOMetaTestConstraints.m */; };
+		830975A71657F0C300EC8D51 /* HamlLike.ometam in Resources */ = {isa = PBXBuildFile; fileRef = 830975A61657F0C300EC8D51 /* HamlLike.ometam */; };
+		830975B21657F7FA00EC8D51 /* CEOMetaTestHamlLike.m in Sources */ = {isa = PBXBuildFile; fileRef = 830975B11657F7FA00EC8D51 /* CEOMetaTestHamlLike.m */; };
 		83191BA316502DC500F9595F /* List.m in Sources */ = {isa = PBXBuildFile; fileRef = 83191BA216502DC500F9595F /* List.m */; };
 		83191BA7165048BD00F9595F /* Predicate.m in Sources */ = {isa = PBXBuildFile; fileRef = 83191BA6165048BD00F9595F /* Predicate.m */; };
 		833ECC27164D08E6003CF77D /* Calc.ometam in Resources */ = {isa = PBXBuildFile; fileRef = 833ECC26164D08E6003CF77D /* Calc.ometam */; };
@@ -59,9 +64,13 @@
 		8371F51F164FE50800A05F46 /* E.m in Sources */ = {isa = PBXBuildFile; fileRef = 8371F505164FDD0300A05F46 /* E.m */; };
 		8371F52B164FED0A00A05F46 /* TestModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8371F521164FE9A000A05F46 /* TestModel.xcdatamodeld */; };
 		8371F52E164FEF6200A05F46 /* CEMetaTestQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 8371F52D164FEF6200A05F46 /* CEMetaTestQuery.m */; };
+		8375020E1658041200D01770 /* Indentation.m in Sources */ = {isa = PBXBuildFile; fileRef = 8375020D1658041200D01770 /* Indentation.m */; };
+		837502111658089000D01770 /* HamlLike.m in Sources */ = {isa = PBXBuildFile; fileRef = 837502101658089000D01770 /* HamlLike.m */; };
+		837502131658089D00D01770 /* Indentation.ometam in Resources */ = {isa = PBXBuildFile; fileRef = 837502121658089D00D01770 /* Indentation.ometam */; };
 		83756C1E164BB2CA00360B28 /* CEOMetaRepeatOne.m in Sources */ = {isa = PBXBuildFile; fileRef = 83756C1D164BB2CA00360B28 /* CEOMetaRepeatOne.m */; };
 		83756C22164BB6DD00360B28 /* CEOMetaNamed.m in Sources */ = {isa = PBXBuildFile; fileRef = 83756C21164BB6DD00360B28 /* CEOMetaNamed.m */; };
 		83756C25164BBD3700360B28 /* CEOMetaAct.m in Sources */ = {isa = PBXBuildFile; fileRef = 83756C24164BBD3700360B28 /* CEOMetaAct.m */; };
+		838DF649165A52A50054264B /* DoNotation.ometam in Resources */ = {isa = PBXBuildFile; fileRef = 838DF648165A52A50054264B /* DoNotation.ometam */; };
 		83E20282164BF6D200FED94D /* CEOMetaList.m in Sources */ = {isa = PBXBuildFile; fileRef = 83E20281164BF6D200FED94D /* CEOMetaList.m */; };
 		83E20289164C03C400FED94D /* NSArray+Stream.m in Sources */ = {isa = PBXBuildFile; fileRef = 83E20288164C03C400FED94D /* NSArray+Stream.m */; };
 		83F86FD516501C700032A019 /* CERuleApplicationToken.m in Sources */ = {isa = PBXBuildFile; fileRef = 83F86FD416501C700032A019 /* CERuleApplicationToken.m */; };
@@ -81,6 +90,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		830975941657C3E600EC8D51 /* Constraints.ometam */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Constraints.ometam; sourceTree = "<group>"; };
+		8309759B1657C4FA00EC8D51 /* Constraints.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constraints.h; sourceTree = "<group>"; };
+		8309759C1657C4FA00EC8D51 /* Constraints.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constraints.m; sourceTree = "<group>"; };
+		8309759F1657CC8A00EC8D51 /* CEOMetaTestConstraints.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEOMetaTestConstraints.h; sourceTree = "<group>"; };
+		830975A01657CC8A00EC8D51 /* CEOMetaTestConstraints.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEOMetaTestConstraints.m; sourceTree = "<group>"; };
+		830975A61657F0C300EC8D51 /* HamlLike.ometam */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = HamlLike.ometam; sourceTree = "<group>"; };
+		830975B01657F7FA00EC8D51 /* CEOMetaTestHamlLike.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEOMetaTestHamlLike.h; sourceTree = "<group>"; };
+		830975B11657F7FA00EC8D51 /* CEOMetaTestHamlLike.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEOMetaTestHamlLike.m; sourceTree = "<group>"; };
 		83191BA116502DC500F9595F /* List.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = List.h; sourceTree = "<group>"; };
 		83191BA216502DC500F9595F /* List.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = List.m; sourceTree = "<group>"; };
 		83191BA5165048BD00F9595F /* Predicate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Predicate.h; sourceTree = "<group>"; };
@@ -173,12 +190,18 @@
 		8371F522164FE9A000A05F46 /* TestModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TestModel.xcdatamodel; sourceTree = "<group>"; };
 		8371F52C164FEF6100A05F46 /* CEMetaTestQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEMetaTestQuery.h; sourceTree = "<group>"; };
 		8371F52D164FEF6200A05F46 /* CEMetaTestQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEMetaTestQuery.m; sourceTree = "<group>"; };
+		8375020C1658041200D01770 /* Indentation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Indentation.h; sourceTree = "<group>"; };
+		8375020D1658041200D01770 /* Indentation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Indentation.m; sourceTree = "<group>"; };
+		8375020F1658089000D01770 /* HamlLike.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HamlLike.h; sourceTree = "<group>"; };
+		837502101658089000D01770 /* HamlLike.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HamlLike.m; sourceTree = "<group>"; };
+		837502121658089D00D01770 /* Indentation.ometam */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Indentation.ometam; sourceTree = "<group>"; };
 		83756C1C164BB2CA00360B28 /* CEOMetaRepeatOne.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEOMetaRepeatOne.h; sourceTree = "<group>"; };
 		83756C1D164BB2CA00360B28 /* CEOMetaRepeatOne.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEOMetaRepeatOne.m; sourceTree = "<group>"; };
 		83756C20164BB6DD00360B28 /* CEOMetaNamed.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEOMetaNamed.h; sourceTree = "<group>"; };
 		83756C21164BB6DD00360B28 /* CEOMetaNamed.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEOMetaNamed.m; sourceTree = "<group>"; };
 		83756C23164BBD3700360B28 /* CEOMetaAct.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEOMetaAct.h; sourceTree = "<group>"; };
 		83756C24164BBD3700360B28 /* CEOMetaAct.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEOMetaAct.m; sourceTree = "<group>"; };
+		838DF648165A52A50054264B /* DoNotation.ometam */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = DoNotation.ometam; sourceTree = "<group>"; };
 		83E20280164BF6D200FED94D /* CEOMetaList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEOMetaList.h; sourceTree = "<group>"; };
 		83E20281164BF6D200FED94D /* CEOMetaList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEOMetaList.m; sourceTree = "<group>"; };
 		83E20287164C03C400FED94D /* NSArray+Stream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Stream.h"; sourceTree = "<group>"; };
@@ -306,6 +329,10 @@
 				8371F4F9164FABAD00A05F46 /* CEOMetaGeneratedCodeTests.m */,
 				8371F52C164FEF6100A05F46 /* CEMetaTestQuery.h */,
 				8371F52D164FEF6200A05F46 /* CEMetaTestQuery.m */,
+				8309759F1657CC8A00EC8D51 /* CEOMetaTestConstraints.h */,
+				830975A01657CC8A00EC8D51 /* CEOMetaTestConstraints.m */,
+				830975B01657F7FA00EC8D51 /* CEOMetaTestHamlLike.h */,
+				830975B11657F7FA00EC8D51 /* CEOMetaTestHamlLike.m */,
 				83718B14164A6AA900860D8A /* Supporting Files */,
 				8371F521164FE9A000A05F46 /* TestModel.xcdatamodeld */,
 			);
@@ -381,6 +408,10 @@
 				8371F4EC164FA9C000A05F46 /* EASTEval.ometam */,
 				8371F4F6164FAB5600A05F46 /* ExpRecognizer.ometam */,
 				8371F4FF164FD88C00A05F46 /* Query.ometam */,
+				830975941657C3E600EC8D51 /* Constraints.ometam */,
+				830975A61657F0C300EC8D51 /* HamlLike.ometam */,
+				837502121658089D00D01770 /* Indentation.ometam */,
+				838DF648165A52A50054264B /* DoNotation.ometam */,
 			);
 			name = "Example Programs";
 			sourceTree = "<group>";
@@ -402,6 +433,12 @@
 				83191BA216502DC500F9595F /* List.m */,
 				83191BA5165048BD00F9595F /* Predicate.h */,
 				83191BA6165048BD00F9595F /* Predicate.m */,
+				8309759B1657C4FA00EC8D51 /* Constraints.h */,
+				8309759C1657C4FA00EC8D51 /* Constraints.m */,
+				8375020C1658041200D01770 /* Indentation.h */,
+				8375020D1658041200D01770 /* Indentation.m */,
+				8375020F1658089000D01770 /* HamlLike.h */,
+				837502101658089000D01770 /* HamlLike.m */,
 			);
 			name = Compiled;
 			sourceTree = "<group>";
@@ -522,6 +559,10 @@
 				8371F4EF164FA9C000A05F46 /* EASTEval.ometam in Resources */,
 				8371F4F7164FAB5600A05F46 /* ExpRecognizer.ometam in Resources */,
 				8371F500164FD88C00A05F46 /* Query.ometam in Resources */,
+				830975951657C3E600EC8D51 /* Constraints.ometam in Resources */,
+				830975A71657F0C300EC8D51 /* HamlLike.ometam in Resources */,
+				837502131658089D00D01770 /* Indentation.ometam in Resources */,
+				838DF649165A52A50054264B /* DoNotation.ometam in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -610,6 +651,11 @@
 				83F86FDB165025450032A019 /* CEOMetaGeneratedCodeTests.m in Sources */,
 				83191BA316502DC500F9595F /* List.m in Sources */,
 				83191BA7165048BD00F9595F /* Predicate.m in Sources */,
+				8309759D1657C4FA00EC8D51 /* Constraints.m in Sources */,
+				830975A11657CC8A00EC8D51 /* CEOMetaTestConstraints.m in Sources */,
+				830975B21657F7FA00EC8D51 /* CEOMetaTestHamlLike.m in Sources */,
+				8375020E1658041200D01770 /* Indentation.m in Sources */,
+				837502111658089000D01770 /* HamlLike.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

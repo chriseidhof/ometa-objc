@@ -68,7 +68,7 @@
 }
 
 - (void)testList {
-    NSString* list = @"ometa List { parse = [' ']}";
+    NSString* list = @"ometa List { parse = ['x' 'y']}";
     [self compileAndWriteToFile:[parser parse:list]];
 }
 
@@ -88,7 +88,16 @@
 }
 
 - (void)testQuery {
-    [self compileAndWriteToFile:[parser parse:[self program:@"Query"]]];
+    [self parseCompileAndWriteToFile:@"Query"];
+}
+
+- (void)testConstraints {
+    [self parseCompileAndWriteToFile:@"Constraints"];
+}
+
+- (void)testHamlLike {
+    [self parseCompileAndWriteToFile:@"Indentation"];
+    [self parseCompileAndWriteToFile:@"HamlLike"];
 }
 
 #pragma mark Helper methods
@@ -99,6 +108,11 @@
 
 - (NSString*)program:(NSString*)programName {
     return [NSString stringWithContentsOfFile:[self fileNameForProgram:programName] encoding:NSUTF8StringEncoding error:NULL];
+}
+
+- (void)parseCompileAndWriteToFile:(NSString*)programName {
+    CEOMetaProgram* p = [parser parse:[self program:programName]];
+    [self compileAndWriteToFile:p];
 }
 
 - (void)compileAndWriteToFile:(CEOMetaProgram*)program {

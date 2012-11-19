@@ -74,31 +74,41 @@
     return nil;
 }
 
-- (NSArray*)parseLiteral {
-    if([scanner scanString:@"'" intoString:NULL]) {
-        NSCharacterSet* quoteOrBackslash = [NSCharacterSet characterSetWithCharactersInString:@"'\\"];
-        NSCharacterSet* other = [quoteOrBackslash invertedSet];
-        NSMutableString* result = [NSMutableString string];
-        NSString* literal = nil;
-        BOOL done = NO;
-        while(!done) {
-            if([scanner scanCharactersFromSet:other intoString:&literal]) {
-                [result appendString:literal];
-            }
-            else if([scanner scanString:@"\\" intoString:NULL]) {
-                if([scanner scanString:@"'" intoString:NULL]) {
-                    [result appendString:@"'"];
-                } else {
-                    [result appendString:@"\\"];
-                }
-            }
-            else if([scanner scanString:@"'" intoString:NULL]) {
-                done = YES;
+- (NSString*)parseQuoted:(NSString*)quoteType {
+    NSCharacterSet* quoteOrBackslash = [NSCharacterSet characterSetWithCharactersInString:[NSString stringWithFormat:@"%@\\", quoteType]];
+    NSCharacterSet* other = [quoteOrBackslash invertedSet];
+    NSMutableString* result = [NSMutableString string];
+    NSString* literal = nil;
+    BOOL done = NO;
+    while(!done) {
+        if([scanner scanCharactersFromSet:other intoString:&literal]) {
+            [result appendString:literal];
+        }
+        else if([scanner scanString:@"\\" intoString:NULL]) {
+            if([scanner scanString:quoteType intoString:NULL]) {
+                [result appendString:quoteType];
             } else {
-                assert(NO);
+                [result appendString:@"\\"];
             }
         }
+        else if([scanner scanString:quoteType intoString:NULL]) {
+            done = YES;
+        } else {
+            assert(NO);
+        }
+    }
+    return result;
+}
+
+- (NSArray*)parseLiteral {
+    if([scanner scanString:@"'" intoString:NULL]) {
+        NSString* result = [self parseQuoted:@"'"];
         return @[LIT(result)];
+    } else if([scanner scanString:@"\"" intoString:NULL]) {
+        NSString* result = [self parseQuoted:@"\""];
+        return [[result components] map:^id(id obj) {
+            return LIT(obj);
+        }];
     }
     return nil;
 }

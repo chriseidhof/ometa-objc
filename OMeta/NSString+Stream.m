@@ -10,6 +10,10 @@
 
 @implementation NSString (Stream)
 
+- (NSInteger)remainingTokens {
+    return self.length;
+}
+
 - (id)peek {
     if(self.length > 0) {
         return [self substringToIndex:1];

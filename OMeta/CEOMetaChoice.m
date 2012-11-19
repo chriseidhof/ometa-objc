@@ -63,7 +63,7 @@
 }
 
 - (NSArray*)variables {
-    return @[];
+    return [[left_ variables] arrayByAddingObjectsFromArray:[right_ variables]];
 }
 
 @end

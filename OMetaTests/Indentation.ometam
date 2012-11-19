@@ -1,0 +1,28 @@
+ometa Indentation {
+  {{{
+- (NSArray*)parse:(id)stream {
+  return [self nestedBlock:stream :@(-1)].result;
+}
+  }}}
+
+  newLine = '\n',
+  
+  wsNoNL = ' '*:spaces -> {{{@([spaces count])}}},
+   
+  wsToEnd = wsNoNL newLine,
+
+  startWS = wsToEnd+ wsNoNL:x -> {{{x}}},
+  
+  null = empty -> {{{[NSNull null]}}},
+  
+  exp :indent =  (~ newLine) + : contents newLine (nestedBlock({{{indent}}}) | null):children 
+              -> {{{ @[[contents componentsJoinedByString:@""], children] }}} ,
+
+  blockLine :indent = startWS:currIndent exp({{{currIndent}}}):r ? {{{[indent intValue] == [currIndent intValue]}}} -> {{{r}}},
+  
+  nestedBlock :curr = wsNoNL:x exp({{{x}}}):r ? {{{[x intValue] > [curr intValue]}}} -> {{{@[r]}}}
+                    | startWS:indent
+                      exp({{{indent}}}):r
+                      (blockLine({{{indent}}}))*:others ? {{{[indent intValue] > [curr intValue]}}}
+                      -> {{{[@[r] arrayByAddingObjectsFromArray:others]}}}
+}

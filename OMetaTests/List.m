@@ -7,7 +7,11 @@
 
 CEResultAndStream* listLike = [self anything:stream];
 CEResultAndStream* result_0 = ^(id stream){ 
- return [self evaluateString:stream string:@" "]; ; 
+ return [self evaluateSeq:stream left:^(id stream) {
+return [self evaluateString:stream string:@"x"]; 
+ } right:^(id stream) { 
+return [self evaluateString:stream string:@"y"]; 
+ }];; 
  }(listLike.result);
 if(result_0.failed) { 
 return fail(stream); 
