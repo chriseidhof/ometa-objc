@@ -28,6 +28,8 @@ typedef CEResultAndStream*(^evaluator)(id<Stream> stream);
 
 @interface CEEvaluator : NSObject
 
+#pragma mark Basic combinators
+
 - (CEResultAndStream*)evaluateChoice:(id<Stream>)stream left:(evaluator)left right:(evaluator)right;
 - (CEResultAndStream*)evaluateSeq:(id<Stream>)stream left:(evaluator)left right:(evaluator)right;
 - (CEResultAndStream*)evaluateMany:(id<Stream>)stream body:(evaluator)body;
@@ -38,5 +40,12 @@ typedef CEResultAndStream*(^evaluator)(id<Stream> stream);
 - (CEResultAndStream*)empty:(id<Stream>)stream;
 - (CEResultAndStream*)eof:(id<Stream>)stream;
 - (CEResultAndStream*)not:(id<Stream>)stream body:(evaluator)body;
+
+#pragma mark Standard Library
+
+- (CEResultAndStream*)letter:(id)stream;
+- (CEResultAndStream*)digit:(id)stream;
+- (CEResultAndStream*)charRange:(id)stream  :(id)x :(id)y;
+- (CEResultAndStream*)token:(id)stream inCharacterSet:(NSCharacterSet*)characterSet;
 
 @end

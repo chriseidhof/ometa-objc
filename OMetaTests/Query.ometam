@@ -12,10 +12,6 @@ ometa Query {
   kWhere = "where " spaces ,
   kASC = "ASC" spaces,
   kDESC = "DESC" spaces,
-  charRange :x :y = char:d ? {{{ [d characterAtIndex:0] >= [x characterAtIndex:0] && [d characterAtIndex:0] <= [y characterAtIndex:0] }}} -> {{{ d }}} ,
-  lower = charRange({{{@"a"}}},{{{@"z"}}}),
-  upper = charRange({{{@"A"}}},{{{@"Z"}}}),
-  letter = lower | upper,
   identifier = letter* : name spaces -> {{{ [name componentsJoinedByString:@""] }}},
   selectQuery = kSelect fields:fields kFrom identifier:entityName whereClause:where orderClause:order -> {{{
     ^{

@@ -1,6 +1,5 @@
 ometa E {
-dig = char : d ? {{{ [d characterAtIndex:0] >= '0' && [d characterAtIndex:0] <= '9' }}} -> {{{ d }}} ,
-num = ( dig + ) : ds -> {{{ @([[ds componentsJoinedByString:@""] integerValue]) }}} ,
+num = ( digit + ) : ds -> {{{ @([[ds componentsJoinedByString:@""] integerValue]) }}} ,
 fac = num : x '*' fac : y -> {{{ @([x integerValue] * [y integerValue]) }}}
     | num : x '/' fac : y -> {{{ @([x integerValue] / [y integerValue]) }}}
     | num ,

@@ -3,42 +3,13 @@
 @implementation Calc
 
  - (void)setup { self.vars = [NSMutableDictionary dictionary]; }  
-- (CEResultAndStream*)charRange:(id)stream  :(id)_x :(id)_y{
-id x = _x;
-id y = _y;
-
-__block id d; 
-CEResultAndStream* result = ^{
- CEResultAndStream* dResult = ^{
-return [self char:stream];
-}();
-d = dResult.result;
-return dResult; }();
- if(!result.failed  &&  [d characterAtIndex:0] >= [x characterAtIndex:0] && [d characterAtIndex:0] <= [y characterAtIndex:0]  ) { 
- id actResult =   d  ;
- return [CEResultAndStream result:actResult stream:result.stream];
- } else {
- return fail(stream);
- }
-}
-
-- (CEResultAndStream*)dig:(id)stream {
-
-return [self charRange:stream :@"0" :@"9"];
-}
-
-- (CEResultAndStream*)letter:(id)stream {
-
-return [self charRange:stream :@"a" :@"z"];
-}
-
 - (CEResultAndStream*)num:(id)stream {
 
 __block id ds; 
 CEResultAndStream* result = ^{
  CEResultAndStream* dsResult = ^{
 return [self evaluateManyOne:stream body:^(id stream) {
-return [self dig:stream];
+return [self digit:stream];
 }];
 }();
 ds = dsResult.result;

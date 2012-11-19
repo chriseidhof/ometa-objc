@@ -15,7 +15,7 @@ ometa Constraints {
   simplePredicate = metricName | positiveNumber,
   predicateListWithParens = '(' predicate:p (',' predicate)* : ps ')' -> {{{ [@[p] arrayByAddingObjectsFromArray:ps] }}},
   predicate = (relation|null):r objectOfPredicate:o ('@' priority | null):p -> {{{ [@[r, o, p] compact] }}},
-  relation = '=' '=' | '<' '=' | '>' '=',
+  relation = "==" | "<=" | ">=",
   objectOfPredicate = constant | viewName,
   priority = metricName | number,
   constant = metricName | number,
@@ -28,10 +28,5 @@ ometa Constraints {
   number = digit+ : ds -> {{{ @([[ds componentsJoinedByString:@""] integerValue])}}} ,
   cIdentifier = identifierStart:x identifierPart*:xs -> {{{[[@[x] arrayByAddingObjectsFromArray:xs] componentsJoinedByString:@""]}}},
   identifierStart = letter | '_',
-  charRange :x :y = char:d ? {{{ [d characterAtIndex:0] >= [x characterAtIndex:0] && [d characterAtIndex:0] <= [y characterAtIndex:0] }}} -> {{{ d }}} ,
-  digit = charRange({{{@"0"}}},{{{@"9"}}}),
-  lower = charRange({{{@"a"}}},{{{@"z"}}}),
-  upper = charRange({{{@"A"}}},{{{@"Z"}}}),
-  letter = lower | upper,
   identifierPart = identifierStart | digit
 }

@@ -1,10 +1,9 @@
 ometa EAST {
-dig = char : d ?{{{ [d characterAtIndex:0] >= '0' && [d characterAtIndex:0] <= '9' }}} -> {{{ d }}} ,
-num = ( dig + ) : ds -> {{{ @[@"n", @([[ds componentsJoinedByString:@""] integerValue])] }}} ,
-fac = num : x '*' fac : y -> {{{ @[@"m",x,y] }}}
-    | num : x '/' fac : y -> {{{ @[@"d",x,y] }}}
+num = ( digit + ) : ds -> {{{ @[@"num", @([[ds componentsJoinedByString:@""] integerValue])] }}} ,
+fac = num : x '*' fac : y -> {{{ @[@"mul",x,y] }}}
+    | num : x '/' fac : y -> {{{ @[@"div",x,y] }}}
     | num ,
-exp = fac : x '+' exp : y -> {{{ @[@"a",x,y] }}}
-    | fac : x '-' exp : y -> {{{ @[@"r",x,y] }}}
+exp = fac : x '+' exp : y -> {{{ @[@"add",x,y] }}}
+    | fac : x '-' exp : y -> {{{ @[@"sub",x,y] }}}
     | fac
 }

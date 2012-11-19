@@ -116,4 +116,37 @@
     return fail(stream);
 }
 
+- (CEResultAndStream*)charRange:(id)stream  :(id)x :(id)y {
+    CEResultAndStream* token = [self char:stream];
+    NSString* str = (NSString*)token.result;
+    if([str isKindOfClass:[NSString class]] && str.length) {
+        unichar c = [str characterAtIndex:0];
+        if (c >= [x characterAtIndex:0] && c <= [y characterAtIndex:0]) {
+            return token;
+        }
+    }
+    return fail(stream);
+}
+
+- (CEResultAndStream*)token:(id)stream inCharacterSet:(NSCharacterSet*)characterSet {
+    CEResultAndStream* token = [self char:stream];
+    NSString* str = (NSString*)token.result;
+    if([str isKindOfClass:[NSString class]] && str.length) {
+        unichar c = [str characterAtIndex:0];
+        if([characterSet characterIsMember:c]) {
+            return token;
+        }
+    }
+    return fail(stream);
+}
+
+- (CEResultAndStream*)letter:(id)stream {
+    return [self token:stream inCharacterSet:[NSCharacterSet letterCharacterSet]];
+}
+
+- (CEResultAndStream*)digit:(id)stream {
+    return [self token:stream inCharacterSet:[NSCharacterSet decimalDigitCharacterSet]];
+}
+
+
 @end

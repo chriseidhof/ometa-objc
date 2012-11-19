@@ -3,30 +3,13 @@
 @implementation E
 
 
-- (CEResultAndStream*)dig:(id)stream {
-
-__block id d; 
-CEResultAndStream* result = ^{
- CEResultAndStream* dResult = ^{
-return [self char:stream];
-}();
-d = dResult.result;
-return dResult; }();
- if(!result.failed  &&  [d characterAtIndex:0] >= '0' && [d characterAtIndex:0] <= '9'  ) { 
- id actResult =   d  ;
- return [CEResultAndStream result:actResult stream:result.stream];
- } else {
- return fail(stream);
- }
-}
-
 - (CEResultAndStream*)num:(id)stream {
 
 __block id ds; 
 CEResultAndStream* result = ^{
  CEResultAndStream* dsResult = ^{
 return [self evaluateManyOne:stream body:^(id stream) {
-return [self dig:stream];
+return [self digit:stream];
 }];
 }();
 ds = dsResult.result;

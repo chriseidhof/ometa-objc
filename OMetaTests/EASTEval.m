@@ -11,7 +11,7 @@ CEResultAndStream* result = ^{
  CEResultAndStream* listLike = [self anything:stream];
 CEResultAndStream* result_0 = ^(id stream){ 
  return [self evaluateSeq:stream left:^(id stream) {
-return [self evaluateString:stream string:@"n"]; 
+return [self evaluateString:stream string:@"num"]; 
  } right:^(id stream) { 
 CEResultAndStream* xResult = ^{
 return [self anything:stream];
@@ -45,7 +45,7 @@ CEResultAndStream* result = ^{
  CEResultAndStream* listLike = [self anything:stream];
 CEResultAndStream* result_0 = ^(id stream){ 
  return [self evaluateSeq:stream left:^(id stream) {
-return [self evaluateString:stream string:@"a"]; 
+return [self evaluateString:stream string:@"add"]; 
  } right:^(id stream) { 
 return [self evaluateSeq:stream left:^(id stream) {
 CEResultAndStream* xResult = ^{
@@ -87,7 +87,7 @@ CEResultAndStream* result = ^{
  CEResultAndStream* listLike = [self anything:stream];
 CEResultAndStream* result_0 = ^(id stream){ 
  return [self evaluateSeq:stream left:^(id stream) {
-return [self evaluateString:stream string:@"m"]; 
+return [self evaluateString:stream string:@"mul"]; 
  } right:^(id stream) { 
 return [self evaluateSeq:stream left:^(id stream) {
 CEResultAndStream* xResult = ^{
@@ -129,7 +129,7 @@ CEResultAndStream* result = ^{
  CEResultAndStream* listLike = [self anything:stream];
 CEResultAndStream* result_0 = ^(id stream){ 
  return [self evaluateSeq:stream left:^(id stream) {
-return [self evaluateString:stream string:@"r"]; 
+return [self evaluateString:stream string:@"sub"]; 
  } right:^(id stream) { 
 return [self evaluateSeq:stream left:^(id stream) {
 CEResultAndStream* xResult = ^{
@@ -170,7 +170,7 @@ CEResultAndStream* result = ^{
  CEResultAndStream* listLike = [self anything:stream];
 CEResultAndStream* result_0 = ^(id stream){ 
  return [self evaluateSeq:stream left:^(id stream) {
-return [self evaluateString:stream string:@"d"]; 
+return [self evaluateString:stream string:@"div"]; 
  } right:^(id stream) { 
 return [self evaluateSeq:stream left:^(id stream) {
 CEResultAndStream* xResult = ^{
