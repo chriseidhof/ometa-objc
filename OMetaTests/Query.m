@@ -207,7 +207,7 @@ return nameResult;
 return [self spaces:stream];
  }]; }();
  if(!result.failed  ) { 
- id actResult =   [name componentsJoinedByString:@""]  ;
+ id actResult =  [name componentsJoinedByString:@""] ;
  return [CEResultAndStream result:actResult stream:result.stream];
  } else {
  return fail(stream);
@@ -369,7 +369,7 @@ return [self quote:stream];
  }];
  }]; }();
  if(!result.failed  ) { 
- id actResult =   [contents componentsJoinedByString:@""]  ;
+ id actResult =  [contents componentsJoinedByString:@""] ;
  return [CEResultAndStream result:actResult stream:result.stream];
  } else {
  return fail(stream);

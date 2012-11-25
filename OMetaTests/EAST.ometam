@@ -1,5 +1,5 @@
 ometa EAST {
-num = ( digit + ) : ds -> {{{ @[@"num", @([[ds componentsJoinedByString:@""] integerValue])] }}} ,
+num = ( digit + ) : ds -> @[@"num", {{{@([[ds componentsJoinedByString:@""] integerValue])}}}] ,
 fac = num : x '*' fac : y -> @[@"mul",x,y]
     | num : x '/' fac : y -> @[@"div",x,y]
     | num ,

@@ -15,7 +15,7 @@ return [self digit:stream];
 ds = dsResult.result;
 return dsResult; }();
  if(!result.failed  ) { 
- id actResult =   @[@"num", @([[ds componentsJoinedByString:@""] integerValue])]  ;
+ id actResult =  @[@"num",@([[ds componentsJoinedByString:@""] integerValue])] ;
  return [CEResultAndStream result:actResult stream:result.stream];
  } else {
  return fail(stream);

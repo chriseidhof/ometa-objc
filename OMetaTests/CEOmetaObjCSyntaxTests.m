@@ -8,6 +8,7 @@
 
 #import "CEOmetaObjCSyntaxTests.h"
 #import "CEOMetaParser.h"
+#import "CEOMetaProgram.h"
 
 @interface CEOmetaObjCSyntaxTests () {
     CEOMetaParser* parser;
@@ -38,7 +39,11 @@
 }
 
 - (void)testParseSimpleMessage {
-    [parser parse:@"ometa Test { test = 'a' -> [NSNull null] }"];
+    [[parser parse:@"ometa Test { test = null -> [NSNull null] }"] compile];
+}
+
+- (void)testParseKeywordMessage {
+    [parser parse:@"ometa Test { test = 'a' -> [NSString stringWithString:@\"\"] }"];
 }
 
 @end

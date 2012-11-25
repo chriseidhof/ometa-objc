@@ -87,7 +87,7 @@ return rsResult;
  }];
  }]; }();
  if(!result.failed  ) { 
- id actResult =   [@[o,ls,v,rs] compact]  ;
+ id actResult =  [@[o,ls,v,rs] compact] ;
  return [CEResultAndStream result:actResult stream:result.stream];
  } else {
  return fail(stream);
@@ -230,7 +230,7 @@ return [self evaluateString:stream string:@")"];
  }];
  }]; }();
  if(!result.failed  ) { 
- id actResult =   [@[p] arrayByAddingObjectsFromArray:ps]  ;
+ id actResult =  [@[p] arrayByAddingObjectsFromArray:ps] ;
  return [CEResultAndStream result:actResult stream:result.stream];
  } else {
  return fail(stream);
@@ -277,7 +277,7 @@ return pResult;
  }];
  }]; }();
  if(!result.failed  ) { 
- id actResult =   [@[r, o, p] compact]  ;
+ id actResult =  [@[r,o,p] compact] ;
  return [CEResultAndStream result:actResult stream:result.stream];
  } else {
  return fail(stream);

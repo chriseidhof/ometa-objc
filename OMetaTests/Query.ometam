@@ -12,7 +12,7 @@ ometa Query {
   kWhere = "where " spaces ,
   kASC = "ASC" spaces,
   kDESC = "DESC" spaces,
-  identifier = letter* : name spaces -> {{{ [name componentsJoinedByString:@""] }}},
+  identifier = letter* : name spaces -> [name componentsJoinedByString:@""],
   selectQuery = kSelect fields:fields kFrom identifier:entityName whereClause:where orderClause:order -> {{{
     ^{
     NSFetchRequest* f = [NSFetchRequest fetchRequestWithEntityName:entityName];
@@ -31,7 +31,7 @@ ometa Query {
   }}},
   literal = stringLiteral,
   quote = '\'',
-  stringLiteral = quote ((~ quote) * : contents) quote -> {{{ [contents componentsJoinedByString:@""] }}} ,
+  stringLiteral = quote ((~ quote) * : contents) quote -> [contents componentsJoinedByString:@""],
   orderClause = kOrder kBy sortDescriptor:i -> @[i]
               | empty,
   sortDescriptor = identifier:l ordering:o -> {{{ [NSSortDescriptor sortDescriptorWithKey:l ascending:[o boolValue]] }}},

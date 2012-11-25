@@ -6,15 +6,15 @@ ometa Constraints {
   visualFormatString = (orientation ':' | null) : o
                        (superview connection | null) : ls
                        (view (connection view)*) : v
-                       (connection superview | null) : rs -> {{{ [@[o,ls,v,rs] compact] }}},
+                       (connection superview | null) : rs -> [@[o,ls,v,rs] compact],
   orientation = 'H' | 'V',
   superview = '|',
-  view = '[' viewName:v (predicateListWithParens|null):p ']' -> {{{[@[@"view",v,p] compact]}}},
-  connection = ('-' predicateList:p '-' -> {{{p}}}) | '-' | null,
+  view = '[' viewName:v (predicateListWithParens|null):p ']' -> [@[@"view",v,p] compact],
+  connection = ('-' predicateList:p '-' -> p) | '-' | null,
   predicateList = simplePredicate | predicateListWithParens,
   simplePredicate = metricName | positiveNumber,
-  predicateListWithParens = '(' predicate:p (',' predicate)* : ps ')' -> {{{ [@[p] arrayByAddingObjectsFromArray:ps] }}},
-  predicate = (relation|null):r objectOfPredicate:o ('@' priority | null):p -> {{{ [@[r, o, p] compact] }}},
+  predicateListWithParens = '(' predicate:p (',' predicate)* : ps ')' -> [@[p] arrayByAddingObjectsFromArray:ps],
+  predicate = (relation|null):r objectOfPredicate:o ('@' priority | null):p -> [@[r, o, p] compact],
   relation = "==" | "<=" | ">=",
   objectOfPredicate = constant | viewName,
   priority = metricName | number,
@@ -26,7 +26,7 @@ ometa Constraints {
 
 
   number = digit+ : ds -> {{{ @([[ds componentsJoinedByString:@""] integerValue])}}} ,
-  cIdentifier = identifierStart:x identifierPart*:xs -> {{{[[@[x] arrayByAddingObjectsFromArray:xs] componentsJoinedByString:@""]}}},
+  cIdentifier = identifierStart:x identifierPart*:xs -> [[@[x] arrayByAddingObjectsFromArray:xs] componentsJoinedByString:@""],
   identifierStart = letter | '_',
   identifierPart = identifierStart | digit
 }

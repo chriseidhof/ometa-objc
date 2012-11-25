@@ -303,10 +303,30 @@
 
 - (id<CEObjCExp>)parseObjCMessage {
     [self operator:@"["];
-    id<CEObjCExp> receiver = [self parseObjCIdentifier];
-    id<CEObjCExp> message = [self parseObjCIdentifier];
+    id<CEObjCExp> receiver = [self parseObjCExpr];
+    NSArray* message = [self parseObjCMessageSelector];
     [self operator:@"]"];
-    return [[CEObjCMessage alloc] initWithReceiver:receiver selector:@[message]];
+    return [[CEObjCMessage alloc] initWithReceiver:receiver selector:message];
+}
+
+- (NSArray*)parseObjCMessageSelector {
+    NSArray* tokens = currentTokens;
+    @try {
+        NSArray* keywordArguments = [self parseMany:@selector(parseObjCKeywordArgument) separatedBy:nil];
+        if(keywordArguments.count == 0) [NSException raise:@"No keyword arguments" format:@"No keyword arguments"];
+        return keywordArguments;
+    }
+    @catch (NSException *exception) {
+        currentTokens = tokens;
+    }
+    return @[[self parseObjCIdentifier]];
+}
+
+- (id<CEObjCExp>)parseObjCKeywordArgument {
+    id<CEObjCExp> keyword = [self parseObjCIdentifier];
+    [self operator:@":"];
+    id<CEObjCExp> exp = [self parseObjCExpr];
+    return [[CEObjCKeywordArgument alloc] initWithKeyword:keyword exp:exp];
 }
 
 - (id<CEObjCExp>)parseObjCStringLiteral {

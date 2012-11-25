@@ -16,7 +16,7 @@ ometa Indentation {
   null = empty -> [NSNull null],
   
   exp :indent =  (~ newLine) + : contents newLine (nestedBlock(indent) | null):children 
-              -> {{{ @[[contents componentsJoinedByString:@""], children] }}} ,
+              ->  @[[contents componentsJoinedByString:@""], children] ,
 
   blockLine :indent = startWS:currIndent exp(currIndent):r ? {{{[indent intValue] == [currIndent intValue]}}} -> r,
   
@@ -24,5 +24,5 @@ ometa Indentation {
                     | startWS:indent
                       exp(indent):r
                       (blockLine(indent))*:others ? {{{[indent intValue] > [curr intValue]}}}
-                      -> {{{[@[r] arrayByAddingObjectsFromArray:others]}}}
+                      -> [@[r] arrayByAddingObjectsFromArray:others]
 }

@@ -108,7 +108,7 @@ return childrenResult;
  }];
  }]; }();
  if(!result.failed  ) { 
- id actResult =   @[[contents componentsJoinedByString:@""], children]  ;
+ id actResult =  @[[contents componentsJoinedByString:@""],children] ;
  return [CEResultAndStream result:actResult stream:result.stream];
  } else {
  return fail(stream);
