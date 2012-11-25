@@ -5,33 +5,37 @@ working already:
 
     ometa Calc {
     
-      {{{ - (void)setup { self.vars = [NSMutableDictionary dictionary]; }  }}}
+      {{{ - (void)setup { self.vars = [NSMutableDictionary dictionary]; }
+    }}}
     
-      dig = char:d ? {{{ [d characterAtIndex:0] >= '0' && [d characterAtIndex:0] <= '9' }}} -> {{{ d }}},
-      letter = char:d ? {{{ [d characterAtIndex:0] >= 'a' && [d characterAtIndex:0] <= 'z' }}} -> {{{ d }}},
+      num = digit+ : ds -> {{{ @([[ds componentsJoinedByString:@""]
+    integerValue]) }}},
     
-      num = dig+ : ds -> {{{ @([[ds componentsJoinedByString:@""] integerValue]) }}},
+      spaces = ' '*,
     
-      space = ' ',
+      var = letter:x spaces -> x,
     
-      var = letter:x space* -> {{{x}}},
+      prim = var:x spaces -> {{{ self.vars[x] }}}
+           | num:n spaces -> n
+           | '(' exp:x ')' spaces -> x,
     
-      prim = var:x -> {{{ self.vars[x] }}}
-           | num
-           | '(' exp:x ')' -> {{{ x }}},
-    
-      mulExp = prim:x '*' mulExp:y -> {{{ @([x intValue] * [y intValue]) }}}
-             | prim:x '/' mulExp:y -> {{{ @([x intValue] / [y intValue]) }}}
+      mulExp = prim:x '*' spaces mulExp:y -> {{{ @([x intValue] * [y
+    intValue]) }}}
+             | prim:x '/' spaces mulExp:y -> {{{ @([x intValue] / [y
+    intValue]) }}}
              | prim,
     
-      addExp = mulExp:x '+' exp:y -> {{{ @([x intValue] + [y intValue]) }}}
-             | mulExp:x '-' exp:y -> {{{ @([x intValue] - [y intValue]) }}}
+      addExp = mulExp:x '+' spaces exp:y -> {{{ @([x intValue] + [y
+    intValue]) }}}
+             | mulExp:x '-' spaces exp:y -> {{{ @([x intValue] - [y
+    intValue]) }}}
              | mulExp,
     
-      exp = var:x '=' space* exp:r -> {{{ self.vars[x] = r }}}
+      exp = var:x spaces '=' spaces exp:r -> {{{ self.vars[x] = r }}}
           | addExp
     
     }
+
 
 To compile this code into a .m file, you can do the following:
 
@@ -101,12 +105,11 @@ blocks. Might be handier for composition/optimization
 * Research how to generate Objective-C classes
 * Now, when we compile an `.ometam` file the result is an `.m`. What
  about generating one more step (i.e. the `m` with its input applied)
-* Now, the parser doesn't understand any Objective-C, any ObjC code is wrapped
-in `{{{` and `}}}`. Maybe add an ObjC parser? This will be difficult.
+* The parser understands simple ObjC expressions, but the rest needs to be wrapped in `{{{` and `}}}`
 * Use ParseKit?
 * Rewrite parser to not use exceptions
 * Now we support array literals, how about dictionary literals? Or could
   we support any kind of object?
 * Use a proper pretty-printer for compiling the expressions.
-* Use clang to parse expressions?
+* Use clang to parse objc-expressions?
 * Think of left-factoring, look at Doaitse's ideas about this, and how OMeta/JS does it
