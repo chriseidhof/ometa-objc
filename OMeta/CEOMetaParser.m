@@ -123,12 +123,12 @@
         NSString* condition = nil;
         @try {
             [self operator:@"?"];
-            condition = [self parseCode];
+            condition = [self parseObjCExpr];
             
         } @catch (NSException* e) {
         }
         [self operator:@"->"];
-        NSString* act = [self parseCode];
+        NSString* act = [self parseObjCExpr];
         CEOMetaAct* result = [[CEOMetaAct alloc] initWithLeft:left act:act];
         result.condition = condition;
         return result;
@@ -269,6 +269,19 @@
 - (id<CEOMetaExp>)parseApp {
     NSString* token = [self identifier];
     return [[CEOMetaApp alloc] initWithName:token];
+}
+
+- (id<CEOMetaExp>)parseObjCExpr {
+    @try {
+        return [self parseCode];
+    }
+    @catch (NSException *exception) {
+    }
+    return [self parseObjCIdentifier];
+}
+
+- (id<CEOMetaExp>)parseObjCIdentifier {
+    
 }
 
 - (NSString*)parseCode {

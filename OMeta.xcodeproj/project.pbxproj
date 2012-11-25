@@ -77,6 +77,8 @@
 		83F86FD916501E6C0032A019 /* CEOMetaRuleApp.m in Sources */ = {isa = PBXBuildFile; fileRef = 83F86FD816501E6C0032A019 /* CEOMetaRuleApp.m */; };
 		83F86FDA1650253A0032A019 /* Calc.m in Sources */ = {isa = PBXBuildFile; fileRef = 8371F50E164FDD0E00A05F46 /* Calc.m */; };
 		83F86FDB165025450032A019 /* CEOMetaGeneratedCodeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8371F4F9164FABAD00A05F46 /* CEOMetaGeneratedCodeTests.m */; };
+		83F9C6D516629A1E00F3312C /* CEOmetaObjCSyntaxTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 83F9C6D416629A1E00F3312C /* CEOmetaObjCSyntaxTests.m */; };
+		83F9C6DB16629AFD00F3312C /* CEObjCIdentifier.m in Sources */ = {isa = PBXBuildFile; fileRef = 83F9C6DA16629AFD00F3312C /* CEObjCIdentifier.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -210,6 +212,10 @@
 		83F86FD416501C700032A019 /* CERuleApplicationToken.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CERuleApplicationToken.m; sourceTree = "<group>"; };
 		83F86FD716501E6C0032A019 /* CEOMetaRuleApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEOMetaRuleApp.h; sourceTree = "<group>"; };
 		83F86FD816501E6C0032A019 /* CEOMetaRuleApp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEOMetaRuleApp.m; sourceTree = "<group>"; };
+		83F9C6D316629A1E00F3312C /* CEOmetaObjCSyntaxTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEOmetaObjCSyntaxTests.h; sourceTree = "<group>"; };
+		83F9C6D416629A1E00F3312C /* CEOmetaObjCSyntaxTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEOmetaObjCSyntaxTests.m; sourceTree = "<group>"; };
+		83F9C6D916629AFD00F3312C /* CEObjCIdentifier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEObjCIdentifier.h; sourceTree = "<group>"; };
+		83F9C6DA16629AFD00F3312C /* CEObjCIdentifier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEObjCIdentifier.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -325,6 +331,8 @@
 				83718B28164A6B7E00860D8A /* CEOMetaTokenizerTests.m */,
 				83718B3C164A70ED00860D8A /* CEOMetaParserTests.h */,
 				83718B3D164A70ED00860D8A /* CEOMetaParserTests.m */,
+				83F9C6D316629A1E00F3312C /* CEOmetaObjCSyntaxTests.h */,
+				83F9C6D416629A1E00F3312C /* CEOmetaObjCSyntaxTests.m */,
 				8371F4F8164FABAD00A05F46 /* CEOMetaGeneratedCodeTests.h */,
 				8371F4F9164FABAD00A05F46 /* CEOMetaGeneratedCodeTests.m */,
 				8371F52C164FEF6100A05F46 /* CEMetaTestQuery.h */,
@@ -352,33 +360,8 @@
 			isa = PBXGroup;
 			children = (
 				8371F4FD164FAE1600A05F46 /* CEOMetaAST.h */,
-				83718B38164A70C900860D8A /* CEOMetaProgram.h */,
-				83718B39164A70C900860D8A /* CEOMetaProgram.m */,
-				83718B45164A78BE00860D8A /* CEOMetaRule.h */,
-				83718B46164A78BE00860D8A /* CEOMetaRule.m */,
-				83718B4E164AA83E00860D8A /* CEOMetaExp.h */,
-				83718B48164A80E100860D8A /* CEOMetaApp.h */,
-				83718B49164A80E100860D8A /* CEOMetaApp.m */,
-				83718B4B164AA82D00860D8A /* CEOMetaChoice.h */,
-				83718B4C164AA82D00860D8A /* CEOMetaChoice.m */,
-				83718B4F164AAB5B00860D8A /* CEOMetaSeq.h */,
-				83718B50164AAB5B00860D8A /* CEOMetaSeq.m */,
-				83718B52164AAD6400860D8A /* CEOMetaRepeatMany.h */,
-				83718B53164AAD6400860D8A /* CEOMetaRepeatMany.m */,
-				83718B55164AB14D00860D8A /* CEOMetaNot.h */,
-				83718B56164AB14D00860D8A /* CEOMetaNot.m */,
-				83718B58164AB5B300860D8A /* CEOMetaString.h */,
-				83718B59164AB5B300860D8A /* CEOMetaString.m */,
-				83756C1C164BB2CA00360B28 /* CEOMetaRepeatOne.h */,
-				83756C1D164BB2CA00360B28 /* CEOMetaRepeatOne.m */,
-				83756C20164BB6DD00360B28 /* CEOMetaNamed.h */,
-				83756C21164BB6DD00360B28 /* CEOMetaNamed.m */,
-				83756C23164BBD3700360B28 /* CEOMetaAct.h */,
-				83756C24164BBD3700360B28 /* CEOMetaAct.m */,
-				83E20280164BF6D200FED94D /* CEOMetaList.h */,
-				83E20281164BF6D200FED94D /* CEOMetaList.m */,
-				83F86FD716501E6C0032A019 /* CEOMetaRuleApp.h */,
-				83F86FD816501E6C0032A019 /* CEOMetaRuleApp.m */,
+				83F9C6D816629AD800F3312C /* OMeta */,
+				83F9C6D716629ACA00F3312C /* Objective C */,
 			);
 			name = AST;
 			sourceTree = "<group>";
@@ -466,6 +449,49 @@
 				833ECC40164E6A5C003CF77D /* NSString+Extras.m */,
 			);
 			name = Categories;
+			sourceTree = "<group>";
+		};
+		83F9C6D716629ACA00F3312C /* Objective C */ = {
+			isa = PBXGroup;
+			children = (
+				83F9C6D916629AFD00F3312C /* CEObjCIdentifier.h */,
+				83F9C6DA16629AFD00F3312C /* CEObjCIdentifier.m */,
+			);
+			name = "Objective C";
+			sourceTree = "<group>";
+		};
+		83F9C6D816629AD800F3312C /* OMeta */ = {
+			isa = PBXGroup;
+			children = (
+				83718B38164A70C900860D8A /* CEOMetaProgram.h */,
+				83718B39164A70C900860D8A /* CEOMetaProgram.m */,
+				83718B45164A78BE00860D8A /* CEOMetaRule.h */,
+				83718B46164A78BE00860D8A /* CEOMetaRule.m */,
+				83718B4E164AA83E00860D8A /* CEOMetaExp.h */,
+				83718B48164A80E100860D8A /* CEOMetaApp.h */,
+				83718B49164A80E100860D8A /* CEOMetaApp.m */,
+				83718B4B164AA82D00860D8A /* CEOMetaChoice.h */,
+				83718B4C164AA82D00860D8A /* CEOMetaChoice.m */,
+				83718B4F164AAB5B00860D8A /* CEOMetaSeq.h */,
+				83718B50164AAB5B00860D8A /* CEOMetaSeq.m */,
+				83718B52164AAD6400860D8A /* CEOMetaRepeatMany.h */,
+				83718B53164AAD6400860D8A /* CEOMetaRepeatMany.m */,
+				83718B55164AB14D00860D8A /* CEOMetaNot.h */,
+				83718B56164AB14D00860D8A /* CEOMetaNot.m */,
+				83718B58164AB5B300860D8A /* CEOMetaString.h */,
+				83718B59164AB5B300860D8A /* CEOMetaString.m */,
+				83756C1C164BB2CA00360B28 /* CEOMetaRepeatOne.h */,
+				83756C1D164BB2CA00360B28 /* CEOMetaRepeatOne.m */,
+				83756C20164BB6DD00360B28 /* CEOMetaNamed.h */,
+				83756C21164BB6DD00360B28 /* CEOMetaNamed.m */,
+				83756C23164BBD3700360B28 /* CEOMetaAct.h */,
+				83756C24164BBD3700360B28 /* CEOMetaAct.m */,
+				83E20280164BF6D200FED94D /* CEOMetaList.h */,
+				83E20281164BF6D200FED94D /* CEOMetaList.m */,
+				83F86FD716501E6C0032A019 /* CEOMetaRuleApp.h */,
+				83F86FD816501E6C0032A019 /* CEOMetaRuleApp.m */,
+			);
+			name = OMeta;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -632,6 +658,7 @@
 				8371F52B164FED0A00A05F46 /* TestModel.xcdatamodeld in Sources */,
 				83F86FD516501C700032A019 /* CERuleApplicationToken.m in Sources */,
 				83F86FD916501E6C0032A019 /* CEOMetaRuleApp.m in Sources */,
+				83F9C6DB16629AFD00F3312C /* CEObjCIdentifier.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -656,6 +683,7 @@
 				830975B21657F7FA00EC8D51 /* CEOMetaTestHamlLike.m in Sources */,
 				8375020E1658041200D01770 /* Indentation.m in Sources */,
 				837502111658089000D01770 /* HamlLike.m in Sources */,
+				83F9C6D516629A1E00F3312C /* CEOmetaObjCSyntaxTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
