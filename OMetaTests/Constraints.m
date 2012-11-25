@@ -356,7 +356,7 @@ return [self number:stream];
 n = nResult.result;
 return nResult; }();
  if(!result.failed  && [n intValue] > 0  ) { 
- id actResult =   n  ;
+ id actResult =  n ;
  return [CEResultAndStream result:actResult stream:result.stream];
  } else {
  return fail(stream);

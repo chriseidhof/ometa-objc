@@ -32,7 +32,7 @@ return [CEResultAndStream result:@[result_0.result] stream:listLike.stream];
  return fail(stream); }
  }();
  if(!result.failed  ) { 
- id actResult =   x  ;
+ id actResult =  x ;
  return [CEResultAndStream result:actResult stream:result.stream];
  } else {
  return fail(stream);

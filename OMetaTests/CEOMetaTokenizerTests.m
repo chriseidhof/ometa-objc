@@ -55,5 +55,15 @@
     STAssertEqualObjects(tokenized, @[LIT(@" ")], @"Should tokenize space");
 }
 
+- (void)testArrayLiteralStart {
+    NSArray* tokenized = [tokenizer tokenize:@"@["];
+    STAssertEqualObjects(tokenized, @[OP(@"@[")], @"Array literal start");
+}
+
+- (void)testStringLiteralStart {
+    NSArray* tokenized = [tokenizer tokenize:@"@\"hello\""];
+    STAssertEqualObjects(tokenized, @[OBJC_STRING_LIT(@"hello")], @"String literal start");
+}
+
 
 @end

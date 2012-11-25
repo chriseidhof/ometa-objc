@@ -54,7 +54,7 @@
 - (void)testParseRuleApp {
     CEOMetaProgram* ast = [parser parse:@"ometa X { x = token({{{y}}})}"];
     CEOMetaRule* rule = ast.rules[0];
-    STAssertEqualObjects(rule.body, [[CEOMetaRuleApp alloc] initWithRuleName:@"token" args:@[@"y"]], @"Should parse rule application");
+    STAssertEqualObjects(rule.body, [[CEOMetaRuleApp alloc] initWithRuleName:@"token" args:@[[[CEObjCCodeBlock alloc] initWithCode: @"y"]]], @"Should parse rule application");
 }
 
 #pragma mark Two-phase tests

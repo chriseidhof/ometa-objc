@@ -1,5 +1,5 @@
 ometa EASTEval {
-eval = ['num' anything:x] -> {{{ x }}}
+eval = ['num' anything:x] -> x
      | ['add' eval:x  eval:y] -> {{{ @([x intValue] + [y intValue]) }}}
      | ['mul' eval:x  eval:y] -> {{{ @([x intValue] * [y intValue]) }}}
      | ['sub' eval:x  eval:y] -> {{{ @([x intValue] - [y intValue]) }}}

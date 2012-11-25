@@ -11,14 +11,14 @@
 
 @interface CEOMetaAct () {
     id<CEOMetaExp> left_;
-    NSString* act_;
+    id<CEObjCExp> act_;
 }
 
 @end
 
 @implementation CEOMetaAct
 
-- (id)initWithLeft:(id<CEOMetaExp>)left act:(NSString*)act {
+- (id)initWithLeft:(id<CEOMetaExp>)left act:(id<CEObjCExp>)act {
     self = [super init];
     if(self) {
         left_ = left;
@@ -32,30 +32,30 @@
     return left_;
 }
 
-- (NSString*)act {
+- (id<CEObjCExp>)act {
     return act_;
 }
 
 - (BOOL)isEqual:(id)object {
     if([object isKindOfClass:[CEOMetaAct class]]) {
         CEOMetaAct* other = (CEOMetaAct*)object;
-        return [self.left isEqual:other.left] && [self.act isEqual:other.act];
+        return [self.left isEqual:other.left] && [self.act isEqual:other.act] && [self.condition isEqual:other.condition];
     }
     return NO;
 }
 
 - (NSUInteger)hash {
-    return [left_ hash] + [act_ hash];
+    return [left_ hash] + [act_ hash] + [_condition hash];
 }
 
 - (NSString*)description {
-    return [NSString stringWithFormat:@"( %@ ) -> { %@ }", left_, act_];
+    return [NSString stringWithFormat:@"( %@ ) ? { %@ } -> { %@ }", left_, _condition, act_];
 }
 
 - (NSString*)compile {
     NSString* body = [left_ compile];
     NSArray* vars = [left_ variables];
-    NSString* condition = self.condition ? [@" && " stringByAppendingString:self.condition] : @"";
+    NSString* condition = self.condition ? [@" && " stringByAppendingString:[self.condition compile]] : @"";
     NSString* varDefinitions = [[vars map:^id(id var) {
         return [NSString stringWithFormat:@"__block id %@;", var];
     }] componentsJoinedByString:@"\n"];
@@ -65,7 +65,7 @@
             condition,
             @") { \n",
             @"id actResult = ",
-            act_,
+            [act_ compile],
             @";\n",
             @"return [CEResultAndStream result:actResult stream:result.stream];\n",
             @"} else {\n",

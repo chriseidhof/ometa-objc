@@ -21,7 +21,7 @@ ometa Query {
     return [self.managedObjectContext executeFetchRequest:f error:NULL];
     }()
   }}} ,
-  whereClause = kWhere boolExpr:e -> {{{ e }}}
+  whereClause = kWhere boolExpr:e -> e
               | empty,
   boolExpr = identifier:field '=' spaces literal:r -> {{{ 
   ^{
@@ -32,7 +32,7 @@ ometa Query {
   literal = stringLiteral,
   quote = '\'',
   stringLiteral = quote ((~ quote) * : contents) quote -> {{{ [contents componentsJoinedByString:@""] }}} ,
-  orderClause = kOrder kBy sortDescriptor:i -> {{{ @[i] }}} 
+  orderClause = kOrder kBy sortDescriptor:i -> @[i]
               | empty,
   sortDescriptor = identifier:l ordering:o -> {{{ [NSSortDescriptor sortDescriptorWithKey:l ascending:[o boolValue]] }}},
   ordering = kASC -> {{{ @YES }}}

@@ -1,5 +1,5 @@
 //
-//  CEObjCIdentifier.h
+//  CEObjCMessage.h
 //  OMeta
 //
 //  Created by Chris Eidhof on 11/25/12.
@@ -8,10 +8,9 @@
 
 #import <Foundation/Foundation.h>
 #import "CEObjCExp.h"
-#import "CEObjCAST.h"
 
-@interface CEObjCIdentifier : NSObject <CEObjCExp>
+@interface CEObjCMessage : NSObject <CEObjCExp>
 
-- (id)initWithIdentifierName:(NSString*)identifier;
+- (id)initWithReceiver:(id<CEObjCExp>)receiver selector:(NSArray*)selector;
 
 @end

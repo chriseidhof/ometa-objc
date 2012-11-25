@@ -70,7 +70,6 @@
 		83756C1E164BB2CA00360B28 /* CEOMetaRepeatOne.m in Sources */ = {isa = PBXBuildFile; fileRef = 83756C1D164BB2CA00360B28 /* CEOMetaRepeatOne.m */; };
 		83756C22164BB6DD00360B28 /* CEOMetaNamed.m in Sources */ = {isa = PBXBuildFile; fileRef = 83756C21164BB6DD00360B28 /* CEOMetaNamed.m */; };
 		83756C25164BBD3700360B28 /* CEOMetaAct.m in Sources */ = {isa = PBXBuildFile; fileRef = 83756C24164BBD3700360B28 /* CEOMetaAct.m */; };
-		838DF649165A52A50054264B /* DoNotation.ometam in Resources */ = {isa = PBXBuildFile; fileRef = 838DF648165A52A50054264B /* DoNotation.ometam */; };
 		83E20282164BF6D200FED94D /* CEOMetaList.m in Sources */ = {isa = PBXBuildFile; fileRef = 83E20281164BF6D200FED94D /* CEOMetaList.m */; };
 		83E20289164C03C400FED94D /* NSArray+Stream.m in Sources */ = {isa = PBXBuildFile; fileRef = 83E20288164C03C400FED94D /* NSArray+Stream.m */; };
 		83F86FD516501C700032A019 /* CERuleApplicationToken.m in Sources */ = {isa = PBXBuildFile; fileRef = 83F86FD416501C700032A019 /* CERuleApplicationToken.m */; };
@@ -79,6 +78,11 @@
 		83F86FDB165025450032A019 /* CEOMetaGeneratedCodeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8371F4F9164FABAD00A05F46 /* CEOMetaGeneratedCodeTests.m */; };
 		83F9C6D516629A1E00F3312C /* CEOmetaObjCSyntaxTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 83F9C6D416629A1E00F3312C /* CEOmetaObjCSyntaxTests.m */; };
 		83F9C6DB16629AFD00F3312C /* CEObjCIdentifier.m in Sources */ = {isa = PBXBuildFile; fileRef = 83F9C6DA16629AFD00F3312C /* CEObjCIdentifier.m */; };
+		83F9C6EB16629ED900F3312C /* CEObjCCodeBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = 83F9C6EA16629ED900F3312C /* CEObjCCodeBlock.m */; };
+		83F9C6EE1662A08300F3312C /* CEObjCArrayLiteral.m in Sources */ = {isa = PBXBuildFile; fileRef = 83F9C6ED1662A08300F3312C /* CEObjCArrayLiteral.m */; };
+		83F9C6F11662A5DA00F3312C /* CEObjCStringLiteral.m in Sources */ = {isa = PBXBuildFile; fileRef = 83F9C6F01662A5DA00F3312C /* CEObjCStringLiteral.m */; };
+		83F9C6F41662AB9100F3312C /* CEObjCStringLiteralToken.m in Sources */ = {isa = PBXBuildFile; fileRef = 83F9C6F31662AB9100F3312C /* CEObjCStringLiteralToken.m */; };
+		83F9C6F71662AF1A00F3312C /* CEObjCMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 83F9C6F61662AF1900F3312C /* CEObjCMessage.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -203,7 +207,6 @@
 		83756C21164BB6DD00360B28 /* CEOMetaNamed.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEOMetaNamed.m; sourceTree = "<group>"; };
 		83756C23164BBD3700360B28 /* CEOMetaAct.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEOMetaAct.h; sourceTree = "<group>"; };
 		83756C24164BBD3700360B28 /* CEOMetaAct.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEOMetaAct.m; sourceTree = "<group>"; };
-		838DF648165A52A50054264B /* DoNotation.ometam */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = DoNotation.ometam; sourceTree = "<group>"; };
 		83E20280164BF6D200FED94D /* CEOMetaList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEOMetaList.h; sourceTree = "<group>"; };
 		83E20281164BF6D200FED94D /* CEOMetaList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEOMetaList.m; sourceTree = "<group>"; };
 		83E20287164C03C400FED94D /* NSArray+Stream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Stream.h"; sourceTree = "<group>"; };
@@ -216,6 +219,18 @@
 		83F9C6D416629A1E00F3312C /* CEOmetaObjCSyntaxTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEOmetaObjCSyntaxTests.m; sourceTree = "<group>"; };
 		83F9C6D916629AFD00F3312C /* CEObjCIdentifier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEObjCIdentifier.h; sourceTree = "<group>"; };
 		83F9C6DA16629AFD00F3312C /* CEObjCIdentifier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEObjCIdentifier.m; sourceTree = "<group>"; };
+		83F9C6E416629D1C00F3312C /* CEObjCAST.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEObjCAST.h; sourceTree = "<group>"; };
+		83F9C6E816629E0F00F3312C /* CEObjCExp.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CEObjCExp.h; sourceTree = "<group>"; };
+		83F9C6E916629ED900F3312C /* CEObjCCodeBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEObjCCodeBlock.h; sourceTree = "<group>"; };
+		83F9C6EA16629ED900F3312C /* CEObjCCodeBlock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEObjCCodeBlock.m; sourceTree = "<group>"; };
+		83F9C6EC1662A08300F3312C /* CEObjCArrayLiteral.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEObjCArrayLiteral.h; sourceTree = "<group>"; };
+		83F9C6ED1662A08300F3312C /* CEObjCArrayLiteral.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEObjCArrayLiteral.m; sourceTree = "<group>"; };
+		83F9C6EF1662A5DA00F3312C /* CEObjCStringLiteral.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEObjCStringLiteral.h; sourceTree = "<group>"; };
+		83F9C6F01662A5DA00F3312C /* CEObjCStringLiteral.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEObjCStringLiteral.m; sourceTree = "<group>"; };
+		83F9C6F21662AB9100F3312C /* CEObjCStringLiteralToken.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEObjCStringLiteralToken.h; sourceTree = "<group>"; };
+		83F9C6F31662AB9100F3312C /* CEObjCStringLiteralToken.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEObjCStringLiteralToken.m; sourceTree = "<group>"; };
+		83F9C6F51662AF1900F3312C /* CEObjCMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEObjCMessage.h; sourceTree = "<group>"; };
+		83F9C6F61662AF1900F3312C /* CEObjCMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEObjCMessage.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -258,6 +273,8 @@
 				833ECC45164E7190003CF77D /* CETokens.h */,
 				83F86FD316501C700032A019 /* CERuleApplicationToken.h */,
 				83F86FD416501C700032A019 /* CERuleApplicationToken.m */,
+				83F9C6F21662AB9100F3312C /* CEObjCStringLiteralToken.h */,
+				83F9C6F31662AB9100F3312C /* CEObjCStringLiteralToken.m */,
 			);
 			name = Tokens;
 			sourceTree = "<group>";
@@ -394,7 +411,6 @@
 				830975941657C3E600EC8D51 /* Constraints.ometam */,
 				830975A61657F0C300EC8D51 /* HamlLike.ometam */,
 				837502121658089D00D01770 /* Indentation.ometam */,
-				838DF648165A52A50054264B /* DoNotation.ometam */,
 			);
 			name = "Example Programs";
 			sourceTree = "<group>";
@@ -454,8 +470,18 @@
 		83F9C6D716629ACA00F3312C /* Objective C */ = {
 			isa = PBXGroup;
 			children = (
+				83F9C6E416629D1C00F3312C /* CEObjCAST.h */,
+				83F9C6E816629E0F00F3312C /* CEObjCExp.h */,
 				83F9C6D916629AFD00F3312C /* CEObjCIdentifier.h */,
 				83F9C6DA16629AFD00F3312C /* CEObjCIdentifier.m */,
+				83F9C6E916629ED900F3312C /* CEObjCCodeBlock.h */,
+				83F9C6EA16629ED900F3312C /* CEObjCCodeBlock.m */,
+				83F9C6EC1662A08300F3312C /* CEObjCArrayLiteral.h */,
+				83F9C6ED1662A08300F3312C /* CEObjCArrayLiteral.m */,
+				83F9C6EF1662A5DA00F3312C /* CEObjCStringLiteral.h */,
+				83F9C6F01662A5DA00F3312C /* CEObjCStringLiteral.m */,
+				83F9C6F51662AF1900F3312C /* CEObjCMessage.h */,
+				83F9C6F61662AF1900F3312C /* CEObjCMessage.m */,
 			);
 			name = "Objective C";
 			sourceTree = "<group>";
@@ -588,7 +614,6 @@
 				830975951657C3E600EC8D51 /* Constraints.ometam in Resources */,
 				830975A71657F0C300EC8D51 /* HamlLike.ometam in Resources */,
 				837502131658089D00D01770 /* Indentation.ometam in Resources */,
-				838DF649165A52A50054264B /* DoNotation.ometam in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -659,6 +684,11 @@
 				83F86FD516501C700032A019 /* CERuleApplicationToken.m in Sources */,
 				83F86FD916501E6C0032A019 /* CEOMetaRuleApp.m in Sources */,
 				83F9C6DB16629AFD00F3312C /* CEObjCIdentifier.m in Sources */,
+				83F9C6EB16629ED900F3312C /* CEObjCCodeBlock.m in Sources */,
+				83F9C6EE1662A08300F3312C /* CEObjCArrayLiteral.m in Sources */,
+				83F9C6F11662A5DA00F3312C /* CEObjCStringLiteral.m in Sources */,
+				83F9C6F41662AB9100F3312C /* CEObjCStringLiteralToken.m in Sources */,
+				83F9C6F71662AF1A00F3312C /* CEObjCMessage.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

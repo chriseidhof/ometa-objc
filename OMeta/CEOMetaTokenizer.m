@@ -109,6 +109,9 @@
         return [[result components] map:^id(id obj) {
             return LIT(obj);
         }];
+    } else if([scanner scanString:@"@\"" intoString:NULL]) {
+        NSString* result = [self parseQuoted:@"\""];
+        return @[OBJC_STRING_LIT(result)];
     }
     return nil;
 }
@@ -141,7 +144,7 @@
         }];
     }
     // We scan { and } separately so there's no confusion with {{{ and }}}
-    NSArray* otherTokens = @[@"->", @"{", @"}"];
+    NSArray* otherTokens = @[@"->", @"{", @"}", @"@["];
     for(NSString* token in otherTokens) {
         [scanner scanString:token intoString:&operator];
         if(operator) {

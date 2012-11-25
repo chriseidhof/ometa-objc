@@ -46,7 +46,7 @@ return yResult;
  }];
  }]; }();
  if(!result.failed  ) { 
- id actResult =   @[@"mul",x,y]  ;
+ id actResult =  @[@"mul",x,y] ;
  return [CEResultAndStream result:actResult stream:result.stream];
  } else {
  return fail(stream);
@@ -74,7 +74,7 @@ return yResult;
  }];
  }]; }();
  if(!result.failed  ) { 
- id actResult =   @[@"div",x,y]  ;
+ id actResult =  @[@"div",x,y] ;
  return [CEResultAndStream result:actResult stream:result.stream];
  } else {
  return fail(stream);
@@ -109,7 +109,7 @@ return yResult;
  }];
  }]; }();
  if(!result.failed  ) { 
- id actResult =   @[@"add",x,y]  ;
+ id actResult =  @[@"add",x,y] ;
  return [CEResultAndStream result:actResult stream:result.stream];
  } else {
  return fail(stream);
@@ -137,7 +137,7 @@ return yResult;
  }];
  }]; }();
  if(!result.failed  ) { 
- id actResult =   @[@"sub",x,y]  ;
+ id actResult =  @[@"sub",x,y] ;
  return [CEResultAndStream result:actResult stream:result.stream];
  } else {
  return fail(stream);

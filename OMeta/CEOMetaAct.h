@@ -8,11 +8,12 @@
 
 #import <Foundation/Foundation.h>
 #import "CEOMetaExp.h"
+#import "CEObjCExp.h"
 
 @interface CEOMetaAct : NSObject <CEOMetaExp>
 
-- (id)initWithLeft:(id<CEOMetaExp>)left act:(NSString*)act;
+- (id)initWithLeft:(id<CEOMetaExp>)left act:(id<CEObjCExp>)act;
 
-@property (nonatomic,strong) NSString* condition;
+@property (nonatomic,strong) id<CEObjCExp> condition;
 
 @end

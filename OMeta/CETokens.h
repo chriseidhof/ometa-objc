@@ -11,3 +11,4 @@
 #import "CEOperatorToken.h"
 #import "CELiteralToken.h"
 #import "CERuleApplicationToken.h"
+#import "CEObjCStringLiteralToken.h"

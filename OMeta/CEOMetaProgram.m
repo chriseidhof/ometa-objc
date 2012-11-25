@@ -59,7 +59,7 @@
         return [obj compile];
     }] componentsJoinedByString:@"\n\n"];
     return [@[[NSString stringWithFormat:@"@implementation %@\n", self.name]
-            ,_code ? _code : @""
+            ,_code ? [_code compile] : @""
             ,methods
             ,@"@end"
     ] componentsJoinedByString:@"\n"];

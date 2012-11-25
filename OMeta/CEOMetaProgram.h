@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "CEObjCExp.h"
 
 @interface CEOMetaProgram : NSObject
 
@@ -15,6 +16,6 @@
 
 @property (nonatomic,readonly) NSString* name;
 @property (nonatomic,readonly) NSArray* rules;
-@property (nonatomic,strong) NSString* code;
+@property (nonatomic,strong) id<CEObjCExp> code;
 
 @end

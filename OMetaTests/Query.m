@@ -288,7 +288,7 @@ e = eResult.result;
 return eResult;
  }]; }();
  if(!result.failed  ) { 
- id actResult =   e  ;
+ id actResult =  e ;
  return [CEResultAndStream result:actResult stream:result.stream];
  } else {
  return fail(stream);
@@ -395,7 +395,7 @@ return iResult;
  }];
  }]; }();
  if(!result.failed  ) { 
- id actResult =   @[i]  ;
+ id actResult =  @[i] ;
  return [CEResultAndStream result:actResult stream:result.stream];
  } else {
  return fail(stream);

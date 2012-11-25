@@ -11,18 +11,18 @@ ometa Indentation {
    
   wsToEnd = wsNoNL newLine,
 
-  startWS = wsToEnd+ wsNoNL:x -> {{{x}}},
+  startWS = wsToEnd+ wsNoNL:x -> x,
   
-  null = empty -> {{{[NSNull null]}}},
+  null = empty -> [NSNull null],
   
-  exp :indent =  (~ newLine) + : contents newLine (nestedBlock({{{indent}}}) | null):children 
+  exp :indent =  (~ newLine) + : contents newLine (nestedBlock(indent) | null):children 
               -> {{{ @[[contents componentsJoinedByString:@""], children] }}} ,
 
-  blockLine :indent = startWS:currIndent exp({{{currIndent}}}):r ? {{{[indent intValue] == [currIndent intValue]}}} -> {{{r}}},
+  blockLine :indent = startWS:currIndent exp(currIndent):r ? {{{[indent intValue] == [currIndent intValue]}}} -> r,
   
-  nestedBlock :curr = wsNoNL:x exp({{{x}}}):r ? {{{[x intValue] > [curr intValue]}}} -> {{{@[r]}}}
+  nestedBlock :curr = wsNoNL:x exp(x):r ? {{{[x intValue] > [curr intValue]}}} -> @[r]
                     | startWS:indent
-                      exp({{{indent}}}):r
-                      (blockLine({{{indent}}}))*:others ? {{{[indent intValue] > [curr intValue]}}}
+                      exp(indent):r
+                      (blockLine(indent))*:others ? {{{[indent intValue] > [curr intValue]}}}
                       -> {{{[@[r] arrayByAddingObjectsFromArray:others]}}}
 }

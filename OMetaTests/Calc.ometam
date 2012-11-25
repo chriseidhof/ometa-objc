@@ -6,11 +6,11 @@ ometa Calc {
 
   spaces = ' '*,
 
-  var = letter:x spaces -> {{{x}}},
+  var = letter:x spaces -> x,
 
   prim = var:x spaces -> {{{ self.vars[x] }}}
-       | num:n spaces -> {{{ n }}}
-       | '(' exp:x ')' spaces -> {{{ x }}},
+       | num:n spaces -> n
+       | '(' exp:x ')' spaces -> x,
 
   mulExp = prim:x '*' spaces mulExp:y -> {{{ @([x intValue] * [y intValue]) }}}
          | prim:x '/' spaces mulExp:y -> {{{ @([x intValue] / [y intValue]) }}}

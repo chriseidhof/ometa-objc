@@ -2,7 +2,7 @@
 
 
 ometa Constraints {
-  null = empty -> {{{[NSNull null]}}},
+  null = empty -> [NSNull null],
   visualFormatString = (orientation ':' | null) : o
                        (superview connection | null) : ls
                        (view (connection view)*) : v
@@ -21,7 +21,7 @@ ometa Constraints {
   constant = metricName | number,
   metricName = cIdentifier,
   viewName = cIdentifier,
-  positiveNumber = number:n ? {{{[n intValue] > 0 }}} -> {{{ n }}},
+  positiveNumber = number:n ? {{{[n intValue] > 0 }}} -> n,
   
 
 

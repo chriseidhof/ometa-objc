@@ -84,7 +84,7 @@ return nResult;
 return [self spaces:stream];
  }]; }();
  if(!result.failed  ) { 
- id actResult =   n  ;
+ id actResult =  n ;
  return [CEResultAndStream result:actResult stream:result.stream];
  } else {
  return fail(stream);
@@ -110,7 +110,7 @@ return [self spaces:stream];
  }];
  }]; }();
  if(!result.failed  ) { 
- id actResult =   x  ;
+ id actResult =  x ;
  return [CEResultAndStream result:actResult stream:result.stream];
  } else {
  return fail(stream);

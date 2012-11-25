@@ -33,7 +33,7 @@
     NSString* identifier = [self identifier];
     [self operator:@"{"];
     NSArray* currentState = currentTokens;
-    NSString* code = nil;
+    id<CEObjCExp> code = nil;
     @try {
         code = [self parseCode];
     }
@@ -120,7 +120,7 @@
     id<CEOMetaExp>left = [self parseSeq];
     NSArray* currentState = currentTokens;
     @try {
-        NSString* condition = nil;
+        id<CEObjCExp> condition = nil;
         @try {
             [self operator:@"?"];
             condition = [self parseObjCExpr];
@@ -128,7 +128,7 @@
         } @catch (NSException* e) {
         }
         [self operator:@"->"];
-        NSString* act = [self parseObjCExpr];
+        id<CEObjCExp> act = [self parseObjCExpr];
         CEOMetaAct* result = [[CEOMetaAct alloc] initWithLeft:left act:act];
         result.condition = condition;
         return result;
@@ -261,7 +261,7 @@
 
 - (id<CEOMetaExp>)parseRuleApp {
     NSString* ruleName = [self ruleAppToken];
-    NSArray* args = [self parseMany:@selector(parseCode) separatedBy:OP(@",")];
+    NSArray* args = [self parseMany:@selector(parseObjCExpr) separatedBy:OP(@",")];
     [self operator:@")"];
     return [[CEOMetaRuleApp alloc] initWithRuleName:ruleName args:args];
 }
@@ -271,24 +271,72 @@
     return [[CEOMetaApp alloc] initWithName:token];
 }
 
-- (id<CEOMetaExp>)parseObjCExpr {
+- (id<CEObjCExp>)parseObjCExpr {
+    NSArray* tokens = currentTokens;
     @try {
         return [self parseCode];
     }
     @catch (NSException *exception) {
+        currentTokens = tokens;
     }
-    return [self parseObjCIdentifier];
+    @try {
+        return [self parseObjCIdentifier];
+    }
+    @catch (NSException *exception) {
+        currentTokens = tokens;
+    }
+    @try {
+        return [self parseObjCArrayLiteral];
+
+    }
+    @catch (NSException *exception) {
+        currentTokens = tokens;
+    }
+    @try {
+        return [self parseObjCMessage];
+    }
+    @catch (NSException *exception) {
+        currentTokens = tokens;
+    }
+    return [self parseObjCStringLiteral];
 }
 
-- (id<CEOMetaExp>)parseObjCIdentifier {
+- (id<CEObjCExp>)parseObjCMessage {
+    [self operator:@"["];
+    id<CEObjCExp> receiver = [self parseObjCIdentifier];
+    id<CEObjCExp> message = [self parseObjCIdentifier];
+    [self operator:@"]"];
+    return [[CEObjCMessage alloc] initWithReceiver:receiver selector:@[message]];
+}
+
+- (id<CEObjCExp>)parseObjCStringLiteral {
+    NSString* token = [self peek];
+    if([token isKindOfClass:[CEObjCStringLiteralToken class]]) {
+        CEObjCStringLiteralToken* token = [self processNextToken];
+        return [[CEObjCStringLiteral alloc] initWithString:token.string];
+    }
+    [NSException raise:@"Expected objc string literal" format:@"Expected objc string literal, saw \"%@\", context: %@", token, currentTokens];
+    return nil;
+}
+
+- (id<CEObjCExp>)parseObjCIdentifier {
+    NSString* identifier = [self identifier];
+    return [[CEObjCIdentifier alloc] initWithIdentifierName:identifier];
+}
+
+- (id<CEObjCExp>)parseObjCArrayLiteral {
+    [self operator:@"@["];
     
+    NSArray* items = [self parseMany:@selector(parseObjCExpr) separatedBy:OP(@",")];
+    [self operator:@"]"];
+    return [[CEObjCArrayLiteral alloc] initWithExpressions:items];
 }
 
-- (NSString*)parseCode {
+- (id<CEObjCExp>)parseCode {
     id token = [self peek];
     if([token isKindOfClass:[CECodeToken class]]) {
         CECodeToken* codeToken = [self processNextToken];
-        return codeToken.code;
+        return [[CEObjCCodeBlock alloc] initWithCode:codeToken.code];
     }
     [NSException raise:@"Expected code block" format:@"Expected code block, saw \"%@\"", token];
     return nil;
@@ -315,6 +363,7 @@
 #pragma mark Parser Combinators
 
 - (NSArray*)parseMany:(SEL)elementParser separatedBy:(id)separator {
+    NSArray* tokens = currentTokens;
     @try {
         id result = [self performSelector:elementParser];
         if([[self peek] isEqual:separator] || separator == nil) {
@@ -328,6 +377,7 @@
         }
     }
     @catch (NSException *exception) {
+        currentTokens = tokens;
         return @[];
     }
     return @[];
