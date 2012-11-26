@@ -65,5 +65,10 @@
     STAssertEqualObjects(tokenized, @[OBJC_STRING_LIT(@"hello")], @"String literal start");
 }
 
+- (void)testBoxStart{
+    NSArray* tokenized = [tokenizer tokenize:@"@("];
+    STAssertEqualObjects(tokenized, @[OP(@"@(")], @"Box literal start");
+}
+
 
 @end
