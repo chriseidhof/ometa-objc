@@ -84,6 +84,7 @@
 		83F9C6F41662AB9100F3312C /* CEObjCStringLiteralToken.m in Sources */ = {isa = PBXBuildFile; fileRef = 83F9C6F31662AB9100F3312C /* CEObjCStringLiteralToken.m */; };
 		83F9C6F71662AF1A00F3312C /* CEObjCMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 83F9C6F61662AF1900F3312C /* CEObjCMessage.m */; };
 		83F9C7021662B52400F3312C /* CEObjCKeywordArgument.m in Sources */ = {isa = PBXBuildFile; fileRef = 83F9C7011662B52400F3312C /* CEObjCKeywordArgument.m */; };
+		83F9C70A1663FAFB00F3312C /* CEObjCBoxed.m in Sources */ = {isa = PBXBuildFile; fileRef = 83F9C7091663FAFB00F3312C /* CEObjCBoxed.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -234,6 +235,8 @@
 		83F9C6F61662AF1900F3312C /* CEObjCMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEObjCMessage.m; sourceTree = "<group>"; };
 		83F9C7001662B52400F3312C /* CEObjCKeywordArgument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEObjCKeywordArgument.h; sourceTree = "<group>"; };
 		83F9C7011662B52400F3312C /* CEObjCKeywordArgument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEObjCKeywordArgument.m; sourceTree = "<group>"; };
+		83F9C7081663FAFB00F3312C /* CEObjCBoxed.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEObjCBoxed.h; sourceTree = "<group>"; };
+		83F9C7091663FAFB00F3312C /* CEObjCBoxed.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEObjCBoxed.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -487,6 +490,8 @@
 				83F9C6F61662AF1900F3312C /* CEObjCMessage.m */,
 				83F9C7001662B52400F3312C /* CEObjCKeywordArgument.h */,
 				83F9C7011662B52400F3312C /* CEObjCKeywordArgument.m */,
+				83F9C7081663FAFB00F3312C /* CEObjCBoxed.h */,
+				83F9C7091663FAFB00F3312C /* CEObjCBoxed.m */,
 			);
 			name = "Objective C";
 			sourceTree = "<group>";
@@ -695,6 +700,7 @@
 				83F9C6F41662AB9100F3312C /* CEObjCStringLiteralToken.m in Sources */,
 				83F9C6F71662AF1A00F3312C /* CEObjCMessage.m in Sources */,
 				83F9C7021662B52400F3312C /* CEObjCKeywordArgument.m in Sources */,
+				83F9C70A1663FAFB00F3312C /* CEObjCBoxed.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

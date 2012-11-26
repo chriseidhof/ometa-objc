@@ -7,5 +7,5 @@ ometa HamlLike {
                // | [ (property(context) : x) anything:y ] -> {{{ x }}}
                ,
   
-  identifier = letter* : xs -> {{{[xs componentsJoinedByString:@""]}}},
+  identifier = letter* : xs -> [xs componentsJoinedByString:@""],
 }

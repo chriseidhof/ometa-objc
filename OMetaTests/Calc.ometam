@@ -2,7 +2,7 @@ ometa Calc {
 
   {{{ - (void)setup { self.vars = [NSMutableDictionary dictionary]; }  }}}
 
-  num = digit+ : ds -> {{{ @([[ds componentsJoinedByString:@""] integerValue]) }}},
+  num = digit+ : ds -> @([[ds componentsJoinedByString:@""] integerValue]),
 
   spaces = ' '*,
 

@@ -1,5 +1,5 @@
 ometa E {
-num = ( digit + ) : ds -> {{{ @([[ds componentsJoinedByString:@""] integerValue]) }}} ,
+num = ( digit + ) : ds -> @([[ds componentsJoinedByString:@""] integerValue]) ,
 fac = num : x '*' fac : y -> {{{ @([x integerValue] * [y integerValue]) }}}
     | num : x '/' fac : y -> {{{ @([x integerValue] / [y integerValue]) }}}
     | num ,

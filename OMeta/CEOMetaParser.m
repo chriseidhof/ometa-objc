@@ -298,7 +298,20 @@
     @catch (NSException *exception) {
         currentTokens = tokens;
     }
-    return [self parseObjCStringLiteral];
+    @try {
+        return [self parseObjCStringLiteral];
+    }
+    @catch (NSException *exception) {
+        currentTokens = tokens;
+    }
+    return [self parseObjCBoxed];
+}
+
+- (id<CEObjCExp>)parseObjCBoxed {
+    [self operator:@"@("];
+    id<CEObjCExp> exp = [self parseObjCExpr];
+    [self operator:@")"];
+    return [[CEObjCBoxed alloc] initWithExp:exp];
 }
 
 - (id<CEObjCExp>)parseObjCMessage {

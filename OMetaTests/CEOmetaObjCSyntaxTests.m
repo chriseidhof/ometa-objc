@@ -46,4 +46,8 @@
     [parser parse:@"ometa Test { test = 'a' -> [NSString stringWithString:@\"\"] }"];
 }
 
+- (void)testParseBoxed {
+    [parser parse:@"ometa Test { test = 'a' -> @(x) }"];
+}
+
 @end

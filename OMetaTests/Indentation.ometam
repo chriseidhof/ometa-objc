@@ -7,7 +7,7 @@ ometa Indentation {
 
   newLine = '\n',
   
-  wsNoNL = ' '*:spaces -> {{{@([spaces count])}}},
+  wsNoNL = ' '*:spaces -> @([spaces count]),
    
   wsToEnd = wsNoNL newLine,
 

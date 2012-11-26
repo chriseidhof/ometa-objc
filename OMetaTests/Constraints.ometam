@@ -25,7 +25,7 @@ ometa Constraints {
   
 
 
-  number = digit+ : ds -> {{{ @([[ds componentsJoinedByString:@""] integerValue])}}} ,
+  number = digit+ : ds -> @([[ds componentsJoinedByString:@""] integerValue]) ,
   cIdentifier = identifierStart:x identifierPart*:xs -> [[@[x] arrayByAddingObjectsFromArray:xs] componentsJoinedByString:@""],
   identifierStart = letter | '_',
   identifierPart = identifierStart | digit
