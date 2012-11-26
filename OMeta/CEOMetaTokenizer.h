@@ -11,6 +11,7 @@
 @protocol CEOMetaTokenizer <NSObject>
 
 - (NSArray*)tokenize:(NSString*)input;
++ (NSArray*)objCOperators;
 
 @end
 

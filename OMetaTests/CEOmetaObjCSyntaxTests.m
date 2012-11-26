@@ -50,4 +50,8 @@
     [parser parse:@"ometa Test { test = 'a' -> @(x) }"];
 }
 
+- (void)testParseOperators {
+    [parser parse:@"ometa Test { test = 'a' -> x || y + z"];
+}
+
 @end

@@ -137,14 +137,16 @@
 
 - (NSArray*)parseOperators {
     NSString* operator = nil;
-    [scanner scanCharactersFromSet:[NSCharacterSet characterSetWithCharactersInString:@"[]()=+*?:|,~"] intoString:&operator];
+    [scanner scanCharactersFromSet:[NSCharacterSet characterSetWithCharactersInString:@"[]()+*?:,~"] intoString:&operator];
     if(operator) {
         return [[operator components] map:^id(id obj) {
             return [CEOperatorToken operator:obj];
         }];
     }
     // We scan { and } separately so there's no confusion with {{{ and }}}
-    NSArray* otherTokens = @[@"->", @"{", @"}", @"@[", @"@("];
+    NSArray* operators = [[[self class] objCOperators] flatten];
+    NSArray* otherTokens = [@[@"=", @"->", @"{", @"}", @"@[", @"@("] arrayByAddingObjectsFromArray:operators];
+    
     for(NSString* token in otherTokens) {
         [scanner scanString:token intoString:&operator];
         if(operator) {
@@ -153,6 +155,20 @@
         
     }
     return nil;
+}
+
++ (NSArray*)objCOperators {
+    return @[@[@"*", @"/", @"%"],
+    @[@"+", @"-"],
+    @[@"<<", @">>"],
+    @[@"<", @">", @"<=", @">="],
+    @[@"==", @"!="],
+    @[@"&"],
+    @[@"^"],
+    @[@"|"],
+    @[@"&&"],
+    @[@"||"]
+    ];
 }
 
 @end

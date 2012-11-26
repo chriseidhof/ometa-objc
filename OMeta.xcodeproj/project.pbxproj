@@ -85,6 +85,8 @@
 		83F9C6F71662AF1A00F3312C /* CEObjCMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 83F9C6F61662AF1900F3312C /* CEObjCMessage.m */; };
 		83F9C7021662B52400F3312C /* CEObjCKeywordArgument.m in Sources */ = {isa = PBXBuildFile; fileRef = 83F9C7011662B52400F3312C /* CEObjCKeywordArgument.m */; };
 		83F9C70A1663FAFB00F3312C /* CEObjCBoxed.m in Sources */ = {isa = PBXBuildFile; fileRef = 83F9C7091663FAFB00F3312C /* CEObjCBoxed.m */; };
+		83F9C70E1664007D00F3312C /* CEObjCBinaryOp.m in Sources */ = {isa = PBXBuildFile; fileRef = 83F9C70D1664007C00F3312C /* CEObjCBinaryOp.m */; };
+		83F9C714166400EC00F3312C /* CEObjCConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 83F9C713166400EB00F3312C /* CEObjCConstants.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -237,6 +239,10 @@
 		83F9C7011662B52400F3312C /* CEObjCKeywordArgument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEObjCKeywordArgument.m; sourceTree = "<group>"; };
 		83F9C7081663FAFB00F3312C /* CEObjCBoxed.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEObjCBoxed.h; sourceTree = "<group>"; };
 		83F9C7091663FAFB00F3312C /* CEObjCBoxed.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEObjCBoxed.m; sourceTree = "<group>"; };
+		83F9C70C1664007B00F3312C /* CEObjCBinaryOp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEObjCBinaryOp.h; sourceTree = "<group>"; };
+		83F9C70D1664007C00F3312C /* CEObjCBinaryOp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEObjCBinaryOp.m; sourceTree = "<group>"; };
+		83F9C712166400EB00F3312C /* CEObjCConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEObjCConstants.h; sourceTree = "<group>"; };
+		83F9C713166400EB00F3312C /* CEObjCConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEObjCConstants.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -451,6 +457,8 @@
 		8371F4FB164FAD3800A05F46 /* Parser/Tokenizer */ = {
 			isa = PBXGroup;
 			children = (
+				83F9C712166400EB00F3312C /* CEObjCConstants.h */,
+				83F9C713166400EB00F3312C /* CEObjCConstants.m */,
 				83718B2A164A6B9C00860D8A /* CEOMetaTokenizer.h */,
 				83718B2B164A6B9C00860D8A /* CEOMetaTokenizer.m */,
 				83718B24164A6B0C00860D8A /* CEOMetaParser.h */,
@@ -492,6 +500,8 @@
 				83F9C7011662B52400F3312C /* CEObjCKeywordArgument.m */,
 				83F9C7081663FAFB00F3312C /* CEObjCBoxed.h */,
 				83F9C7091663FAFB00F3312C /* CEObjCBoxed.m */,
+				83F9C70C1664007B00F3312C /* CEObjCBinaryOp.h */,
+				83F9C70D1664007C00F3312C /* CEObjCBinaryOp.m */,
 			);
 			name = "Objective C";
 			sourceTree = "<group>";
@@ -701,6 +711,8 @@
 				83F9C6F71662AF1A00F3312C /* CEObjCMessage.m in Sources */,
 				83F9C7021662B52400F3312C /* CEObjCKeywordArgument.m in Sources */,
 				83F9C70A1663FAFB00F3312C /* CEObjCBoxed.m in Sources */,
+				83F9C70E1664007D00F3312C /* CEObjCBinaryOp.m in Sources */,
+				83F9C714166400EC00F3312C /* CEObjCConstants.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
