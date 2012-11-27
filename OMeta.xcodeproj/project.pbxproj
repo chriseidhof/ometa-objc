@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5E773BD0166506DE00EB845D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83718AEB164A6AA900860D8A /* Foundation.framework */; };
+		5E773BD3166506DF00EB845D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E773BD2166506DF00EB845D /* main.m */; };
+		5E773BD7166506DF00EB845D /* ometa_objc.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5E773BD6166506DF00EB845D /* ometa_objc.1 */; };
 		830975951657C3E600EC8D51 /* Constraints.ometam in Resources */ = {isa = PBXBuildFile; fileRef = 830975941657C3E600EC8D51 /* Constraints.ometam */; };
 		8309759D1657C4FA00EC8D51 /* Constraints.m in Sources */ = {isa = PBXBuildFile; fileRef = 8309759C1657C4FA00EC8D51 /* Constraints.m */; };
 		830975A11657CC8A00EC8D51 /* CEOMetaTestConstraints.m in Sources */ = {isa = PBXBuildFile; fileRef = 830975A01657CC8A00EC8D51 /* CEOMetaTestConstraints.m */; };
@@ -97,7 +100,24 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		5E773BCC166506DE00EB845D /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+				5E773BD7166506DF00EB845D /* ometa_objc.1 in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		5E773BCE166506DE00EB845D /* ometa-objc */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "ometa-objc"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5E773BD2166506DF00EB845D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		5E773BD5166506DF00EB845D /* ometa-objc-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ometa-objc-Prefix.pch"; sourceTree = "<group>"; };
+		5E773BD6166506DF00EB845D /* ometa_objc.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = ometa_objc.1; sourceTree = "<group>"; };
 		830975941657C3E600EC8D51 /* Constraints.ometam */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Constraints.ometam; sourceTree = "<group>"; };
 		8309759B1657C4FA00EC8D51 /* Constraints.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constraints.h; sourceTree = "<group>"; };
 		8309759C1657C4FA00EC8D51 /* Constraints.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constraints.m; sourceTree = "<group>"; };
@@ -240,6 +260,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		5E773BCB166506DE00EB845D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5E773BD0166506DE00EB845D /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		83718AE2164A6AA900860D8A /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -265,6 +293,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5E773BD1166506DE00EB845D /* ometa-objc */ = {
+			isa = PBXGroup;
+			children = (
+				5E773BD2166506DF00EB845D /* main.m */,
+				5E773BD6166506DF00EB845D /* ometa_objc.1 */,
+				5E773BD4166506DF00EB845D /* Supporting Files */,
+			);
+			name = "ometa-objc";
+			path = "../ometa-objc";
+			sourceTree = "<group>";
+		};
+		5E773BD4166506DF00EB845D /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				5E773BD5166506DF00EB845D /* ometa-objc-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		833ECC35164E512F003CF77D /* Tokens */ = {
 			isa = PBXGroup;
 			children = (
@@ -300,6 +347,7 @@
 			children = (
 				83718AE5164A6AA900860D8A /* OMeta.app */,
 				83718B0B164A6AA900860D8A /* OMetaTests.octest */,
+				5E773BCE166506DE00EB845D /* ometa-objc */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -319,6 +367,7 @@
 		83718AF1164A6AA900860D8A /* OMeta */ = {
 			isa = PBXGroup;
 			children = (
+				5E773BD1166506DE00EB845D /* ometa-objc */,
 				83718AFA164A6AA900860D8A /* CEAppDelegate.h */,
 				83718AFB164A6AA900860D8A /* CEAppDelegate.m */,
 				83718B03164A6AA900860D8A /* OMeta.xcdatamodeld */,
@@ -533,6 +582,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		5E773BCD166506DE00EB845D /* ometa-objc */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5E773BDA166506DF00EB845D /* Build configuration list for PBXNativeTarget "ometa-objc" */;
+			buildPhases = (
+				5E773BCA166506DE00EB845D /* Sources */,
+				5E773BCB166506DE00EB845D /* Frameworks */,
+				5E773BCC166506DE00EB845D /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "ometa-objc";
+			productName = "ometa-objc";
+			productReference = 5E773BCE166506DE00EB845D /* ometa-objc */;
+			productType = "com.apple.product-type.tool";
+		};
 		83718AE4164A6AA900860D8A /* OMeta */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 83718B1E164A6AA900860D8A /* Build configuration list for PBXNativeTarget "OMeta" */;
@@ -594,6 +660,7 @@
 			targets = (
 				83718AE4164A6AA900860D8A /* OMeta */,
 				83718B0A164A6AA900860D8A /* OMetaTests */,
+				5E773BCD166506DE00EB845D /* ometa-objc */,
 			);
 		};
 /* End PBXProject section */
@@ -659,6 +726,14 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		5E773BCA166506DE00EB845D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5E773BD3166506DF00EB845D /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		83718AE1164A6AA900860D8A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -759,6 +834,35 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		5E773BD8166506DF00EB845D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ometa-objc/ometa-objc-Prefix.pch";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		5E773BD9166506DF00EB845D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ometa-objc/ometa-objc-Prefix.pch";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
 		83718B1C164A6AA900860D8A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -868,6 +972,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		5E773BDA166506DF00EB845D /* Build configuration list for PBXNativeTarget "ometa-objc" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5E773BD8166506DF00EB845D /* Debug */,
+				5E773BD9166506DF00EB845D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		83718ADF164A6AA900860D8A /* Build configuration list for PBXProject "OMeta" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
