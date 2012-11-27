@@ -113,3 +113,24 @@ blocks. Might be handier for composition/optimization
 * Use a proper pretty-printer for compiling the expressions.
 * Use clang to parse objc-expressions?
 * Think of left-factoring, look at Doaitse's ideas about this, and how OMeta/JS does it
+
+
+# RELATED INFO
+
+* [Ometa homepage](http://tinlizzie.org/ometa/)
+* [Ometa/JS workspace](http://www.tinlizzie.org/ometa-js/#Sample_Project)
+
+# ALGAL'S THOUGHTS, QUESTIONS, IDEAS
+
+* wrap the ometa parser generator into a command-line utility
+* use clang for obj-c parsing and generation whenever possible
+* use blocks to allow some kind of "runtime" compilation ?
+
+  Now: takes .metam where semantic actions are uncompiled Obj-C and generates uncompiled obj-c.
+  Instead: takes ometa AST where semantic actions are blocks values, and return a lambda or object.
+
+  Maybe this is impossible or useless.
+
+* 
+  
+  
