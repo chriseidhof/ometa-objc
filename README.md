@@ -36,13 +36,83 @@ working already:
     
     }
 
+## Using ometa-objc to compile a grammar into a command line tool
+
+Here is how to start with an .ometam grammar file and generate an
+objc-c program which is an evaluator based on that grammar.
+
+First, build the 'ometa-objc' target, which will generate the
+ometa-objc command line tool that compiles .metam into .m files. Copy
+the ometa-objc utility and the Calc.ometa grammar into the same
+directory, and then generate the .m file as follows:
+
+    ometa-objc Calc.ometa
+
+This will generate a Calc.m, which provides the implementation for a
+Calc class, which is a subclass of CEEvaluator. This class has methods
+corresponding to the productions in the grammar. However, you still
+need to write the interface Calc.h file by hand and include
+dependencies.
+
+Create a fresh project for a command line tool called Calc. To this
+project, add the generated file Calc.m and define the header like so:
+
+    //
+    //  Calc.h
+    //  OMeta
+    
+    #import <Foundation/Foundation.h>
+    #import "CEEvaluator.h"
+    #import "NSString+Stream.h"
+    
+    @interface Calc : CEEvaluator
+    
+    @property (nonatomic,strong) NSMutableDictionary* vars;
+    - (CEResultAndStream*)exp:(id<Stream>)stream;
+    @end
+    
+Our interface exports only the method "exp", since exp handles
+evaluation of expressions and that's all we need since ultimately
+everything is an expression.
+
+Add the (transitive closure of ) the dependencies: CEResultAndStream,
+CEEvaluator, NSString+Stream. As you add these files to the project,
+be sure the .m files are all added to the default target "Calc", so
+that they will be linked in.
+
+To exercise the Calculator, fill in the main.m as follows:
+
+    #import <Foundation/Foundation.h>
+    #import "Calc.h"
+    
+    int main(int argc, const char * argv[])
+    {
+      @autoreleasepool {
+        Calc* calc = [[Calc alloc] init];               // create the Calc evaluator
+        [calc exp:@"x=10+10"];                          // eval "x=10*10"
+        [calc exp:@"x=x*x"];                            // eval "x=x*x"
+        CEResultAndStream* result = [calc exp:@"x"];    // eval "x" and save the result
+        NSLog(@"calculated result = %@",result.result); // log the value of the result
+      }
+      return 0;
+    }
+
+That code creates a Calc object, feeds it the two expressions
+"x=10+10" and "x=x*x", then extracts the result and prints it.
+
+## Using a grammar as a unit test within the project
+
+In the above approach, we put the generated evaluator Calc.m into
+a new project and had to bring in depenendencies by hand. An alternative is
+to follow the example fo the unit tests already in the project, as follows.
 
 To compile this code into a .m file, you can do the following:
-
+ 
     CEOMetaTokenizer* tokenizer = [[CEOMetaTokenizer alloc] init];
     parser = [[CEOMetaParser alloc] initWithTokenizer:tokenizer];
     [self compileAndWriteToFile:[parser parse:input]];
 
+ 
     - (void)compileAndWriteToFile:(CEOMetaProgram*)program {
         NSString* compiled = [program compile];
         NSString* name = program.name;
@@ -52,12 +122,13 @@ To compile this code into a .m file, you can do the following:
     }
 
 And this is how you use it:
-
+ 
     Calc* calc = [[Calc alloc] init];
     [calc exp:@"x=10+10"];
     [calc exp:@"x=x*x"];
     CEResultAndStream* result = [calc exp:@"x"];
     STAssertTrue([result.result isEqual:@400], @"Calculator should calculate.");
+
 
 Another interesting example is Query.ometa, translating code like this:
 
@@ -113,3 +184,24 @@ blocks. Might be handier for composition/optimization
 * Use a proper pretty-printer for compiling the expressions.
 * Use clang to parse objc-expressions?
 * Think of left-factoring, look at Doaitse's ideas about this, and how OMeta/JS does it
+
+
+# RELATED INFO
+
+* [Ometa homepage](http://tinlizzie.org/ometa/)
+* [Ometa/JS workspace](http://www.tinlizzie.org/ometa-js/#Sample_Project)
+
+# ALGAL'S THOUGHTS, QUESTIONS, IDEAS
+
+* wrap the ometa parser generator into a command-line utility
+* use clang for obj-c parsing and generation whenever possible
+* use blocks to allow some kind of "runtime" compilation ?
+
+  Now: takes .metam where semantic actions are uncompiled Obj-C and generates uncompiled obj-c.
+  Instead: takes ometa AST where semantic actions are blocks values, and return a lambda or object.
+
+  Maybe this is impossible or useless.
+
+* 
+  
+  
