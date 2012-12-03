@@ -10,6 +10,40 @@
 		5E773BD0166506DE00EB845D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83718AEB164A6AA900860D8A /* Foundation.framework */; };
 		5E773BD3166506DF00EB845D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E773BD2166506DF00EB845D /* main.m */; };
 		5E773BD7166506DF00EB845D /* ometa_objc.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5E773BD6166506DF00EB845D /* ometa_objc.1 */; };
+		5EE4A122166CB0C1006EF2C3 /* CEOMetaTokenizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 83718B2B164A6B9C00860D8A /* CEOMetaTokenizer.m */; };
+		5EE4A123166CB0C1006EF2C3 /* CEOMetaParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 83718B25164A6B0C00860D8A /* CEOMetaParser.m */; };
+		5EE4A125166CB13E006EF2C3 /* CEKeywordToken.m in Sources */ = {isa = PBXBuildFile; fileRef = 833ECC37164E513C003CF77D /* CEKeywordToken.m */; };
+		5EE4A126166CB13E006EF2C3 /* CECodeToken.m in Sources */ = {isa = PBXBuildFile; fileRef = 833ECC3A164E519B003CF77D /* CECodeToken.m */; };
+		5EE4A127166CB13E006EF2C3 /* CEOperatorToken.m in Sources */ = {isa = PBXBuildFile; fileRef = 833ECC3D164E51CE003CF77D /* CEOperatorToken.m */; };
+		5EE4A128166CB13E006EF2C3 /* CELiteralToken.m in Sources */ = {isa = PBXBuildFile; fileRef = 833ECC43164E70D0003CF77D /* CELiteralToken.m */; };
+		5EE4A129166CB13E006EF2C3 /* CERuleApplicationToken.m in Sources */ = {isa = PBXBuildFile; fileRef = 83F86FD416501C700032A019 /* CERuleApplicationToken.m */; };
+		5EE4A12A166CB13E006EF2C3 /* CEObjCStringLiteralToken.m in Sources */ = {isa = PBXBuildFile; fileRef = 83F9C6F31662AB9100F3312C /* CEObjCStringLiteralToken.m */; };
+		5EE4A12B166CB13E006EF2C3 /* CEOMetaProgram.m in Sources */ = {isa = PBXBuildFile; fileRef = 83718B39164A70C900860D8A /* CEOMetaProgram.m */; };
+		5EE4A12C166CB13E006EF2C3 /* CEOMetaRule.m in Sources */ = {isa = PBXBuildFile; fileRef = 83718B46164A78BE00860D8A /* CEOMetaRule.m */; };
+		5EE4A12D166CB13E006EF2C3 /* CEOMetaApp.m in Sources */ = {isa = PBXBuildFile; fileRef = 83718B49164A80E100860D8A /* CEOMetaApp.m */; };
+		5EE4A12E166CB13E006EF2C3 /* CEOMetaChoice.m in Sources */ = {isa = PBXBuildFile; fileRef = 83718B4C164AA82D00860D8A /* CEOMetaChoice.m */; };
+		5EE4A12F166CB13E006EF2C3 /* CEOMetaSeq.m in Sources */ = {isa = PBXBuildFile; fileRef = 83718B50164AAB5B00860D8A /* CEOMetaSeq.m */; };
+		5EE4A130166CB13E006EF2C3 /* CEOMetaRepeatMany.m in Sources */ = {isa = PBXBuildFile; fileRef = 83718B53164AAD6400860D8A /* CEOMetaRepeatMany.m */; };
+		5EE4A131166CB13E006EF2C3 /* CEOMetaNot.m in Sources */ = {isa = PBXBuildFile; fileRef = 83718B56164AB14D00860D8A /* CEOMetaNot.m */; };
+		5EE4A132166CB13E006EF2C3 /* CEOMetaString.m in Sources */ = {isa = PBXBuildFile; fileRef = 83718B59164AB5B300860D8A /* CEOMetaString.m */; };
+		5EE4A133166CB13E006EF2C3 /* CEOMetaRepeatOne.m in Sources */ = {isa = PBXBuildFile; fileRef = 83756C1D164BB2CA00360B28 /* CEOMetaRepeatOne.m */; };
+		5EE4A134166CB13E006EF2C3 /* CEOMetaNamed.m in Sources */ = {isa = PBXBuildFile; fileRef = 83756C21164BB6DD00360B28 /* CEOMetaNamed.m */; };
+		5EE4A135166CB13E006EF2C3 /* CEOMetaAct.m in Sources */ = {isa = PBXBuildFile; fileRef = 83756C24164BBD3700360B28 /* CEOMetaAct.m */; };
+		5EE4A136166CB13E006EF2C3 /* CEOMetaList.m in Sources */ = {isa = PBXBuildFile; fileRef = 83E20281164BF6D200FED94D /* CEOMetaList.m */; };
+		5EE4A137166CB13E006EF2C3 /* CEOMetaRuleApp.m in Sources */ = {isa = PBXBuildFile; fileRef = 83F86FD816501E6C0032A019 /* CEOMetaRuleApp.m */; };
+		5EE4A138166CB13E006EF2C3 /* CEObjCIdentifier.m in Sources */ = {isa = PBXBuildFile; fileRef = 83F9C6DA16629AFD00F3312C /* CEObjCIdentifier.m */; };
+		5EE4A139166CB13E006EF2C3 /* CEObjCCodeBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = 83F9C6EA16629ED900F3312C /* CEObjCCodeBlock.m */; };
+		5EE4A13A166CB13E006EF2C3 /* CEObjCArrayLiteral.m in Sources */ = {isa = PBXBuildFile; fileRef = 83F9C6ED1662A08300F3312C /* CEObjCArrayLiteral.m */; };
+		5EE4A13B166CB13E006EF2C3 /* CEObjCStringLiteral.m in Sources */ = {isa = PBXBuildFile; fileRef = 83F9C6F01662A5DA00F3312C /* CEObjCStringLiteral.m */; };
+		5EE4A13C166CB13E006EF2C3 /* CEObjCMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 83F9C6F61662AF1900F3312C /* CEObjCMessage.m */; };
+		5EE4A13D166CB13E006EF2C3 /* CEObjCKeywordArgument.m in Sources */ = {isa = PBXBuildFile; fileRef = 83F9C7011662B52400F3312C /* CEObjCKeywordArgument.m */; };
+		5EE4A13E166CB13E006EF2C3 /* CEObjCBoxed.m in Sources */ = {isa = PBXBuildFile; fileRef = 83F9C7091663FAFB00F3312C /* CEObjCBoxed.m */; };
+		5EE4A13F166CB13E006EF2C3 /* CEResultAndStream.m in Sources */ = {isa = PBXBuildFile; fileRef = 83718B60164ABF7D00860D8A /* CEResultAndStream.m */; };
+		5EE4A140166CB13E006EF2C3 /* CEEvaluator.m in Sources */ = {isa = PBXBuildFile; fileRef = 83718B64164AC28300860D8A /* CEEvaluator.m */; };
+		5EE4A141166CB13E006EF2C3 /* NSString+Stream.m in Sources */ = {isa = PBXBuildFile; fileRef = 83718B6C164AD12300860D8A /* NSString+Stream.m */; };
+		5EE4A142166CB13E006EF2C3 /* NSArray+Stream.m in Sources */ = {isa = PBXBuildFile; fileRef = 83E20288164C03C400FED94D /* NSArray+Stream.m */; };
+		5EE4A143166CB13E006EF2C3 /* NSArray+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 83718B35164A6FB100860D8A /* NSArray+Extensions.m */; };
+		5EE4A144166CB13E006EF2C3 /* NSString+Extras.m in Sources */ = {isa = PBXBuildFile; fileRef = 833ECC40164E6A5C003CF77D /* NSString+Extras.m */; };
 		830975951657C3E600EC8D51 /* Constraints.ometam in Resources */ = {isa = PBXBuildFile; fileRef = 830975941657C3E600EC8D51 /* Constraints.ometam */; };
 		8309759D1657C4FA00EC8D51 /* Constraints.m in Sources */ = {isa = PBXBuildFile; fileRef = 8309759C1657C4FA00EC8D51 /* Constraints.m */; };
 		830975A11657CC8A00EC8D51 /* CEOMetaTestConstraints.m in Sources */ = {isa = PBXBuildFile; fileRef = 830975A01657CC8A00EC8D51 /* CEOMetaTestConstraints.m */; };
@@ -730,6 +764,40 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5EE4A125166CB13E006EF2C3 /* CEKeywordToken.m in Sources */,
+				5EE4A126166CB13E006EF2C3 /* CECodeToken.m in Sources */,
+				5EE4A127166CB13E006EF2C3 /* CEOperatorToken.m in Sources */,
+				5EE4A128166CB13E006EF2C3 /* CELiteralToken.m in Sources */,
+				5EE4A129166CB13E006EF2C3 /* CERuleApplicationToken.m in Sources */,
+				5EE4A12A166CB13E006EF2C3 /* CEObjCStringLiteralToken.m in Sources */,
+				5EE4A12B166CB13E006EF2C3 /* CEOMetaProgram.m in Sources */,
+				5EE4A12C166CB13E006EF2C3 /* CEOMetaRule.m in Sources */,
+				5EE4A12D166CB13E006EF2C3 /* CEOMetaApp.m in Sources */,
+				5EE4A12E166CB13E006EF2C3 /* CEOMetaChoice.m in Sources */,
+				5EE4A12F166CB13E006EF2C3 /* CEOMetaSeq.m in Sources */,
+				5EE4A130166CB13E006EF2C3 /* CEOMetaRepeatMany.m in Sources */,
+				5EE4A131166CB13E006EF2C3 /* CEOMetaNot.m in Sources */,
+				5EE4A132166CB13E006EF2C3 /* CEOMetaString.m in Sources */,
+				5EE4A133166CB13E006EF2C3 /* CEOMetaRepeatOne.m in Sources */,
+				5EE4A134166CB13E006EF2C3 /* CEOMetaNamed.m in Sources */,
+				5EE4A135166CB13E006EF2C3 /* CEOMetaAct.m in Sources */,
+				5EE4A136166CB13E006EF2C3 /* CEOMetaList.m in Sources */,
+				5EE4A137166CB13E006EF2C3 /* CEOMetaRuleApp.m in Sources */,
+				5EE4A138166CB13E006EF2C3 /* CEObjCIdentifier.m in Sources */,
+				5EE4A139166CB13E006EF2C3 /* CEObjCCodeBlock.m in Sources */,
+				5EE4A13A166CB13E006EF2C3 /* CEObjCArrayLiteral.m in Sources */,
+				5EE4A13B166CB13E006EF2C3 /* CEObjCStringLiteral.m in Sources */,
+				5EE4A13C166CB13E006EF2C3 /* CEObjCMessage.m in Sources */,
+				5EE4A13D166CB13E006EF2C3 /* CEObjCKeywordArgument.m in Sources */,
+				5EE4A13E166CB13E006EF2C3 /* CEObjCBoxed.m in Sources */,
+				5EE4A13F166CB13E006EF2C3 /* CEResultAndStream.m in Sources */,
+				5EE4A140166CB13E006EF2C3 /* CEEvaluator.m in Sources */,
+				5EE4A141166CB13E006EF2C3 /* NSString+Stream.m in Sources */,
+				5EE4A142166CB13E006EF2C3 /* NSArray+Stream.m in Sources */,
+				5EE4A143166CB13E006EF2C3 /* NSArray+Extensions.m in Sources */,
+				5EE4A144166CB13E006EF2C3 /* NSString+Extras.m in Sources */,
+				5EE4A122166CB0C1006EF2C3 /* CEOMetaTokenizer.m in Sources */,
+				5EE4A123166CB0C1006EF2C3 /* CEOMetaParser.m in Sources */,
 				5E773BD3166506DF00EB845D /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -979,6 +1047,7 @@
 				5E773BD9166506DF00EB845D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		83718ADF164A6AA900860D8A /* Build configuration list for PBXProject "OMeta" */ = {
 			isa = XCConfigurationList;
