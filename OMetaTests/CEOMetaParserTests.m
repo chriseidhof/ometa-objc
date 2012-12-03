@@ -24,6 +24,8 @@
     [super setUp];
     CEOMetaTokenizer* tokenizer = [[CEOMetaTokenizer alloc] init];
     parser = [[CEOMetaParser alloc] initWithTokenizer:tokenizer];
+  
+  NSLog(@"mainBundle path=%@",[NSBundle mainBundle]);
 }
 
 - (void)tearDown
