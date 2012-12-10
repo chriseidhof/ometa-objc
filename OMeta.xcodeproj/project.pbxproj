@@ -107,6 +107,7 @@
 		83756C1E164BB2CA00360B28 /* CEOMetaRepeatOne.m in Sources */ = {isa = PBXBuildFile; fileRef = 83756C1D164BB2CA00360B28 /* CEOMetaRepeatOne.m */; };
 		83756C22164BB6DD00360B28 /* CEOMetaNamed.m in Sources */ = {isa = PBXBuildFile; fileRef = 83756C21164BB6DD00360B28 /* CEOMetaNamed.m */; };
 		83756C25164BBD3700360B28 /* CEOMetaAct.m in Sources */ = {isa = PBXBuildFile; fileRef = 83756C24164BBD3700360B28 /* CEOMetaAct.m */; };
+		83DD1E23167683540022E939 /* CEEvaluatorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 83DD1E22167683540022E939 /* CEEvaluatorTests.m */; };
 		83E20282164BF6D200FED94D /* CEOMetaList.m in Sources */ = {isa = PBXBuildFile; fileRef = 83E20281164BF6D200FED94D /* CEOMetaList.m */; };
 		83E20289164C03C400FED94D /* NSArray+Stream.m in Sources */ = {isa = PBXBuildFile; fileRef = 83E20288164C03C400FED94D /* NSArray+Stream.m */; };
 		83F86FD516501C700032A019 /* CERuleApplicationToken.m in Sources */ = {isa = PBXBuildFile; fileRef = 83F86FD416501C700032A019 /* CERuleApplicationToken.m */; };
@@ -122,6 +123,7 @@
 		83F9C6F71662AF1A00F3312C /* CEObjCMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 83F9C6F61662AF1900F3312C /* CEObjCMessage.m */; };
 		83F9C7021662B52400F3312C /* CEObjCKeywordArgument.m in Sources */ = {isa = PBXBuildFile; fileRef = 83F9C7011662B52400F3312C /* CEObjCKeywordArgument.m */; };
 		83F9C70A1663FAFB00F3312C /* CEObjCBoxed.m in Sources */ = {isa = PBXBuildFile; fileRef = 83F9C7091663FAFB00F3312C /* CEObjCBoxed.m */; };
+		AE252DF8D9F04EBDBA4260A1 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F020E3E783B54952BA99095B /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -177,10 +179,10 @@
 		833ECC43164E70D0003CF77D /* CELiteralToken.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CELiteralToken.m; sourceTree = "<group>"; };
 		833ECC45164E7190003CF77D /* CETokens.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CETokens.h; sourceTree = "<group>"; };
 		83718AE5164A6AA900860D8A /* OMeta.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OMeta.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		83718AE9164A6AA900860D8A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		83718AEB164A6AA900860D8A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		83718AED164A6AA900860D8A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		83718AEF164A6AA900860D8A /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		83718AE9164A6AA900860D8A /* UIKit.framework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		83718AEB164A6AA900860D8A /* Foundation.framework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		83718AED164A6AA900860D8A /* CoreGraphics.framework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		83718AEF164A6AA900860D8A /* CoreData.framework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		83718AF3164A6AA900860D8A /* OMeta-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "OMeta-Info.plist"; sourceTree = "<group>"; };
 		83718AF5164A6AA900860D8A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		83718AF7164A6AA900860D8A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -263,6 +265,8 @@
 		83756C21164BB6DD00360B28 /* CEOMetaNamed.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEOMetaNamed.m; sourceTree = "<group>"; };
 		83756C23164BBD3700360B28 /* CEOMetaAct.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEOMetaAct.h; sourceTree = "<group>"; };
 		83756C24164BBD3700360B28 /* CEOMetaAct.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEOMetaAct.m; sourceTree = "<group>"; };
+		83DD1E21167683540022E939 /* CEEvaluatorTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEEvaluatorTests.h; sourceTree = "<group>"; };
+		83DD1E22167683540022E939 /* CEEvaluatorTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEEvaluatorTests.m; sourceTree = "<group>"; };
 		83E20280164BF6D200FED94D /* CEOMetaList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEOMetaList.h; sourceTree = "<group>"; };
 		83E20281164BF6D200FED94D /* CEOMetaList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEOMetaList.m; sourceTree = "<group>"; };
 		83E20287164C03C400FED94D /* NSArray+Stream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Stream.h"; sourceTree = "<group>"; };
@@ -291,6 +295,8 @@
 		83F9C7011662B52400F3312C /* CEObjCKeywordArgument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEObjCKeywordArgument.m; sourceTree = "<group>"; };
 		83F9C7081663FAFB00F3312C /* CEObjCBoxed.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEObjCBoxed.h; sourceTree = "<group>"; };
 		83F9C7091663FAFB00F3312C /* CEObjCBoxed.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEObjCBoxed.m; sourceTree = "<group>"; };
+		F020E3E783B54952BA99095B /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		F73A0D5C392D4D73A285B149 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -310,6 +316,7 @@
 				83718AEC164A6AA900860D8A /* Foundation.framework in Frameworks */,
 				83718AEE164A6AA900860D8A /* CoreGraphics.framework in Frameworks */,
 				83718AF0164A6AA900860D8A /* CoreData.framework in Frameworks */,
+				AE252DF8D9F04EBDBA4260A1 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -373,6 +380,7 @@
 				83718B13164A6AA900860D8A /* OMetaTests */,
 				83718AE8164A6AA900860D8A /* Frameworks */,
 				83718AE6164A6AA900860D8A /* Products */,
+				F73A0D5C392D4D73A285B149 /* Pods.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -394,6 +402,7 @@
 				83718AED164A6AA900860D8A /* CoreGraphics.framework */,
 				83718AEF164A6AA900860D8A /* CoreData.framework */,
 				83718B0C164A6AA900860D8A /* SenTestingKit.framework */,
+				F020E3E783B54952BA99095B /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -447,6 +456,8 @@
 				830975A01657CC8A00EC8D51 /* CEOMetaTestConstraints.m */,
 				830975B01657F7FA00EC8D51 /* CEOMetaTestHamlLike.h */,
 				830975B11657F7FA00EC8D51 /* CEOMetaTestHamlLike.m */,
+				83DD1E21167683540022E939 /* CEEvaluatorTests.h */,
+				83DD1E22167683540022E939 /* CEEvaluatorTests.m */,
 				83718B14164A6AA900860D8A /* Supporting Files */,
 				8371F521164FE9A000A05F46 /* TestModel.xcdatamodeld */,
 			);
@@ -641,6 +652,7 @@
 				83718AE2164A6AA900860D8A /* Frameworks */,
 				83718AE3164A6AA900860D8A /* Resources */,
 				83E2028C164CFECB00FED94D /* ShellScript */,
+				CC8D52DF4E014FD59A9588E1 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -757,6 +769,20 @@
 			shellPath = /bin/sh;
 			shellScript = "";
 		};
+		CC8D52DF4E014FD59A9588E1 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -869,6 +895,7 @@
 				8375020E1658041200D01770 /* Indentation.m in Sources */,
 				837502111658089000D01770 /* HamlLike.m in Sources */,
 				83F9C6D516629A1E00F3312C /* CEOmetaObjCSyntaxTests.m in Sources */,
+				83DD1E23167683540022E939 /* CEEvaluatorTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -983,6 +1010,7 @@
 		};
 		83718B1F164A6AA900860D8A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F73A0D5C392D4D73A285B149 /* Pods.xcconfig */;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "OMeta/OMeta-Prefix.pch";
@@ -994,6 +1022,7 @@
 		};
 		83718B20164A6AA900860D8A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F73A0D5C392D4D73A285B149 /* Pods.xcconfig */;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "OMeta/OMeta-Prefix.pch";
@@ -1013,7 +1042,10 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "OMeta/OMeta-Prefix.pch";
+				HEADER_SEARCH_PATHS = "${PODS_HEADERS_SEARCH_PATHS}";
 				INFOPLIST_FILE = "OMetaTests/OMetaTests-Info.plist";
+				PODS_HEADERS_SEARCH_PATHS = "\"${PODS_ROOT}/Headers\" \"${PODS_ROOT}/Headers/OCMock\"";
+				PODS_ROOT = "${SRCROOT}/Pods";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = octest;
@@ -1030,7 +1062,10 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "OMeta/OMeta-Prefix.pch";
+				HEADER_SEARCH_PATHS = "${PODS_HEADERS_SEARCH_PATHS}";
 				INFOPLIST_FILE = "OMetaTests/OMetaTests-Info.plist";
+				PODS_HEADERS_SEARCH_PATHS = "\"${PODS_ROOT}/Headers\" \"${PODS_ROOT}/Headers/OCMock\"";
+				PODS_ROOT = "${SRCROOT}/Pods";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = octest;

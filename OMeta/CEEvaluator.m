@@ -89,7 +89,7 @@
     return [stream token];
 }
 
-- (CEResultAndStream*)anything:(id<Stream>)stream {
+- (CEResultAndStream*)anything:(id)stream {
     if([stream remainingTokens] > 0) {
         return [stream token];
     }
@@ -138,6 +138,22 @@
         }
     }
     return fail(stream);
+}
+
+- (CEResultAndStream*)apply:(id<Stream>)string selectorName:(NSString*)test {
+    SEL sel = NSSelectorFromString(test);
+    if([self respondsToSelector:sel]) {
+        NSMethodSignature* signature = [self methodSignatureForSelector:sel];
+        NSInvocation* invocation = [NSInvocation invocationWithMethodSignature:signature];
+        [invocation setArgument:&string atIndex:2];
+        [invocation setSelector:sel];
+        [invocation invokeWithTarget:self];
+        id result;
+        [invocation getReturnValue:&result];
+        return result;
+    }
+    // Throw error?
+    return nil;
 }
 
 - (CEResultAndStream*)letter:(id)stream {
